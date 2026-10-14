@@ -1,0 +1,16 @@
+{
+  "name": "LearnIQ – e-learning BOZP",
+  "short_name": "LearnIQ",
+  "description": "Školenia BOZP, testy, protokoly a termíny. Súčasť aplikácií Keylo.",
+  "lang": "sk",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f6f5fa",
+  "theme_color": "#8b5cf6",
+  "icons": [
+    { "src": "img/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "img/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "img/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

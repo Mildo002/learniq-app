@@ -1,0 +1,3361 @@
+{
+"topics": [
+{
+"title": "Zahájenie kurzu",
+"html": "<p>Rozsah: 5 minút (A aj B). Cieľ: účastníci vedia, prečo sa školenie koná, ako prebieha a ako sa overujú vedomosti.</p><ul> <li><p>Predstavenie školiteľa, oprávnenia Keylo s.r.o. a odborného zástupcu.</p></li> <li><p>Dôvod školenia: zamestnávateľ je povinný zamestnancov oboznamovať s predpismi a rizikami (§ 7 zákona č. 124/2006 Z. z.) – pri nástupe, pri preradení na inú prácu, pri novej technológii a opakovane najmenej raz za tri roky.</p></li> <li><p>Program podľa učebného plánu: vstupné oboznamovanie 4 hodiny, opakované 3 hodiny. Vyučovacia hodina 45 minút, prestávka 5 minút.</p></li> <li><p>Oboznamovanie sa koná v pracovnom čase. Účasť sa pri e-learningu potvrdzuje záznamom v aplikácii (čas štúdia každej témy).</p></li> <li><p>Záverečné overenie: test s 20 otázkami, ktorý vyplníte online v tejto aplikácii. Úspešný je účastník s najmenej 15 správnymi odpoveďami (75 %). Kto nevyhovie, opakuje test v náhradnom termíne a dovtedy nesmie samostatne vykonávať prácu, na ktorú sa oboznámenie vzťahuje.</p></li> <li><p>Úspešní účastníci dostanú doklad „Záznam o oboznámení zamestnanca“.</p></li> </ul>",
+"rozsah": "5 minút (A aj B)"
+},
+{
+"title": "Zákonník práce: BOZP a pracovné podmienky",
+"html": "<p>Rozsah: A 25 minút, B 15 minút. Cieľ: účastník pozná svoje základné povinnosti, pravidlá pracovného času a zodpovednosť za škodu.</p><p>2.1 Zamestnávateľ, zamestnanec, zástupcovia zamestnancov</p><p>Zákonník práce (zákon č. 311/2001 Z. z.) upravuje pracovnoprávne vzťahy medzi zamestnávateľom a zamestnancom. Zamestnancom je fyzická osoba, ktorá vykonáva závislú prácu pre zamestnávateľa. Záujmy zamestnancov môžu zastupovať odborová organizácia, zamestnanecká rada alebo zamestnanecký dôverník (§ 11a). V oblasti BOZP má osobitné postavenie zástupca zamestnancov pre bezpečnosť (téma 3).</p><p>2.2 Základné povinnosti zamestnancov a vedúcich zamestnancov</p><p><strong>Zamestnanec (§ 81)</strong> je povinný najmä:</p><ul> <li><p>pracovať svedomito a riadne podľa svojich síl, znalostí a schopností, plniť pokyny nadriadených v súlade s právnymi predpismi,</p></li> <li><p>dodržiavať pracovný čas a pracovnú disciplínu,</p></li> <li><p>dodržiavať právne predpisy a ostatné predpisy vzťahujúce sa na vykonávanú prácu, najmä predpisy na zaistenie BOZP, s ktorými bol riadne oboznámený,</p></li> <li><p>riadne hospodáriť s prostriedkami zverenými zamestnávateľom a chrániť jeho majetok pred poškodením, stratou, zničením a zneužitím.</p></li> </ul><p><strong>Vedúci zamestnanec (§ 82)</strong> je okrem toho povinný najmä riadiť a kontrolovať prácu podriadených, utvárať priaznivé pracovné podmienky a zabezpečovať bezpečnosť a ochranu zdravia pri práci, zabezpečovať dodržiavanie právnych predpisov a ostatných predpisov a prijímať opatrenia na ochranu majetku zamestnávateľa.</p><p>Zamestnanec môže vykonávať aj inú zárobkovú činnosť, ak nie je v konkurenčnom vzťahu k zamestnávateľovi (§ 83). Konkrétne pravidlá organizácie upravuje pracovný poriadok (§ 84).</p><p>2.3 Pracovný čas a doba odpočinku</p><ul> <li><p>Ustanovený týždenný pracovný čas je najviac 40 hodín. Priemerný týždenný pracovný čas vrátane práce nadčas nesmie presiahnuť 48 hodín.</p></li> <li><p>Prestávka na odpočinok a jedenie: po šiestich hodinách nepretržitej práce najmenej 30 minút, u mladistvého po štyroch a pol hodinách najmenej 30 minút.</p></li> <li><p>Nepretržitý denný odpočinok medzi koncom jednej a začiatkom ďalšej zmeny je najmenej 12 hodín, u mladistvého najmenej 14 hodín.</p></li> <li><p>Prestávky a odpočinok slúžia aj prevencii úrazov – únava je častou príčinou chýb a úrazov.</p></li> </ul><p>2.4 Ochrana práce (§ 146 – 151)</p><p>Zamestnávateľ je povinný sústavne zaisťovať bezpečnosť a ochranu zdravia zamestnancov pri práci, vytvárať bezpečné pracovné podmienky a oboznamovať zamestnancov s predpismi. Zamestnanci sú povinní dbať o svoju bezpečnosť a zdravie a o bezpečnosť a zdravie osôb, ktorých sa ich konanie týka. Dodržiavanie predpisov kontrolujú odborové orgány (§ 149) a inšpekcia práce (§ 150).</p><p>2.5 Ženy, mladiství a zamestnanci starajúci sa o deti</p><p>Tehotným ženám, matkám do konca deviateho mesiaca po pôrode a dojčiacim ženám sú zakázané práce uvedené v nariadení vlády č. 272/2004 Z. z.; mladistvým zamestnancom (do 18 rokov) práce uvedené v nariadení vlády č. 286/2004 Z. z. Mladiství nesmú pracovať nadčas, v noci ani mať pracovnú pohotovosť a pred prijatím musia byť lekársky vyšetrení. <mark>Zakázané práce a pracoviská u objednávateľa: ...</mark></p><p>2.6 Zodpovednosť za škodu</p><ul> <li><p><strong>Zamestnanec</strong> zodpovedá za škodu, ktorú zamestnávateľovi spôsobil zavineným porušením povinností (§ 179). Pri nedbanlivosti je náhrada obmedzená – spravidla najviac štvornásobkom jeho priemerného mesačného zárobku (§ 186).</p></li> <li><p>Zamestnanec je povinný upozorniť na hroziacu škodu a podľa možností jej zabrániť (§ 177 – 178).</p></li> <li><p><strong>Zamestnávateľ</strong> zodpovedá za škodu pri pracovnom úraze a chorobe z povolania bez ohľadu na zavinenie (§ 195). Zodpovednosti sa môže celkom alebo čiastočne zbaviť najmä vtedy, ak zamestnanec porušil predpisy BOZP, s ktorými bol <strong>riadne oboznámený</strong> a ktorých dodržiavanie sa sústavne vyžadovalo a kontrolovalo, alebo ak bol pod vplyvom alkoholu či návykových látok (§ 196).</p></li> </ul><p>Preto je dôležité, aby oboznámenie bolo preukázateľné a aby zamestnanec predpisy skutočne dodržiaval. Náhrady pri pracovnom úraze sa dnes poskytujú najmä z úrazového poistenia (téma 7).</p><table> <colgroup> <col style=\"width: 100%\"/> </colgroup> <tbody> <tr class=\"odd\"> <td><p><strong>Zapamätajte si</strong></p> <ul> <li><p>Dodržiavať predpisy BOZP je základná povinnosť každého zamestnanca, vedúci za BOZP zodpovedá.</p></li> <li><p>Po 6 hodinách práce patrí prestávka najmenej 30 minút, medzi zmenami odpočinok najmenej 12 hodín.</p></li> <li><p>Porušenie predpisov, s ktorými bol zamestnanec oboznámený, môže znížiť jeho nároky pri úraze.</p></li> </ul></td> </tr> </tbody> </table>",
+"rozsah": "A 25 minút, B 15 minút"
+},
+{
+"title": "Zákon č. 124/2006 Z. z. o bezpečnosti a ochrane zdravia pri práci",
+"html": "<p>Rozsah: A 60 minút, B 35 minút. Cieľ: účastník pozná povinnosti zamestnávateľa a svoje práva a povinnosti, vie, ako postupovať pri ohrození a pracovnom úraze.</p><p>3.1 Základné pojmy (§ 3)</p><table> <colgroup> <col style=\"width: 26%\"/> <col style=\"width: 73%\"/> </colgroup> <thead> <tr class=\"header\"> <th><strong>Pojem</strong></th> <th><strong>Význam</strong></th> </tr> <tr class=\"odd\"> <th>Nebezpečenstvo</th> <th>vlastnosť alebo schopnosť niečoho (stroja, látky, postupu) spôsobiť poškodenie zdravia</th> </tr> <tr class=\"header\"> <th>Ohrozenie</th> <th>situácia, v ktorej nemožno vylúčiť, že dôjde k poškodeniu zdravia</th> </tr> <tr class=\"odd\"> <th>Riziko</th> <th>pravdepodobnosť vzniku poškodenia zdravia a jeho možný rozsah</th> </tr> <tr class=\"header\"> <th>Pracovný prostriedok</th> <th>stroj, prístroj, náradie, zariadenie alebo iný prostriedok používaný pri práci</th> </tr> <tr class=\"odd\"> <th>Pracovisko</th> <th>priestor, v ktorom zamestnanec pracuje alebo do ktorého má prístup pri práci</th> </tr> </thead> <tbody> </tbody> </table><p>3.2 Všeobecné zásady prevencie (§ 5)</p><p>Prevencia má poradie: najprv riziku <strong>predchádzať</strong>, potom ho <strong>vyhodnotiť</strong>, odstraňovať nebezpečenstvá <strong>pri zdroji</strong>, prispôsobovať prácu človeku, nahrádzať nebezpečné bezpečným, uprednostniť <strong>kolektívne</strong> ochranné opatrenia pred individuálnymi (OOPP) a dávať zamestnancom vhodné pokyny.</p><p>3.3 Povinnosti zamestnávateľa (§ 6 – 10)</p><ul> <li><p>posudzovať riziko a vypracovať písomný dokument o posúdení rizika, prijímať opatrenia na jeho zníženie,</p></li> <li><p>zabezpečiť bezpečné pracovisko, pracovné prostriedky a pracovné postupy, poskytovať osobné ochranné pracovné prostriedky,</p></li> <li><p>zabezpečiť prvú pomoc, protipožiarne opatrenia a evakuáciu, určiť zamestnancov, ktorí ich vykonávajú,</p></li> <li><p>oboznamovať zamestnancov pravidelne, zrozumiteľne a preukázateľne (§ 7) – pri prijatí, preradení, zmene pracovných podmienok, novej technológii a <strong>opakovane najmenej raz za tri roky</strong>, ak predpisy neurčujú kratšiu lehotu; oboznamovanie sa vykonáva v pracovnom čase,</p></li> <li><p>pri bezprostrednom a vážnom ohrození života alebo zdravia zabezpečiť zastavenie práce a odchod zamestnancov do bezpečia (§ 8),</p></li> <li><p>kontrolovať dodržiavanie predpisov (§ 9) a spolupracovať so zamestnancami a ich zástupcami (§ 10).</p></li> </ul><p>3.4 Práva a povinnosti zamestnancov (§ 12)</p><p><strong>Zamestnanec má právo</strong> najmä na bezpečnú prácu, na informácie o rizikách, na oboznámenie, na OOPP a má právo <strong>odmietnuť prácu alebo opustiť pracovisko</strong>, ak dôvodne usudzuje, že bezprostredne a vážne ohrozuje jeho život alebo zdravie či život a zdravie iných – takýto postup nemožno posudzovať ako nesplnenie povinnosti.</p><p><strong>Zamestnanec je povinný</strong> najmä:</p><ul> <li><p>dodržiavať predpisy BOZP, pokyny a bezpečné pracovné postupy, s ktorými bol oboznámený,</p></li> <li><p>používať pridelené OOPP a ochranné zariadenia, nepoškodzovať ich a neodstraňovať,</p></li> <li><p>nepožívať alkohol a iné návykové látky na pracovisku a nenastupovať pod ich vplyvom do práce; podrobiť sa skúške na ich prítomnosť,</p></li> <li><p>oznamovať nadriadenému nedostatky a chyby, ktoré by mohli ohroziť bezpečnosť, a podľa možností sa podieľať na ich odstraňovaní,</p></li> <li><p>bezodkladne oznámiť pracovný úraz, ak mu to zdravotný stav dovoľuje, a spolupracovať pri jeho vyšetrovaní,</p></li> <li><p>podrobiť sa lekárskym preventívnym prehliadkam, ak to vyžaduje predpis.</p></li> </ul><p>3.5 Technické zariadenia a odborná spôsobilosť (§ 13 – 16)</p><p>Pracovné prostriedky a technické zariadenia musia byť bezpečné a pravidelne kontrolované. Určité pracovné prostriedky a vyhradené technické zariadenia smie obsluhovať alebo na nich pracovať iba osoba s platným <strong>preukazom, osvedčením alebo dokladom</strong> (§ 16) – napríklad vodiči motorových vozíkov, žeriavnici, viazači bremien, kuriči či elektrotechnici (téma 6).</p><p>3.6 Pracovný úraz, choroba z povolania, nebezpečná udalosť (§ 17)</p><ul> <li><p><strong>Pracovný úraz</strong> je poškodenie zdravia, ktoré zamestnanec utrpel pri plnení pracovných úloh alebo v priamej súvislosti s ním, nezávisle od jeho vôle, krátkodobým, náhlym a násilným pôsobením vonkajších vplyvov.</p></li> <li><p><strong>Registrovaný pracovný úraz</strong> je úraz, ktorý spôsobil pracovnú neschopnosť dlhšiu ako tri dni alebo smrť; zamestnávateľ o ňom spisuje záznam.</p></li> <li><p><strong>Závažný pracovný úraz</strong> (smrť alebo ťažká ujma na zdraví) zamestnávateľ bezodkladne ohlasuje inšpektorátu práce a policajnému zboru.</p></li> <li><p><strong>Nebezpečná udalosť</strong> je udalosť, pri ktorej nedošlo k úrazu, ale mohlo; aj tú treba oznámiť a zaevidovať, aby sa predišlo úrazu nabudúce.</p></li> </ul><p><strong>Postup zamestnanca pri úraze:</strong> poskytnúť prvú pomoc a privolať pomoc (112, 155), zabezpečiť miesto, aby sa úraz neopakoval, a nemeniť ho, ak to nie je nutné, oznámiť úraz nadriadenému, uviesť svedkov. <mark>Kontakt na zodpovednú osobu u objednávateľa: ...</mark></p><p>3.7 Organizácia BOZP u zamestnávateľa (§ 18 – 23, 27)</p><ul> <li><p><strong>Zástupca zamestnancov pre bezpečnosť</strong> – zamestnávateľ s najmenej 10 zamestnancami ho musí mať; jeden zástupca pripadá na najviac 50 zamestnancov v rizikovejších odvetviach, inak na najviac 100.</p></li> <li><p><strong>Komisia BOZP</strong> – zriaďuje ju zamestnávateľ s viac ako 100 zamestnancami, zasadá najmenej raz ročne.</p></li> <li><p><strong>Bezpečnostnotechnická služba</strong> – zabezpečuje ju bezpečnostný technik (vlastný alebo dodávateľsky).</p></li> <li><p><strong>Spolupráca zamestnávateľov</strong> na spoločnom pracovisku – písomná dohoda o koordinácii BOZP (§ 18).</p></li> <li><p><strong>Výchova a vzdelávanie</strong> – oboznamovanie môže vykonať zamestnávateľ sám alebo osoba s oprávnením NIP (§ 7 ods. 4, § 27), ako je Keylo s.r.o.</p></li> </ul><p>Príloha č. 1 zákona obsahuje zoznam činností s vyšším rizikom (napr. stavebníctvo, výroba, doprava), pri ktorých sú prísnejšie požiadavky.</p><table> <colgroup> <col style=\"width: 100%\"/> </colgroup> <tbody> <tr class=\"odd\"> <td><p><strong>Zapamätajte si</strong></p> <ul> <li><p>Riziko je pravdepodobnosť a rozsah možného poškodenia zdravia – vždy ho najprv odstraňujeme pri zdroji.</p></li> <li><p>Pri bezprostrednom a vážnom ohrození máte právo odmietnuť prácu alebo opustiť pracovisko.</p></li> <li><p>Každý úraz a nebezpečnú udalosť ihneď oznámte nadriadenému.</p></li> <li><p>Alkohol a drogy na pracovisku sú zakázané, skúške sa treba podrobiť.</p></li> </ul></td> </tr> </tbody> </table>",
+"rozsah": "A 60 minút, B 35 minút"
+},
+{
+"title": "Zákon č. 125/2006 Z. z. o inšpekcii práce",
+"html": "<p>Rozsah: A 15 minút, B 10 minút. Cieľ: účastník vie, kto dozerá na BOZP a aké má inšpektor oprávnenia.</p><p>Inšpekcia práce dozerá na dodržiavanie pracovnoprávnych predpisov a predpisov BOZP. Orgánmi štátnej správy sú ministerstvo práce, <strong>Národný inšpektorát práce</strong> (riadi inšpektoráty, vydáva oprávnenia a osvedčenia) a <strong>inšpektoráty práce</strong> v krajoch. <mark>Príslušný inšpektorát práce pre objednávateľa: ...</mark></p><p><strong>Inšpektor práce</strong> smie najmä vstupovať na pracoviská a do priestorov zamestnávateľa, vyžadovať doklady a vysvetlenia, odoberať vzorky, nariadiť odstránenie nedostatkov, zakázať používanie nebezpečných pracovných prostriedkov a prerušiť prácu pri bezprostrednom ohrození. O výsledku vyhotoví protokol.</p><p>Zamestnávateľ aj zamestnanci sú povinní inšpektorovi umožniť výkon inšpekcie a poskytnúť súčinnosť (§ 16). Za porušenie predpisov môže inšpektorát uložiť zamestnávateľovi pokutu ako správny delikt (§ 19) a za marenie inšpekcie poriadkovú pokutu (§ 20). Zákon o nelegálnej práci a nelegálnom zamestnávaní (č. 82/2005 Z. z.) zakazuje prácu bez riadneho pracovnoprávneho vzťahu a jej kontrolu tiež vykonáva inšpekcia práce.</p><table> <colgroup> <col style=\"width: 100%\"/> </colgroup> <tbody> <tr class=\"odd\"> <td><p><strong>Zapamätajte si</strong></p> <ul> <li><p>Na BOZP dozerá inšpektorát práce, oprávnenia vydáva Národný inšpektorát práce.</p></li> <li><p>Inšpektorovi treba umožniť vstup a poskytnúť súčinnosť.</p></li> </ul></td> </tr> </tbody> </table>",
+"rozsah": "A 15 minút, B 10 minút"
+},
+{
+"title": "Zákon č. 355/2007 Z. z. o ochrane, podpore a rozvoji verejného zdravia",
+"html": "<p>Rozsah: A 15 minút, B 10 minút. Cieľ: účastník pozná kategorizáciu prác, rizikové práce a úlohu pracovnej zdravotnej služby.</p><p>Zákon chráni zdravie pri práci pred faktormi pracovného prostredia, ako sú hluk, vibrácie, prach, chemické a biologické faktory, záťaž teplom a chladom, fyzická a psychická záťaž. Dozor vykonávajú <strong>regionálne úrady verejného zdravotníctva (RÚVZ)</strong> a Úrad verejného zdravotníctva SR.</p><p>5.1 Kategorizácia prác (§ 31)</p><table> <colgroup> <col style=\"width: 14%\"/> <col style=\"width: 85%\"/> </colgroup> <thead> <tr class=\"header\"> <th><strong>Kategória</strong></th> <th><strong>Charakteristika</strong></th> </tr> <tr class=\"odd\"> <th>1</th> <th>práca bez zdravotného rizika</th> </tr> <tr class=\"header\"> <th>2</th> <th>práca, pri ktorej sa neočakáva nepriaznivý vplyv na zdravie (expozícia pod limitmi)</th> </tr> <tr class=\"odd\"> <th>3</th> <th>riziková práca – expozícia nad limitmi alebo práca s vyšším rizikom, vyžaduje ochranné opatrenia a lekárske preventívne prehliadky</th> </tr> <tr class=\"header\"> <th>4</th> <th>riziková práca s vysokým rizikom – expozíciu nemožno znížiť pod limity ani technickými opatreniami, nevyhnutné sú OOPP a ďalšie ochranné opatrenia</th> </tr> </thead> <tbody> </tbody> </table><p>Rizikové práce (kategória 3 a 4) vyhlasuje rozhodnutím RÚVZ. Zamestnávateľ musí pri nich zabezpečiť najmä ochranné opatrenia, OOPP, prevádzkový poriadok a lekárske preventívne prehliadky vo vzťahu k práci. <mark>Rizikové práce u objednávateľa: ...</mark></p><p>5.2 Pracovná zdravotná služba (§ 30a a nasl.)</p><p>Každý zamestnávateľ je povinný zabezpečiť pracovnú zdravotnú službu – tím odborníkov (lekár, verejný zdravotník a ďalší), ktorý posudzuje zdravotné riziká, kategorizuje práce, dohliada na zdravie zamestnancov a radí zamestnávateľovi. Zamestnanec je povinný podrobiť sa lekárskym prehliadkam, ktoré zamestnávateľ podľa zákona nariadi.</p><table> <colgroup> <col style=\"width: 100%\"/> </colgroup> <tbody> <tr class=\"odd\"> <td><p><strong>Zapamätajte si</strong></p> <ul> <li><p>Práce sa zaraďujú do kategórií 1 až 4, kategórie 3 a 4 sú rizikové práce.</p></li> <li><p>Pri rizikových prácach sú povinné ochranné opatrenia a lekárske prehliadky.</p></li> </ul></td> </tr> </tbody> </table>",
+"rozsah": "A 15 minút, B 10 minút"
+},
+{
+"title": "Bezpečnosť technických zariadení",
+"html": "<p>Rozsah: A 15 minút, B 10 minút. Cieľ: účastník rozumie, čo sú vyhradené technické zariadenia, kto na nich smie pracovať a ako sa chrániť pred úrazom elektrinou.</p><p>Vyhláška č. 508/2009 Z. z. rozdeľuje technické zariadenia <strong>tlakové, zdvíhacie, elektrické a plynové</strong> a určuje, ktoré z nich sú <strong>vyhradené technické zariadenia (VTZ)</strong>. Podľa miery ohrozenia sa delia do <strong>skupín A, B a C</strong> (skupina A s najvyšším ohrozením) (§ 4). VTZ podliehajú pravidelným odborným prehliadkam, skúškam a revíziám.</p><p>6.1 Obsluha a práca na VTZ</p><p>Obsluhovať VTZ alebo na nich pracovať smie iba osoba s príslušnou odbornou spôsobilosťou a dokladom (§ 16 zákona č. 124/2006 Z. z., § 17 vyhlášky). Zamestnanec bez dokladu <strong>nesmie</strong> takéto zariadenie obsluhovať, opravovať ani do neho zasahovať – ani „len na chvíľu“.</p><p>6.2 Odborná spôsobilosť na elektrických zariadeniach</p><table> <colgroup> <col style=\"width: 34%\"/> <col style=\"width: 65%\"/> </colgroup> <thead> <tr class=\"header\"> <th><strong>Kvalifikácia (vyhláška č. 508/2009 Z. z.)</strong></th> <th><strong>Zjednodušene</strong></th> </tr> <tr class=\"odd\"> <th>Osoba bez elektrotechnickej kvalifikácie</th> <th>smie elektrické zariadenia iba používať podľa návodu (zapnúť, vypnúť), nesmie do nich zasahovať</th> </tr> <tr class=\"header\"> <th>Poučená osoba (§ 20)</th> <th>oboznámená zamestnávateľom s činnosťou na elektrických zariadeniach a upozornená na nebezpečenstvo; smie vykonávať určené jednoduché činnosti</th> </tr> <tr class=\"odd\"> <th>Elektrotechnik (§ 21)</th> <th>s elektrotechnickým vzdelaním, pracuje pod dozorom alebo podľa pokynov</th> </tr> <tr class=\"header\"> <th>Samostatný elektrotechnik (§ 22)</th> <th>samostatne vykonáva činnosť na elektrických zariadeniach</th> </tr> <tr class=\"odd\"> <th>Elektrotechnik na riadenie činnosti (§ 23)</th> <th>riadi činnosť alebo prevádzku elektrických zariadení</th> </tr> <tr class=\"header\"> <th>Revízny technik (§ 24)</th> <th>vykonáva odborné prehliadky a skúšky (revízie)</th> </tr> </thead> <tbody> </tbody> </table><p>6.3 Zásady bezpečnosti pri elektrických zariadeniach</p><ul> <li><p>pred použitím skontrolovať, či nie je poškodený prívod, vidlica alebo kryt; poškodené zariadenie nepoužívať a nahlásiť,</p></li> <li><p>neodstraňovať kryty, neopravovať zariadenia svojpomocne, nepreťažovať zásuvky a predlžovacie prívody,</p></li> <li><p>ručné náradie a spotrebiče musia mať platnú revíziu alebo kontrolu, <mark>u objednávateľa označené štítkom s dátumom</mark>,</p></li> <li><p>pri úraze elektrinou najprv <strong>bezpečne prerušiť prúd</strong> (vypnúť istič, vytiahnuť vidlicu) a až potom sa postihnutého dotknúť; zavolať 155 alebo 112, pri zastavení dýchania začať resuscitáciu.</p></li> </ul><table> <colgroup> <col style=\"width: 100%\"/> </colgroup> <tbody> <tr class=\"odd\"> <td><p><strong>Zapamätajte si</strong></p> <ul> <li><p>Zariadenie, na ktoré nemáte doklad alebo kvalifikáciu, neobsluhujte ani neopravujte.</p></li> <li><p>Poškodené elektrické zariadenie hneď vyraďte a nahláste.</p></li> <li><p>Pri úraze elektrinou najprv vypnúť prúd, potom pomáhať.</p></li> </ul></td> </tr> </tbody> </table>",
+"rozsah": "A 15 minút, B 10 minút"
+},
+{
+"title": "Úrazové poistenie a náhrada príjmu pri pracovnej neschopnosti",
+"html": "<p>Rozsah: A 10 minút, B 5 minút. Cieľ: účastník vie, na aké dávky má nárok pri pracovnom úraze a chorobe z povolania.</p><p>Podľa zákona č. 461/2003 Z. z. o sociálnom poistení je každý zamestnanec <strong>úrazovo poistený</strong> – poistné platí zamestnávateľ. Dávky vypláca Sociálna poisťovňa. Pri pracovnom úraze alebo chorobe z povolania môže poškodenému patriť najmä:</p><ul> <li><p>úrazový príplatok (počas pracovnej neschopnosti),</p></li> <li><p>úrazová renta a jednorazové vyrovnanie (pri trvalom poklese pracovnej schopnosti),</p></li> <li><p>náhrada za bolesť a náhrada za sťaženie spoločenského uplatnenia,</p></li> <li><p>náhrada nákladov spojených s liečením,</p></li> <li><p>pracovná rehabilitácia, rehabilitačné a rekvalifikácia,</p></li> <li><p>pri smrti pozostalostná úrazová renta, jednorazové odškodnenie a náhrada nákladov spojených s pohrebom.</p></li> </ul><p>Podľa zákona č. 462/2003 Z. z. platí zamestnávateľ zamestnancovi počas prvých 10 dní dočasnej pracovnej neschopnosti <strong>náhradu príjmu</strong>: za 1. až 3. deň 25 % a za 4. až 10. deň 55 % denného vymeriavacieho základu. Od 11. dňa vypláca nemocenské Sociálna poisťovňa.</p><table> <colgroup> <col style=\"width: 100%\"/> </colgroup> <tbody> <tr class=\"odd\"> <td><p><strong>Zapamätajte si</strong></p> <ul> <li><p>Úrazovo poistený je každý zamestnanec, poistné platí zamestnávateľ.</p></li> <li><p>Úraz treba nahlásiť ihneď – bez záznamu o úraze sa nároky ťažko uplatňujú.</p></li> </ul></td> </tr> </tbody> </table>",
+"rozsah": "A 10 minút, B 5 minút"
+},
+{
+"title": "Vyhláška č. 59/1982 Zb. – základné požiadavky na bezpečnosť práce",
+"html": "<p>Rozsah: A 15 minút, B 10 minút. Cieľ: účastník pozná všeobecné bezpečnostné pravidlá na pracovisku.</p><p>Vyhláška je staršia, no formálne platná. Kde ju upravujú novšie nariadenia vlády (téma 9), postupuje sa podľa nich. Školiteľ vyberie časti podľa práce účastníkov:</p><ul> <li><p><strong>pracoviská a komunikácie</strong> – udržiavať poriadok, voľné únikové cesty a prístup k hasiacim prístrojom, nepoužívať poškodené rebríky, zabezpečiť otvory a okraje pred pádom,</p></li> <li><p><strong>stroje a zariadenia</strong> – používať iba s funkčnými krytmi a ochrannými zariadeniami, opravy a čistenie vykonávať len na zastavenom a zaistenom stroji,</p></li> <li><p><strong>náradie a pracovné pomôcky</strong> – iba nepoškodené a určené na daný účel,</p></li> <li><p><strong>manipulácia s materiálom a skladovanie</strong> – stabilné ukladanie, dodržiavanie nosnosti regálov a dovolenej výšky stohov,</p></li> <li><p><strong>elektrické a tlakové zariadenia</strong> – pozri tému 6. <mark>Doplniť podľa činnosti objednávateľa.</mark></p></li> </ul>",
+"rozsah": "A 15 minút, B 10 minút"
+},
+{
+"title": "Nariadenia vlády a osobitné predpisy podľa druhu práce",
+"html": "<p>Rozsah: A 45 minút, B 35 minút. Cieľ: účastník pozná požiadavky, ktoré sa týkajú jeho pracoviska a práce.</p><p>Školiteľ vyberie predpisy podľa práce účastníkov. <mark>Výber pre objednávateľa: ...</mark></p><p>9.1 Pracovisko (NV č. 391/2006 Z. z.)</p><p>Pracovisko musí byť bezpečné, primerane osvetlené, vetrané a vykurované, s bezpečnými podlahami, komunikáciami a únikovými cestami, s hygienickými zariadeniami a s vybavením na poskytnutie prvej pomoci. Požiadavky na osvetlenie upravuje vyhláška č. 541/2007 Z. z.</p><p>9.2 Pracovné prostriedky (NV č. 392/2006 Z. z.)</p><p>Pracovné prostriedky musia byť vhodné na danú prácu, pravidelne kontrolované a udržiavané; ovládače musia byť zreteľné, stroje musia mať zastavovacie zariadenie a ochranné kryty. Zamestnanec ich smie používať až po oboznámení s návodom.</p><p>9.3 Osobné ochranné pracovné prostriedky (NV č. 395/2006 Z. z.)</p><p>OOPP sú poslednou ochranou, keď riziko nemožno odstrániť inak. Zamestnávateľ ich poskytuje <strong>bezplatne</strong> podľa vlastného zoznamu OOPP, udržiava ich v použiteľnom stave a kontroluje ich používanie. Zamestnanec ich je povinný <strong>používať</strong>, starať sa o ne a hlásiť ich poškodenie. <mark>Prehľad OOPP pre pracovné pozície objednávateľa: ...</mark></p><p>9.4 Bezpečnostné značky (NV č. 387/2006 Z. z.)</p><table> <colgroup> <col style=\"width: 17%\"/> <col style=\"width: 24%\"/> <col style=\"width: 57%\"/> </colgroup> <thead> <tr class=\"header\"> <th><strong>Farba</strong></th> <th><strong>Význam</strong></th> <th><strong>Príklad</strong></th> </tr> <tr class=\"odd\"> <th>Červená</th> <th>zákaz; protipožiarne vybavenie</th> <th>Zákaz fajčenia, hasiaci prístroj</th> </tr> <tr class=\"header\"> <th>Žltá</th> <th>výstraha</th> <th>Pozor, elektrické napätie</th> </tr> <tr class=\"odd\"> <th>Modrá</th> <th>príkaz</th> <th>Používaj ochranné okuliare</th> </tr> <tr class=\"header\"> <th>Zelená</th> <th>bezpečie, záchrana</th> <th>Úniková cesta, prvá pomoc</th> </tr> </thead> <tbody> </tbody> </table><p>9.5 Ručná manipulácia s bremenami (NV č. 281/2006 Z. z.)</p><p>Bremená zdvíhať s rovným chrbtom, z podrepu, blízko pri tele, bez prudkých pohybov a rotácie trupu; ťažké a objemné bremená prenášať vo dvojici alebo s pomôckami. Prípustná hmotnosť bremena závisí od pohlavia, veku, frekvencie a polohy pri práci – zamestnávateľ ju má posúdenú v hodnotení rizika.</p><p>9.6 Práca so zobrazovacími jednotkami (NV č. 276/2006 Z. z.)</p><p>Správne nastavená obrazovka (horný okraj vo výške očí), stolička a osvetlenie bez odleskov, pravidelné prestávky alebo zmena činnosti; zamestnanec má nárok na vyšetrenie zraku.</p><p>9.7 Hluk a chemické faktory (NV č. 115/2006 a 355/2006 Z. z.)</p><p>Pri hluku nad dolnou akčnou hodnotou (80 dB(A)) zamestnávateľ poskytuje chrániče sluchu, nad hornou akčnou hodnotou (85 dB(A)) je ich používanie povinné; limitná hodnota expozície je 87 dB(A). Pri práci s chemickými látkami dodržiavať karty bezpečnostných údajov, označenie obalov, používať OOPP a nejesť a nepiť na pracovisku.</p><p>9.8 Doprava a vozidlá (vyhláška č. 208/1991 Zb., zákon č. 462/2007 Z. z.)</p><p>Pri práci s vozidlami: kontrola technického stavu pred jazdou, zaistenie vozidla pri oprave, dodržiavanie pracovného času a odpočinku vodičov. <mark>Iba ak sa týka objednávateľa.</mark></p><table> <colgroup> <col style=\"width: 100%\"/> </colgroup> <tbody> <tr class=\"odd\"> <td><p><strong>Zapamätajte si</strong></p> <ul> <li><p>OOPP dostávate zadarmo a ste povinní ich používať.</p></li> <li><p>Farby značiek: červená zákaz, žltá výstraha, modrá príkaz, zelená bezpečie.</p></li> <li><p>Bremená dvíhajte z podrepu s rovným chrbtom, ťažké vo dvojici alebo s pomôckou.</p></li> </ul></td> </tr> </tbody> </table>",
+"rozsah": "A 45 minút, B 35 minút"
+},
+{
+"title": "Vnútorné predpisy a riziká pracoviska objednávateľa",
+"html": "<p>Rozsah: A 35 minút, B 30 minút. Cieľ: účastník pozná konkrétne riziká svojho pracoviska, opatrenia a postupy u zamestnávateľa.</p><p>Táto téma sa pripravuje pre každého objednávateľa zvlášť z jeho dokumentácie BOZP. Ak sa vykonáva formou e-learningu, modul musí byť pripravený pre konkrétneho objednávateľa (časť 3.2 projektu).</p><table> <colgroup> <col style=\"width: 34%\"/> <col style=\"width: 65%\"/> </colgroup> <thead> <tr class=\"header\"> <th><strong>Oblasť</strong></th> <th><strong>Obsah (doplniť podľa objednávateľa)</strong></th> </tr> <tr class=\"odd\"> <th>Vnútorné predpisy BOZP</th> <th><mark>smernica BOZP, pracovný poriadok, zákaz alkoholu a fajčenia, pravidlá pohybu po areáli</mark></th> </tr> <tr class=\"header\"> <th>Hodnotenie rizík</th> <th><mark>hlavné nebezpečenstvá a ohrozenia pre jednotlivé pracoviská a pozície, výsledky hodnotenia rizík</mark></th> </tr> <tr class=\"odd\"> <th>Opatrenia</th> <th><mark>technické a organizačné opatrenia, zakázané činnosti a priestory</mark></th> </tr> <tr class=\"header\"> <th>OOPP</th> <th><mark>zoznam OOPP pre pozície, výdaj a výmena</mark></th> </tr> <tr class=\"odd\"> <th>Návody a pracovné postupy</th> <th><mark>stroje a zariadenia, ktoré zamestnanci obsluhujú, bezpečné pracovné postupy</mark></th> </tr> <tr class=\"header\"> <th>Prvá pomoc</th> <th><mark>umiestnenie lekárničiek, osoby určené na prvú pomoc</mark>; tiesňové čísla 112, 155 (záchranná služba), 150 (hasiči), 158 (polícia)</th> </tr> <tr class=\"odd\"> <th>Mimoriadne situácie</th> <th><mark>evakuačný plán, zhromaždisko, postup pri požiari a havárii</mark></th> </tr> <tr class=\"header\"> <th>Pracovný úraz</th> <th><mark>komu hlásiť, kniha úrazov, kontaktná osoba</mark></th> </tr> <tr class=\"odd\"> <th>Technické normy</th> <th><mark>STN podľa druhu práce</mark></th> </tr> </thead> <tbody> </tbody> </table>",
+"rozsah": "A 35 minút, B 30 minút"
+},
+{
+"title": "Poznatky z pracovnej úrazovosti a chorôb z povolania (opakované oboznamovanie)",
+"html": "<p>Rozsah: B 15 minút. Cieľ: účastník sa poučí z konkrétnych úrazov a vie, ako im predchádzať.</p><p>Rozbor sa robí na skutočných prípadoch u objednávateľa a v odvetví. Pri každom prípade sa preberá: čo sa stalo, príčina (technická, organizačná, ľudský faktor), ktoré pravidlo bolo porušené a aké opatrenie by úrazu zabránilo.</p><p><strong>Najčastejšie príčiny pracovných úrazov:</strong></p><ul> <li><p>pošmyknutie, zakopnutie a pád na rovine (mokré podlahy, neporiadok, nevhodná obuv),</p></li> <li><p>pád z výšky (rebríky, lešenia, okraje, otvory),</p></li> <li><p>manipulácia s bremenami a materiálom,</p></li> <li><p>zachytenie alebo stlačenie strojom (odstránený kryt, práca na bežiacom stroji),</p></li> <li><p>doprava v areáli a na cestách,</p></li> <li><p>úraz elektrickým prúdom,</p></li> <li><p>nepoužívanie OOPP, únava, zhon a alkohol.</p></li> </ul><p><mark>Úrazy a nebezpečné udalosti u objednávateľa od posledného oboznámenia: ...</mark></p><p><mark>Aktuálne údaje o pracovnej úrazovosti v SR – Správa o stave ochrany práce (Národný inšpektorát práce), posledný dostupný rok: ...</mark></p><p><strong>Choroby z povolania</strong> vznikajú dlhodobým pôsobením faktorov práce (napr. hluk, vibrácie, preťažovanie končatín, prach, chemické látky). Prevencia: dodržiavať opatrenia z kategorizácie prác, používať OOPP a chodiť na lekárske prehliadky.</p>",
+"rozsah": "B 15 minút"
+}
+],
+"questions": [
+{
+"slot": 1,
+"text": "Mladistvému zamestnancovi patrí prestávka na odpočinok a jedenie najmenej 30 minút po:",
+"options": [
+"4,5 hodinách nepretržitej práce",
+"8 hodinách nepretržitej práce",
+"6 hodinách nepretržitej práce"
+],
+"correct": 0,
+"variant": 1
+},
+{
+"slot": 2,
+"text": "Riziko je podľa zákona o BOZP:",
+"options": [
+"pravdepodobnosť vzniku poškodenia zdravia a jeho možný rozsah",
+"vlastnosť stroja spôsobiť úraz",
+"každá práca vo výške"
+],
+"correct": 0,
+"variant": 1
+},
+{
+"slot": 3,
+"text": "Dozor nad dodržiavaním predpisov BOZP vykonáva:",
+"options": [
+"obecný úrad",
+"daňový úrad",
+"inšpektorát práce"
+],
+"correct": 2,
+"variant": 1
+},
+{
+"slot": 4,
+"text": "Pracovnú zdravotnú službu je povinný zabezpečiť:",
+"options": [
+"iba zamestnávateľ s viac ako 50 zamestnancami",
+"každý zamestnávateľ",
+"iba zamestnávateľ s prácami kategórie 4"
+],
+"correct": 1,
+"variant": 1
+},
+{
+"slot": 5,
+"text": "Osoba bez elektrotechnickej kvalifikácie smie elektrické zariadenie:",
+"options": [
+"iba používať podľa návodu",
+"opravovať, ak je vypnuté",
+"otvárať a odstraňovať kryty"
+],
+"correct": 0,
+"variant": 1
+},
+{
+"slot": 6,
+"text": "Proti chorobám z povolania chráni zamestnanca najmä:",
+"options": [
+"dodržiavanie opatrení, používanie OOPP a lekárske prehliadky",
+"vynechávanie prestávok",
+"práca nadčas"
+],
+"correct": 0,
+"variant": 1
+},
+{
+"slot": 7,
+"text": "Pri práci so zobrazovacou jednotkou má byť horný okraj obrazovky:",
+"options": [
+"približne vo výške očí",
+"pod úrovňou stola",
+"výrazne nad úrovňou očí"
+],
+"correct": 0,
+"variant": 1
+},
+{
+"slot": 8,
+"text": "Bremeno sa správne dvíha:",
+"options": [
+"rýchlo s otočením trupu",
+"z podrepu s rovným chrbtom, blízko pri tele",
+"s ohnutým chrbtom a vystretými nohami"
+],
+"correct": 1,
+"variant": 1
+},
+{
+"slot": 9,
+"text": "Pri ukladaní materiálu do regálov treba:",
+"options": [
+"ťažké predmety ukladať navrch",
+"dodržiavať nosnosť regálu a ukladať stabilne",
+"ukladať čo najvyššie bez ohľadu na nosnosť"
+],
+"correct": 1,
+"variant": 1
+},
+{
+"slot": 10,
+"text": "Na úspešné overenie vedomostí písomným testom je potrebných najmenej:",
+"options": [
+"100 % správnych odpovedí",
+"75 % správnych odpovedí",
+"50 % správnych odpovedí"
+],
+"correct": 1,
+"variant": 1
+},
+{
+"slot": 11,
+"text": "Únikové cesty a prístup k hasiacim prístrojom musia byť:",
+"options": [
+"stále voľné",
+"voľné iba počas kontroly",
+"môžu byť dočasne zastavané materiálom"
+],
+"correct": 0,
+"variant": 1
+},
+{
+"slot": 12,
+"text": "Pri práci s chemickými látkami treba:",
+"options": [
+"skúšať látky čuchom",
+"dodržiavať kartu bezpečnostných údajov a na pracovisku nejesť a nepiť",
+"prelievať látky do neoznačených fliaš"
+],
+"correct": 1,
+"variant": 1
+},
+{
+"slot": 13,
+"text": "Limitná hodnota expozície hluku je:",
+"options": [
+"100 dB(A)",
+"87 dB(A)",
+"70 dB(A)"
+],
+"correct": 1,
+"variant": 1
+},
+{
+"slot": 14,
+"text": "Poistné na úrazové poistenie zamestnanca platí:",
+"options": [
+"zamestnanec",
+"zamestnanec a zamestnávateľ každý polovicu",
+"zamestnávateľ"
+],
+"correct": 2,
+"variant": 1
+},
+{
+"slot": 15,
+"text": "Telefónne číslo polície je:",
+"options": [
+"150",
+"158",
+"155"
+],
+"correct": 1,
+"variant": 1
+},
+{
+"slot": 16,
+"text": "OOPP sa používajú:",
+"options": [
+"ako posledná ochrana, ak riziko nemožno odstrániť inak",
+"namiesto technických opatrení",
+"namiesto oboznamovania o BOZP"
+],
+"correct": 0,
+"variant": 1
+},
+{
+"slot": 17,
+"text": "Riziko úrazu zvyšuje najmä:",
+"options": [
+"poriadok na pracovisku",
+"pravidelné prestávky",
+"únava, zhon a alkohol"
+],
+"correct": 2,
+"variant": 1
+},
+{
+"slot": 18,
+"text": "Náhradu príjmu počas prvých 10 dní pracovnej neschopnosti vypláca:",
+"options": [
+"Sociálna poisťovňa",
+"zamestnávateľ",
+"úrad práce"
+],
+"correct": 1,
+"variant": 1
+},
+{
+"slot": 19,
+"text": "Jednotné európske číslo tiesňového volania je:",
+"options": [
+"911",
+"112",
+"158"
+],
+"correct": 1,
+"variant": 1
+},
+{
+"slot": 20,
+"text": "Telefónne číslo záchrannej zdravotnej služby je:",
+"options": [
+"155",
+"150",
+"158"
+],
+"correct": 0,
+"variant": 1
+},
+{
+"slot": 1,
+"text": "Prestávka na odpočinok a jedenie patrí dospelému zamestnancovi:",
+"options": [
+"po 8 hodinách práce, najmenej 15 minút",
+"po 6 hodinách nepretržitej práce, najmenej 30 minút",
+"po 4 hodinách práce, najmenej 10 minút"
+],
+"correct": 1,
+"variant": 2
+},
+{
+"slot": 2,
+"text": "Nebezpečenstvo je:",
+"options": [
+"výsledok kontroly inšpekcie práce",
+"vlastnosť alebo schopnosť niečoho spôsobiť poškodenie zdravia",
+"zápis v knihe úrazov"
+],
+"correct": 1,
+"variant": 2
+},
+{
+"slot": 3,
+"text": "Inšpektor práce môže pri kontrole:",
+"options": [
+"zakázať používanie nebezpečného pracovného prostriedku",
+"uložiť trest odňatia slobody",
+"prepustiť zamestnanca z práce"
+],
+"correct": 0,
+"variant": 2
+},
+{
+"slot": 4,
+"text": "Pri rizikových prácach je zamestnanec povinný:",
+"options": [
+"podrobiť sa lekárskym preventívnym prehliadkam vo vzťahu k práci",
+"absolvovať prehliadku iba raz za život",
+"chodiť k lekárovi len pri úraze"
+],
+"correct": 0,
+"variant": 2
+},
+{
+"slot": 5,
+"text": "Najvyššiu mieru ohrozenia majú vyhradené technické zariadenia skupiny:",
+"options": [
+"C",
+"A",
+"B"
+],
+"correct": 1,
+"variant": 2
+},
+{
+"slot": 6,
+"text": "Náhrada príjmu za 4. až 10. deň dočasnej pracovnej neschopnosti je:",
+"options": [
+"25 % denného vymeriavacieho základu",
+"55 % denného vymeriavacieho základu",
+"70 % mzdy"
+],
+"correct": 1,
+"variant": 2
+},
+{
+"slot": 7,
+"text": "Pri hluku nad hornou akčnou hodnotou 85 dB(A) je používanie chráničov sluchu:",
+"options": [
+"zakázané",
+"povinné",
+"dobrovoľné"
+],
+"correct": 1,
+"variant": 2
+},
+{
+"slot": 8,
+"text": "Bezpečnostná značka červenej farby znamená:",
+"options": [
+"bezpečie a záchranu",
+"príkaz",
+"zákaz alebo protipožiarne vybavenie"
+],
+"correct": 2,
+"variant": 2
+},
+{
+"slot": 9,
+"text": "Riziká vášho pracoviska a opatrenia na ich zníženie nájdete:",
+"options": [
+"v pracovnej zmluve",
+"v hodnotení rizík (písomnom dokumente o posúdení rizika)",
+"v telefónnom zozname"
+],
+"correct": 1,
+"variant": 2
+},
+{
+"slot": 10,
+"text": "Čistiť, opravovať alebo nastavovať stroj možno:",
+"options": [
+"iba keď je zastavený a zaistený proti spusteniu",
+"za chodu, ak sa to robí opatrne",
+"s odstráneným krytom počas prevádzky"
+],
+"correct": 0,
+"variant": 2
+},
+{
+"slot": 11,
+"text": "Bezpečnostná značka zelenej farby označuje:",
+"options": [
+"výstrahu pred napätím",
+"zákaz vstupu",
+"bezpečie a záchranu (únikové cesty, prvá pomoc)"
+],
+"correct": 2,
+"variant": 2
+},
+{
+"slot": 12,
+"text": "Jednou z najčastejších príčin pracovných úrazov je:",
+"options": [
+"pošmyknutie, zakopnutie a pád",
+"používanie OOPP",
+"dodržiavanie pracovných postupov"
+],
+"correct": 0,
+"variant": 2
+},
+{
+"slot": 13,
+"text": "Pridelené OOPP je zamestnanec povinný:",
+"options": [
+"používať, starať sa o ne a hlásiť ich poškodenie",
+"používať podľa vlastného uváženia",
+"používať iba pri kontrole inšpekcie"
+],
+"correct": 0,
+"variant": 2
+},
+{
+"slot": 14,
+"text": "Ručné náradie sa smie používať:",
+"options": [
+"iba nepoškodené a určené na daný účel",
+"akékoľvek, ktoré je poruke",
+"aj poškodené, ak sa práca urýchli"
+],
+"correct": 0,
+"variant": 2
+},
+{
+"slot": 15,
+"text": "Dávky úrazového poistenia vypláca:",
+"options": [
+"Sociálna poisťovňa",
+"zdravotná poisťovňa",
+"inšpektorát práce"
+],
+"correct": 0,
+"variant": 2
+},
+{
+"slot": 16,
+"text": "Pracovný úraz treba oznámiť:",
+"options": [
+"do konca mesiaca",
+"iba ak trvá pracovná neschopnosť dlhšie ako týždeň",
+"bezodkladne nadriadenému"
+],
+"correct": 2,
+"variant": 2
+},
+{
+"slot": 17,
+"text": "Zamestnanec, ktorý v teste nevyhovel:",
+"options": [
+"môže pracovať bez obmedzenia",
+"už nikdy nemôže overenie opakovať",
+"zopakuje overenie v náhradnom termíne a dovtedy nesmie samostatne vykonávať prácu"
+],
+"correct": 2,
+"variant": 2
+},
+{
+"slot": 18,
+"text": "Pracovisko musí byť vybavené:",
+"options": [
+"iba kávovarom",
+"iba tlačiarňou",
+"prostriedkami na poskytnutie prvej pomoci"
+],
+"correct": 2,
+"variant": 2
+},
+{
+"slot": 19,
+"text": "Choroby z povolania vznikajú najmä:",
+"options": [
+"dlhodobým pôsobením faktorov práce (hluk, vibrácie, prach, chemické látky)",
+"mimo pracovného prostredia",
+"jednorazovým úrazom"
+],
+"correct": 0,
+"variant": 2
+},
+{
+"slot": 20,
+"text": "Telefónne číslo hasičov je:",
+"options": [
+"158",
+"155",
+"150"
+],
+"correct": 2,
+"variant": 2
+},
+{
+"slot": 1,
+"text": "Za zabezpečovanie BOZP na pracovisku zodpovedá okrem zamestnávateľa:",
+"options": [
+"zástupca zamestnancov pre bezpečnosť",
+"vedúci zamestnanec v rozsahu svojej funkcie",
+"inšpektor práce"
+],
+"correct": 1,
+"variant": 3
+},
+{
+"slot": 2,
+"text": "Závažný pracovný úraz zamestnávateľ bezodkladne ohlasuje:",
+"options": [
+"iba svojej poisťovni",
+"nikomu, stačí záznam vo firme",
+"inšpektorátu práce a policajnému zboru"
+],
+"correct": 2,
+"variant": 3
+},
+{
+"slot": 3,
+"text": "Zamestnanci sú povinní inšpektorovi práce:",
+"options": [
+"umožniť výkon inšpekcie a poskytnúť súčinnosť",
+"poskytnúť informácie iba písomne do 30 dní",
+"odmietnuť vstup bez súhlasu riaditeľa"
+],
+"correct": 0,
+"variant": 3
+},
+{
+"slot": 4,
+"text": "Rizikové práce sú práce zaradené do kategórie:",
+"options": [
+"iba 1",
+"1 a 2",
+"3 a 4"
+],
+"correct": 2,
+"variant": 3
+},
+{
+"slot": 5,
+"text": "Vyhradené technické zariadenie smie obsluhovať:",
+"options": [
+"ktokoľvek, ak ide len o krátky čas",
+"iba osoba s platným preukazom, osvedčením alebo dokladom",
+"ktorýkoľvek zamestnanec"
+],
+"correct": 1,
+"variant": 3
+},
+{
+"slot": 6,
+"text": "Ťažké alebo objemné bremená sa prenášajú:",
+"options": [
+"vždy jedným zamestnancom",
+"vo dvojici alebo s pomôckami",
+"hádzaním na miesto uloženia"
+],
+"correct": 1,
+"variant": 3
+},
+{
+"slot": 7,
+"text": "Bezpečnostná značka žltej farby znamená:",
+"options": [
+"zákaz",
+"príkaz",
+"výstrahu"
+],
+"correct": 2,
+"variant": 3
+},
+{
+"slot": 8,
+"text": "Na úspešné overenie vedomostí písomným testom je potrebných najmenej:",
+"options": [
+"75 % správnych odpovedí",
+"100 % správnych odpovedí",
+"50 % správnych odpovedí"
+],
+"correct": 0,
+"variant": 3
+},
+{
+"slot": 9,
+"text": "Proti chorobám z povolania chráni zamestnanca najmä:",
+"options": [
+"dodržiavanie opatrení, používanie OOPP a lekárske prehliadky",
+"práca nadčas",
+"vynechávanie prestávok"
+],
+"correct": 0,
+"variant": 3
+},
+{
+"slot": 10,
+"text": "Poškodený rebrík:",
+"options": [
+"sa môže používať, ak je pod ním druhá osoba",
+"sa môže používať iba do výšky 3 m",
+"sa nesmie používať"
+],
+"correct": 2,
+"variant": 3
+},
+{
+"slot": 11,
+"text": "Pri vyhlásení evakuácie zamestnanec:",
+"options": [
+"zostane na pracovisku a čaká",
+"opustí budovu únikovou cestou a ide na zhromaždisko",
+"použije výťah"
+],
+"correct": 1,
+"variant": 3
+},
+{
+"slot": 12,
+"text": "Náhrada príjmu za 1. až 3. deň dočasnej pracovnej neschopnosti je:",
+"options": [
+"55 % denného vymeriavacieho základu",
+"25 % denného vymeriavacieho základu",
+"100 % mzdy"
+],
+"correct": 1,
+"variant": 3
+},
+{
+"slot": 13,
+"text": "Osobné ochranné pracovné prostriedky (OOPP) poskytuje zamestnávateľ:",
+"options": [
+"za poplatok zrážaný zo mzdy",
+"zamestnanec si ich kupuje sám",
+"bezplatne"
+],
+"correct": 2,
+"variant": 3
+},
+{
+"slot": 14,
+"text": "Pracovný úraz treba oznámiť:",
+"options": [
+"do konca mesiaca",
+"bezodkladne nadriadenému",
+"iba ak trvá pracovná neschopnosť dlhšie ako týždeň"
+],
+"correct": 1,
+"variant": 3
+},
+{
+"slot": 15,
+"text": "Nový pracovný prostriedok smie zamestnanec používať:",
+"options": [
+"hneď, bez oboznámenia",
+"až po oboznámení s návodom na obsluhu",
+"iba ak ho nikto nevidí"
+],
+"correct": 1,
+"variant": 3
+},
+{
+"slot": 16,
+"text": "Dávkou úrazového poistenia je:",
+"options": [
+"materské",
+"starobný dôchodok",
+"náhrada za bolesť a náhrada za sťaženie spoločenského uplatnenia"
+],
+"correct": 2,
+"variant": 3
+},
+{
+"slot": 17,
+"text": "Telefónne číslo polície je:",
+"options": [
+"150",
+"158",
+"155"
+],
+"correct": 1,
+"variant": 3
+},
+{
+"slot": 18,
+"text": "Práca na bežiacom stroji s odstráneným krytom hrozí najmä:",
+"options": [
+"zlepšením kvality práce",
+"zachytením alebo stlačením časti tela",
+"úsporou času bez rizika"
+],
+"correct": 1,
+"variant": 3
+},
+{
+"slot": 19,
+"text": "Zamestnanec pracujúci so zobrazovacou jednotkou má nárok na:",
+"options": [
+"príplatok za prácu s počítačom",
+"vyšetrenie zraku",
+"skrátenie pracovného času na polovicu"
+],
+"correct": 1,
+"variant": 3
+},
+{
+"slot": 20,
+"text": "Čistiť, opravovať alebo nastavovať stroj možno:",
+"options": [
+"s odstráneným krytom počas prevádzky",
+"iba keď je zastavený a zaistený proti spusteniu",
+"za chodu, ak sa to robí opatrne"
+],
+"correct": 1,
+"variant": 3
+},
+{
+"slot": 1,
+"text": "Priemerný týždenný pracovný čas vrátane práce nadčas nesmie presiahnuť:",
+"options": [
+"60 hodín",
+"48 hodín",
+"40 hodín"
+],
+"correct": 1,
+"variant": 4
+},
+{
+"slot": 2,
+"text": "Vo vzťahu k alkoholu je zamestnanec povinný:",
+"options": [
+"nepiť ho iba počas obedňajšej prestávky",
+"nepožívať ho na pracovisku, nenastupovať pod jeho vplyvom a podrobiť sa skúške",
+"podrobiť sa skúške iba so súhlasom lekára"
+],
+"correct": 1,
+"variant": 4
+},
+{
+"slot": 3,
+"text": "Oprávnenia na výchovu a vzdelávanie v oblasti ochrany práce vydáva:",
+"options": [
+"Národný inšpektorát práce",
+"Slovenská obchodná a priemyselná komora",
+"Ministerstvo vnútra SR"
+],
+"correct": 0,
+"variant": 4
+},
+{
+"slot": 4,
+"text": "Rizikové práce vyhlasuje rozhodnutím:",
+"options": [
+"zamestnávateľ vnútorným predpisom",
+"regionálny úrad verejného zdravotníctva",
+"inšpektorát práce"
+],
+"correct": 1,
+"variant": 4
+},
+{
+"slot": 5,
+"text": "S poškodeným elektrickým zariadením (napr. poškodený prívod) zamestnanec:",
+"options": [
+"opraví ho izolačnou páskou",
+"prestane pracovať, vyradí ho z používania a nahlási",
+"pracuje ďalej opatrnejšie"
+],
+"correct": 1,
+"variant": 4
+},
+{
+"slot": 6,
+"text": "Práca na bežiacom stroji s odstráneným krytom hrozí najmä:",
+"options": [
+"zachytením alebo stlačením časti tela",
+"úsporou času bez rizika",
+"zlepšením kvality práce"
+],
+"correct": 0,
+"variant": 4
+},
+{
+"slot": 7,
+"text": "Ťažké alebo objemné bremená sa prenášajú:",
+"options": [
+"hádzaním na miesto uloženia",
+"vo dvojici alebo s pomôckami",
+"vždy jedným zamestnancom"
+],
+"correct": 1,
+"variant": 4
+},
+{
+"slot": 8,
+"text": "Telefónne číslo hasičov je:",
+"options": [
+"158",
+"150",
+"155"
+],
+"correct": 1,
+"variant": 4
+},
+{
+"slot": 9,
+"text": "Bezpečnostná značka červenej farby znamená:",
+"options": [
+"zákaz alebo protipožiarne vybavenie",
+"bezpečie a záchranu",
+"príkaz"
+],
+"correct": 0,
+"variant": 4
+},
+{
+"slot": 10,
+"text": "Jednotné európske číslo tiesňového volania je:",
+"options": [
+"112",
+"158",
+"911"
+],
+"correct": 0,
+"variant": 4
+},
+{
+"slot": 11,
+"text": "Pri ukladaní materiálu do regálov treba:",
+"options": [
+"ťažké predmety ukladať navrch",
+"ukladať čo najvyššie bez ohľadu na nosnosť",
+"dodržiavať nosnosť regálu a ukladať stabilne"
+],
+"correct": 2,
+"variant": 4
+},
+{
+"slot": 12,
+"text": "Náhrada príjmu za 4. až 10. deň dočasnej pracovnej neschopnosti je:",
+"options": [
+"55 % denného vymeriavacieho základu",
+"25 % denného vymeriavacieho základu",
+"70 % mzdy"
+],
+"correct": 0,
+"variant": 4
+},
+{
+"slot": 13,
+"text": "Riziká vášho pracoviska a opatrenia na ich zníženie nájdete:",
+"options": [
+"v hodnotení rizík (písomnom dokumente o posúdení rizika)",
+"v telefónnom zozname",
+"v pracovnej zmluve"
+],
+"correct": 0,
+"variant": 4
+},
+{
+"slot": 14,
+"text": "Náhradu príjmu počas prvých 10 dní pracovnej neschopnosti vypláca:",
+"options": [
+"zamestnávateľ",
+"úrad práce",
+"Sociálna poisťovňa"
+],
+"correct": 0,
+"variant": 4
+},
+{
+"slot": 15,
+"text": "Únikové cesty a prístup k hasiacim prístrojom musia byť:",
+"options": [
+"môžu byť dočasne zastavané materiálom",
+"stále voľné",
+"voľné iba počas kontroly"
+],
+"correct": 1,
+"variant": 4
+},
+{
+"slot": 16,
+"text": "Jednou z najčastejších príčin pracovných úrazov je:",
+"options": [
+"pošmyknutie, zakopnutie a pád",
+"používanie OOPP",
+"dodržiavanie pracovných postupov"
+],
+"correct": 0,
+"variant": 4
+},
+{
+"slot": 17,
+"text": "OOPP sa používajú:",
+"options": [
+"namiesto technických opatrení",
+"namiesto oboznamovania o BOZP",
+"ako posledná ochrana, ak riziko nemožno odstrániť inak"
+],
+"correct": 2,
+"variant": 4
+},
+{
+"slot": 18,
+"text": "Zamestnanec, ktorý v teste nevyhovel:",
+"options": [
+"už nikdy nemôže overenie opakovať",
+"môže pracovať bez obmedzenia",
+"zopakuje overenie v náhradnom termíne a dovtedy nesmie samostatne vykonávať prácu"
+],
+"correct": 2,
+"variant": 4
+},
+{
+"slot": 19,
+"text": "Pri práci s chemickými látkami treba:",
+"options": [
+"dodržiavať kartu bezpečnostných údajov a na pracovisku nejesť a nepiť",
+"prelievať látky do neoznačených fliaš",
+"skúšať látky čuchom"
+],
+"correct": 0,
+"variant": 4
+},
+{
+"slot": 20,
+"text": "Bezpečnostná značka modrej farby znamená:",
+"options": [
+"príkaz (napr. používaj ochranné okuliare)",
+"výstrahu",
+"únikovú cestu"
+],
+"correct": 0,
+"variant": 4
+},
+{
+"slot": 1,
+"text": "Nepretržitý denný odpočinok dospelého zamestnanca medzi dvoma zmenami je najmenej:",
+"options": [
+"12 hodín",
+"8 hodín",
+"10 hodín"
+],
+"correct": 0,
+"variant": 5
+},
+{
+"slot": 2,
+"text": "Oboznamovanie zamestnancov o BOZP sa vykonáva:",
+"options": [
+"iba počas víkendu",
+"v pracovnom čase",
+"mimo pracovného času na náklady zamestnanca"
+],
+"correct": 1,
+"variant": 5
+},
+{
+"slot": 3,
+"text": "Oprávnenia na výchovu a vzdelávanie v oblasti ochrany práce vydáva:",
+"options": [
+"Národný inšpektorát práce",
+"Slovenská obchodná a priemyselná komora",
+"Ministerstvo vnútra SR"
+],
+"correct": 0,
+"variant": 5
+},
+{
+"slot": 4,
+"text": "Pri rizikových prácach je zamestnanec povinný:",
+"options": [
+"podrobiť sa lekárskym preventívnym prehliadkam vo vzťahu k práci",
+"absolvovať prehliadku iba raz za život",
+"chodiť k lekárovi len pri úraze"
+],
+"correct": 0,
+"variant": 5
+},
+{
+"slot": 5,
+"text": "Vyhradené technické zariadenia sa podľa miery ohrozenia delia do skupín:",
+"options": [
+"I, II, III, IV",
+"1, 2, 3",
+"A, B, C"
+],
+"correct": 2,
+"variant": 5
+},
+{
+"slot": 6,
+"text": "Pracovný úraz treba oznámiť:",
+"options": [
+"bezodkladne nadriadenému",
+"iba ak trvá pracovná neschopnosť dlhšie ako týždeň",
+"do konca mesiaca"
+],
+"correct": 0,
+"variant": 5
+},
+{
+"slot": 7,
+"text": "Čistiť, opravovať alebo nastavovať stroj možno:",
+"options": [
+"s odstráneným krytom počas prevádzky",
+"iba keď je zastavený a zaistený proti spusteniu",
+"za chodu, ak sa to robí opatrne"
+],
+"correct": 1,
+"variant": 5
+},
+{
+"slot": 8,
+"text": "Zamestnanec, ktorý v teste nevyhovel:",
+"options": [
+"už nikdy nemôže overenie opakovať",
+"môže pracovať bez obmedzenia",
+"zopakuje overenie v náhradnom termíne a dovtedy nesmie samostatne vykonávať prácu"
+],
+"correct": 2,
+"variant": 5
+},
+{
+"slot": 9,
+"text": "Poistné na úrazové poistenie zamestnanca platí:",
+"options": [
+"zamestnanec a zamestnávateľ každý polovicu",
+"zamestnávateľ",
+"zamestnanec"
+],
+"correct": 1,
+"variant": 5
+},
+{
+"slot": 10,
+"text": "Telefónne číslo záchrannej zdravotnej služby je:",
+"options": [
+"158",
+"155",
+"150"
+],
+"correct": 1,
+"variant": 5
+},
+{
+"slot": 11,
+"text": "Riziko úrazu zvyšuje najmä:",
+"options": [
+"poriadok na pracovisku",
+"pravidelné prestávky",
+"únava, zhon a alkohol"
+],
+"correct": 2,
+"variant": 5
+},
+{
+"slot": 12,
+"text": "Pracovisko musí byť vybavené:",
+"options": [
+"iba tlačiarňou",
+"prostriedkami na poskytnutie prvej pomoci",
+"iba kávovarom"
+],
+"correct": 1,
+"variant": 5
+},
+{
+"slot": 13,
+"text": "Choroby z povolania vznikajú najmä:",
+"options": [
+"dlhodobým pôsobením faktorov práce (hluk, vibrácie, prach, chemické látky)",
+"jednorazovým úrazom",
+"mimo pracovného prostredia"
+],
+"correct": 0,
+"variant": 5
+},
+{
+"slot": 14,
+"text": "Riziká vášho pracoviska a opatrenia na ich zníženie nájdete:",
+"options": [
+"v hodnotení rizík (písomnom dokumente o posúdení rizika)",
+"v telefónnom zozname",
+"v pracovnej zmluve"
+],
+"correct": 0,
+"variant": 5
+},
+{
+"slot": 15,
+"text": "Náhrada príjmu za 1. až 3. deň dočasnej pracovnej neschopnosti je:",
+"options": [
+"25 % denného vymeriavacieho základu",
+"100 % mzdy",
+"55 % denného vymeriavacieho základu"
+],
+"correct": 0,
+"variant": 5
+},
+{
+"slot": 16,
+"text": "Pridelené OOPP je zamestnanec povinný:",
+"options": [
+"používať podľa vlastného uváženia",
+"používať iba pri kontrole inšpekcie",
+"používať, starať sa o ne a hlásiť ich poškodenie"
+],
+"correct": 2,
+"variant": 5
+},
+{
+"slot": 17,
+"text": "Ručné náradie sa smie používať:",
+"options": [
+"akékoľvek, ktoré je poruke",
+"aj poškodené, ak sa práca urýchli",
+"iba nepoškodené a určené na daný účel"
+],
+"correct": 2,
+"variant": 5
+},
+{
+"slot": 18,
+"text": "Bremeno sa správne dvíha:",
+"options": [
+"rýchlo s otočením trupu",
+"s ohnutým chrbtom a vystretými nohami",
+"z podrepu s rovným chrbtom, blízko pri tele"
+],
+"correct": 2,
+"variant": 5
+},
+{
+"slot": 19,
+"text": "Zamestnanec pracujúci so zobrazovacou jednotkou má nárok na:",
+"options": [
+"vyšetrenie zraku",
+"skrátenie pracovného času na polovicu",
+"príplatok za prácu s počítačom"
+],
+"correct": 0,
+"variant": 5
+},
+{
+"slot": 20,
+"text": "Osobné ochranné pracovné prostriedky (OOPP) poskytuje zamestnávateľ:",
+"options": [
+"zamestnanec si ich kupuje sám",
+"bezplatne",
+"za poplatok zrážaný zo mzdy"
+],
+"correct": 1,
+"variant": 5
+},
+{
+"slot": 1,
+"text": "Ak zamestnancovi hrozí škoda, je povinný:",
+"options": [
+"len ju zapísať do knihy porúch na konci mesiaca",
+"upozorniť na ňu vedúceho a podľa možností zakročiť",
+"nevšímať si ju, ak nejde o jeho prácu"
+],
+"correct": 1,
+"variant": 6
+},
+{
+"slot": 2,
+"text": "Nebezpečná udalosť je:",
+"options": [
+"choroba z povolania",
+"udalosť, pri ktorej nedošlo k úrazu, ale mohol vzniknúť",
+"pracovný úraz s pracovnou neschopnosťou"
+],
+"correct": 1,
+"variant": 6
+},
+{
+"slot": 3,
+"text": "Dozor nad dodržiavaním predpisov BOZP vykonáva:",
+"options": [
+"daňový úrad",
+"inšpektorát práce",
+"obecný úrad"
+],
+"correct": 1,
+"variant": 6
+},
+{
+"slot": 4,
+"text": "Rizikové práce vyhlasuje rozhodnutím:",
+"options": [
+"regionálny úrad verejného zdravotníctva",
+"inšpektorát práce",
+"zamestnávateľ vnútorným predpisom"
+],
+"correct": 0,
+"variant": 6
+},
+{
+"slot": 5,
+"text": "Revízie elektrických zariadení vykonáva:",
+"options": [
+"revízny technik",
+"poučená osoba",
+"ktorýkoľvek zamestnanec"
+],
+"correct": 0,
+"variant": 6
+},
+{
+"slot": 6,
+"text": "Na úspešné overenie vedomostí písomným testom je potrebných najmenej:",
+"options": [
+"100 % správnych odpovedí",
+"75 % správnych odpovedí",
+"50 % správnych odpovedí"
+],
+"correct": 1,
+"variant": 6
+},
+{
+"slot": 7,
+"text": "Jednotné európske číslo tiesňového volania je:",
+"options": [
+"911",
+"158",
+"112"
+],
+"correct": 2,
+"variant": 6
+},
+{
+"slot": 8,
+"text": "Ručné náradie sa smie používať:",
+"options": [
+"akékoľvek, ktoré je poruke",
+"aj poškodené, ak sa práca urýchli",
+"iba nepoškodené a určené na daný účel"
+],
+"correct": 2,
+"variant": 6
+},
+{
+"slot": 9,
+"text": "Pri vyhlásení evakuácie zamestnanec:",
+"options": [
+"zostane na pracovisku a čaká",
+"opustí budovu únikovou cestou a ide na zhromaždisko",
+"použije výťah"
+],
+"correct": 1,
+"variant": 6
+},
+{
+"slot": 10,
+"text": "Poškodený rebrík:",
+"options": [
+"sa môže používať, ak je pod ním druhá osoba",
+"sa môže používať iba do výšky 3 m",
+"sa nesmie používať"
+],
+"correct": 2,
+"variant": 6
+},
+{
+"slot": 11,
+"text": "Práca na bežiacom stroji s odstráneným krytom hrozí najmä:",
+"options": [
+"úsporou času bez rizika",
+"zachytením alebo stlačením časti tela",
+"zlepšením kvality práce"
+],
+"correct": 1,
+"variant": 6
+},
+{
+"slot": 12,
+"text": "Pri hluku nad hornou akčnou hodnotou 85 dB(A) je používanie chráničov sluchu:",
+"options": [
+"povinné",
+"zakázané",
+"dobrovoľné"
+],
+"correct": 0,
+"variant": 6
+},
+{
+"slot": 13,
+"text": "Dávkou úrazového poistenia je:",
+"options": [
+"starobný dôchodok",
+"materské",
+"náhrada za bolesť a náhrada za sťaženie spoločenského uplatnenia"
+],
+"correct": 2,
+"variant": 6
+},
+{
+"slot": 14,
+"text": "Dávky úrazového poistenia vypláca:",
+"options": [
+"Sociálna poisťovňa",
+"inšpektorát práce",
+"zdravotná poisťovňa"
+],
+"correct": 0,
+"variant": 6
+},
+{
+"slot": 15,
+"text": "Bezpečnostná značka zelenej farby označuje:",
+"options": [
+"výstrahu pred napätím",
+"zákaz vstupu",
+"bezpečie a záchranu (únikové cesty, prvá pomoc)"
+],
+"correct": 2,
+"variant": 6
+},
+{
+"slot": 16,
+"text": "Telefónne číslo polície je:",
+"options": [
+"150",
+"155",
+"158"
+],
+"correct": 2,
+"variant": 6
+},
+{
+"slot": 17,
+"text": "Nový pracovný prostriedok smie zamestnanec používať:",
+"options": [
+"hneď, bez oboznámenia",
+"iba ak ho nikto nevidí",
+"až po oboznámení s návodom na obsluhu"
+],
+"correct": 2,
+"variant": 6
+},
+{
+"slot": 18,
+"text": "Pri práci so zobrazovacou jednotkou má byť horný okraj obrazovky:",
+"options": [
+"pod úrovňou stola",
+"približne vo výške očí",
+"výrazne nad úrovňou očí"
+],
+"correct": 1,
+"variant": 6
+},
+{
+"slot": 19,
+"text": "Limitná hodnota expozície hluku je:",
+"options": [
+"100 dB(A)",
+"70 dB(A)",
+"87 dB(A)"
+],
+"correct": 2,
+"variant": 6
+},
+{
+"slot": 20,
+"text": "Jednou z najčastejších príčin pracovných úrazov je:",
+"options": [
+"používanie OOPP",
+"dodržiavanie pracovných postupov",
+"pošmyknutie, zakopnutie a pád"
+],
+"correct": 2,
+"variant": 6
+},
+{
+"slot": 1,
+"text": "Náhrada škody, ktorú zamestnanec spôsobil z nedbanlivosti, je spravidla obmedzená:",
+"options": [
+"dvojnásobkom jeho priemerného mesačného zárobku",
+"nie je obmedzená",
+"štvornásobkom jeho priemerného mesačného zárobku"
+],
+"correct": 2,
+"variant": 7
+},
+{
+"slot": 2,
+"text": "Pri pracovnom úraze je prvoradé:",
+"options": [
+"poskytnúť prvú pomoc a privolať odbornú pomoc",
+"nafotiť miesto úrazu",
+"dokončiť rozpracovanú prácu"
+],
+"correct": 0,
+"variant": 7
+},
+{
+"slot": 3,
+"text": "Zamestnanci sú povinní inšpektorovi práce:",
+"options": [
+"umožniť výkon inšpekcie a poskytnúť súčinnosť",
+"odmietnuť vstup bez súhlasu riaditeľa",
+"poskytnúť informácie iba písomne do 30 dní"
+],
+"correct": 0,
+"variant": 7
+},
+{
+"slot": 4,
+"text": "Rizikové práce sú práce zaradené do kategórie:",
+"options": [
+"iba 1",
+"3 a 4",
+"1 a 2"
+],
+"correct": 1,
+"variant": 7
+},
+{
+"slot": 5,
+"text": "Pri úraze elektrickým prúdom je potrebné najprv:",
+"options": [
+"poliať postihnutého vodou",
+"bezpečne prerušiť prúd (vypnúť istič, vytiahnuť vidlicu)",
+"chytiť postihnutého za ruku a odtiahnuť ho"
+],
+"correct": 1,
+"variant": 7
+},
+{
+"slot": 6,
+"text": "Limitná hodnota expozície hluku je:",
+"options": [
+"100 dB(A)",
+"70 dB(A)",
+"87 dB(A)"
+],
+"correct": 2,
+"variant": 7
+},
+{
+"slot": 7,
+"text": "Choroby z povolania vznikajú najmä:",
+"options": [
+"mimo pracovného prostredia",
+"dlhodobým pôsobením faktorov práce (hluk, vibrácie, prach, chemické látky)",
+"jednorazovým úrazom"
+],
+"correct": 1,
+"variant": 7
+},
+{
+"slot": 8,
+"text": "Telefónne číslo hasičov je:",
+"options": [
+"158",
+"155",
+"150"
+],
+"correct": 2,
+"variant": 7
+},
+{
+"slot": 9,
+"text": "Riziká vášho pracoviska a opatrenia na ich zníženie nájdete:",
+"options": [
+"v hodnotení rizík (písomnom dokumente o posúdení rizika)",
+"v telefónnom zozname",
+"v pracovnej zmluve"
+],
+"correct": 0,
+"variant": 7
+},
+{
+"slot": 10,
+"text": "Pri ukladaní materiálu do regálov treba:",
+"options": [
+"dodržiavať nosnosť regálu a ukladať stabilne",
+"ťažké predmety ukladať navrch",
+"ukladať čo najvyššie bez ohľadu na nosnosť"
+],
+"correct": 0,
+"variant": 7
+},
+{
+"slot": 11,
+"text": "Pri práci so zobrazovacou jednotkou má byť horný okraj obrazovky:",
+"options": [
+"pod úrovňou stola",
+"výrazne nad úrovňou očí",
+"približne vo výške očí"
+],
+"correct": 2,
+"variant": 7
+},
+{
+"slot": 12,
+"text": "Proti chorobám z povolania chráni zamestnanca najmä:",
+"options": [
+"vynechávanie prestávok",
+"práca nadčas",
+"dodržiavanie opatrení, používanie OOPP a lekárske prehliadky"
+],
+"correct": 2,
+"variant": 7
+},
+{
+"slot": 13,
+"text": "Telefónne číslo záchrannej zdravotnej služby je:",
+"options": [
+"155",
+"150",
+"158"
+],
+"correct": 0,
+"variant": 7
+},
+{
+"slot": 14,
+"text": "Na úspešné overenie vedomostí písomným testom je potrebných najmenej:",
+"options": [
+"75 % správnych odpovedí",
+"50 % správnych odpovedí",
+"100 % správnych odpovedí"
+],
+"correct": 0,
+"variant": 7
+},
+{
+"slot": 15,
+"text": "Pracovisko musí byť vybavené:",
+"options": [
+"iba tlačiarňou",
+"prostriedkami na poskytnutie prvej pomoci",
+"iba kávovarom"
+],
+"correct": 1,
+"variant": 7
+},
+{
+"slot": 16,
+"text": "Nový pracovný prostriedok smie zamestnanec používať:",
+"options": [
+"až po oboznámení s návodom na obsluhu",
+"iba ak ho nikto nevidí",
+"hneď, bez oboznámenia"
+],
+"correct": 0,
+"variant": 7
+},
+{
+"slot": 17,
+"text": "Únikové cesty a prístup k hasiacim prístrojom musia byť:",
+"options": [
+"môžu byť dočasne zastavané materiálom",
+"stále voľné",
+"voľné iba počas kontroly"
+],
+"correct": 1,
+"variant": 7
+},
+{
+"slot": 18,
+"text": "Náhradu príjmu počas prvých 10 dní pracovnej neschopnosti vypláca:",
+"options": [
+"úrad práce",
+"Sociálna poisťovňa",
+"zamestnávateľ"
+],
+"correct": 2,
+"variant": 7
+},
+{
+"slot": 19,
+"text": "Bezpečnostná značka žltej farby znamená:",
+"options": [
+"zákaz",
+"výstrahu",
+"príkaz"
+],
+"correct": 1,
+"variant": 7
+},
+{
+"slot": 20,
+"text": "Náhrada príjmu za 4. až 10. deň dočasnej pracovnej neschopnosti je:",
+"options": [
+"70 % mzdy",
+"25 % denného vymeriavacieho základu",
+"55 % denného vymeriavacieho základu"
+],
+"correct": 2,
+"variant": 7
+},
+{
+"slot": 1,
+"text": "Zamestnávateľ zodpovedá za škodu pri pracovnom úraze:",
+"options": [
+"bez ohľadu na zavinenie",
+"iba ak to zamestnanec dokáže svedkami",
+"iba ak úraz zavinil"
+],
+"correct": 0,
+"variant": 8
+},
+{
+"slot": 2,
+"text": "Ak zamestnanec dôvodne usudzuje, že práca bezprostredne a vážne ohrozuje jeho život alebo zdravie, má právo:",
+"options": [
+"odmietnuť prácu alebo opustiť pracovisko",
+"pracovať ďalej bez oznámenia",
+"pokračovať v práci rýchlejšie"
+],
+"correct": 0,
+"variant": 8
+},
+{
+"slot": 3,
+"text": "Inšpektor práce môže pri kontrole:",
+"options": [
+"uložiť trest odňatia slobody",
+"zakázať používanie nebezpečného pracovného prostriedku",
+"prepustiť zamestnanca z práce"
+],
+"correct": 1,
+"variant": 8
+},
+{
+"slot": 4,
+"text": "Pracovnú zdravotnú službu je povinný zabezpečiť:",
+"options": [
+"iba zamestnávateľ s prácami kategórie 4",
+"každý zamestnávateľ",
+"iba zamestnávateľ s viac ako 50 zamestnancami"
+],
+"correct": 1,
+"variant": 8
+},
+{
+"slot": 5,
+"text": "Vyhradené technické zariadenie smie obsluhovať:",
+"options": [
+"ktokoľvek, ak ide len o krátky čas",
+"iba osoba s platným preukazom, osvedčením alebo dokladom",
+"ktorýkoľvek zamestnanec"
+],
+"correct": 1,
+"variant": 8
+},
+{
+"slot": 6,
+"text": "Poistné na úrazové poistenie zamestnanca platí:",
+"options": [
+"zamestnávateľ",
+"zamestnanec a zamestnávateľ každý polovicu",
+"zamestnanec"
+],
+"correct": 0,
+"variant": 8
+},
+{
+"slot": 7,
+"text": "Bezpečnostná značka modrej farby znamená:",
+"options": [
+"príkaz (napr. používaj ochranné okuliare)",
+"únikovú cestu",
+"výstrahu"
+],
+"correct": 0,
+"variant": 8
+},
+{
+"slot": 8,
+"text": "Pri hluku nad hornou akčnou hodnotou 85 dB(A) je používanie chráničov sluchu:",
+"options": [
+"dobrovoľné",
+"povinné",
+"zakázané"
+],
+"correct": 1,
+"variant": 8
+},
+{
+"slot": 9,
+"text": "Práca na bežiacom stroji s odstráneným krytom hrozí najmä:",
+"options": [
+"zlepšením kvality práce",
+"zachytením alebo stlačením časti tela",
+"úsporou času bez rizika"
+],
+"correct": 1,
+"variant": 8
+},
+{
+"slot": 10,
+"text": "Bezpečnostná značka červenej farby znamená:",
+"options": [
+"zákaz alebo protipožiarne vybavenie",
+"príkaz",
+"bezpečie a záchranu"
+],
+"correct": 0,
+"variant": 8
+},
+{
+"slot": 11,
+"text": "Zamestnanec, ktorý v teste nevyhovel:",
+"options": [
+"zopakuje overenie v náhradnom termíne a dovtedy nesmie samostatne vykonávať prácu",
+"už nikdy nemôže overenie opakovať",
+"môže pracovať bez obmedzenia"
+],
+"correct": 0,
+"variant": 8
+},
+{
+"slot": 12,
+"text": "Čistiť, opravovať alebo nastavovať stroj možno:",
+"options": [
+"s odstráneným krytom počas prevádzky",
+"za chodu, ak sa to robí opatrne",
+"iba keď je zastavený a zaistený proti spusteniu"
+],
+"correct": 2,
+"variant": 8
+},
+{
+"slot": 13,
+"text": "Riziko úrazu zvyšuje najmä:",
+"options": [
+"pravidelné prestávky",
+"únava, zhon a alkohol",
+"poriadok na pracovisku"
+],
+"correct": 1,
+"variant": 8
+},
+{
+"slot": 14,
+"text": "Pracovný úraz treba oznámiť:",
+"options": [
+"do konca mesiaca",
+"bezodkladne nadriadenému",
+"iba ak trvá pracovná neschopnosť dlhšie ako týždeň"
+],
+"correct": 1,
+"variant": 8
+},
+{
+"slot": 15,
+"text": "Dávky úrazového poistenia vypláca:",
+"options": [
+"Sociálna poisťovňa",
+"zdravotná poisťovňa",
+"inšpektorát práce"
+],
+"correct": 0,
+"variant": 8
+},
+{
+"slot": 16,
+"text": "Ručné náradie sa smie používať:",
+"options": [
+"aj poškodené, ak sa práca urýchli",
+"iba nepoškodené a určené na daný účel",
+"akékoľvek, ktoré je poruke"
+],
+"correct": 1,
+"variant": 8
+},
+{
+"slot": 17,
+"text": "Telefónne číslo záchrannej zdravotnej služby je:",
+"options": [
+"158",
+"155",
+"150"
+],
+"correct": 1,
+"variant": 8
+},
+{
+"slot": 18,
+"text": "Bezpečnostná značka zelenej farby označuje:",
+"options": [
+"zákaz vstupu",
+"výstrahu pred napätím",
+"bezpečie a záchranu (únikové cesty, prvá pomoc)"
+],
+"correct": 2,
+"variant": 8
+},
+{
+"slot": 19,
+"text": "Telefónne číslo polície je:",
+"options": [
+"150",
+"155",
+"158"
+],
+"correct": 2,
+"variant": 8
+},
+{
+"slot": 20,
+"text": "Pri práci s chemickými látkami treba:",
+"options": [
+"skúšať látky čuchom",
+"dodržiavať kartu bezpečnostných údajov a na pracovisku nejesť a nepiť",
+"prelievať látky do neoznačených fliaš"
+],
+"correct": 1,
+"variant": 8
+},
+{
+"slot": 1,
+"text": "Nepretržitý denný odpočinok mladistvého zamestnanca medzi dvoma zmenami je najmenej:",
+"options": [
+"10 hodín",
+"12 hodín",
+"14 hodín"
+],
+"correct": 2,
+"variant": 9
+},
+{
+"slot": 2,
+"text": "Komisiu BOZP je povinný zriadiť zamestnávateľ s počtom zamestnancov viac ako:",
+"options": [
+"100",
+"20",
+"500"
+],
+"correct": 0,
+"variant": 9
+},
+{
+"slot": 3,
+"text": "Dozor nad dodržiavaním predpisov BOZP vykonáva:",
+"options": [
+"daňový úrad",
+"inšpektorát práce",
+"obecný úrad"
+],
+"correct": 1,
+"variant": 9
+},
+{
+"slot": 4,
+"text": "Rizikové práce sú práce zaradené do kategórie:",
+"options": [
+"3 a 4",
+"1 a 2",
+"iba 1"
+],
+"correct": 0,
+"variant": 9
+},
+{
+"slot": 5,
+"text": "Revízie elektrických zariadení vykonáva:",
+"options": [
+"poučená osoba",
+"ktorýkoľvek zamestnanec",
+"revízny technik"
+],
+"correct": 2,
+"variant": 9
+},
+{
+"slot": 6,
+"text": "Riziko úrazu zvyšuje najmä:",
+"options": [
+"pravidelné prestávky",
+"únava, zhon a alkohol",
+"poriadok na pracovisku"
+],
+"correct": 1,
+"variant": 9
+},
+{
+"slot": 7,
+"text": "Pri vyhlásení evakuácie zamestnanec:",
+"options": [
+"použije výťah",
+"opustí budovu únikovou cestou a ide na zhromaždisko",
+"zostane na pracovisku a čaká"
+],
+"correct": 1,
+"variant": 9
+},
+{
+"slot": 8,
+"text": "Náhrada príjmu za 1. až 3. deň dočasnej pracovnej neschopnosti je:",
+"options": [
+"55 % denného vymeriavacieho základu",
+"25 % denného vymeriavacieho základu",
+"100 % mzdy"
+],
+"correct": 1,
+"variant": 9
+},
+{
+"slot": 9,
+"text": "Zamestnanec pracujúci so zobrazovacou jednotkou má nárok na:",
+"options": [
+"skrátenie pracovného času na polovicu",
+"vyšetrenie zraku",
+"príplatok za prácu s počítačom"
+],
+"correct": 1,
+"variant": 9
+},
+{
+"slot": 10,
+"text": "Únikové cesty a prístup k hasiacim prístrojom musia byť:",
+"options": [
+"voľné iba počas kontroly",
+"stále voľné",
+"môžu byť dočasne zastavané materiálom"
+],
+"correct": 1,
+"variant": 9
+},
+{
+"slot": 11,
+"text": "Jednotné európske číslo tiesňového volania je:",
+"options": [
+"911",
+"112",
+"158"
+],
+"correct": 1,
+"variant": 9
+},
+{
+"slot": 12,
+"text": "Zamestnanec, ktorý v teste nevyhovel:",
+"options": [
+"môže pracovať bez obmedzenia",
+"zopakuje overenie v náhradnom termíne a dovtedy nesmie samostatne vykonávať prácu",
+"už nikdy nemôže overenie opakovať"
+],
+"correct": 1,
+"variant": 9
+},
+{
+"slot": 13,
+"text": "Telefónne číslo hasičov je:",
+"options": [
+"158",
+"155",
+"150"
+],
+"correct": 2,
+"variant": 9
+},
+{
+"slot": 14,
+"text": "Bezpečnostná značka žltej farby znamená:",
+"options": [
+"výstrahu",
+"príkaz",
+"zákaz"
+],
+"correct": 0,
+"variant": 9
+},
+{
+"slot": 15,
+"text": "Poškodený rebrík:",
+"options": [
+"sa môže používať iba do výšky 3 m",
+"sa nesmie používať",
+"sa môže používať, ak je pod ním druhá osoba"
+],
+"correct": 1,
+"variant": 9
+},
+{
+"slot": 16,
+"text": "Ťažké alebo objemné bremená sa prenášajú:",
+"options": [
+"vždy jedným zamestnancom",
+"vo dvojici alebo s pomôckami",
+"hádzaním na miesto uloženia"
+],
+"correct": 1,
+"variant": 9
+},
+{
+"slot": 17,
+"text": "OOPP sa používajú:",
+"options": [
+"namiesto technických opatrení",
+"namiesto oboznamovania o BOZP",
+"ako posledná ochrana, ak riziko nemožno odstrániť inak"
+],
+"correct": 2,
+"variant": 9
+},
+{
+"slot": 18,
+"text": "Osobné ochranné pracovné prostriedky (OOPP) poskytuje zamestnávateľ:",
+"options": [
+"za poplatok zrážaný zo mzdy",
+"bezplatne",
+"zamestnanec si ich kupuje sám"
+],
+"correct": 1,
+"variant": 9
+},
+{
+"slot": 19,
+"text": "Choroby z povolania vznikajú najmä:",
+"options": [
+"jednorazovým úrazom",
+"mimo pracovného prostredia",
+"dlhodobým pôsobením faktorov práce (hluk, vibrácie, prach, chemické látky)"
+],
+"correct": 2,
+"variant": 9
+},
+{
+"slot": 20,
+"text": "Dávkou úrazového poistenia je:",
+"options": [
+"starobný dôchodok",
+"náhrada za bolesť a náhrada za sťaženie spoločenského uplatnenia",
+"materské"
+],
+"correct": 1,
+"variant": 9
+},
+{
+"slot": 1,
+"text": "Mladistvý zamestnanec nesmie:",
+"options": [
+"zúčastňovať sa na školeniach BOZP",
+"pracovať v ustanovenom pracovnom čase",
+"pracovať nadčas ani v noci"
+],
+"correct": 2,
+"variant": 10
+},
+{
+"slot": 2,
+"text": "Zástupcu zamestnancov pre bezpečnosť musí mať zamestnávateľ s najmenej:",
+"options": [
+"50 zamestnancami",
+"100 zamestnancami",
+"10 zamestnancami"
+],
+"correct": 2,
+"variant": 10
+},
+{
+"slot": 3,
+"text": "Zamestnanci sú povinní inšpektorovi práce:",
+"options": [
+"poskytnúť informácie iba písomne do 30 dní",
+"odmietnuť vstup bez súhlasu riaditeľa",
+"umožniť výkon inšpekcie a poskytnúť súčinnosť"
+],
+"correct": 2,
+"variant": 10
+},
+{
+"slot": 4,
+"text": "Pracovnú zdravotnú službu je povinný zabezpečiť:",
+"options": [
+"každý zamestnávateľ",
+"iba zamestnávateľ s viac ako 50 zamestnancami",
+"iba zamestnávateľ s prácami kategórie 4"
+],
+"correct": 0,
+"variant": 10
+},
+{
+"slot": 5,
+"text": "Osoba bez elektrotechnickej kvalifikácie smie elektrické zariadenie:",
+"options": [
+"otvárať a odstraňovať kryty",
+"opravovať, ak je vypnuté",
+"iba používať podľa návodu"
+],
+"correct": 2,
+"variant": 10
+},
+{
+"slot": 6,
+"text": "Pridelené OOPP je zamestnanec povinný:",
+"options": [
+"používať, starať sa o ne a hlásiť ich poškodenie",
+"používať podľa vlastného uváženia",
+"používať iba pri kontrole inšpekcie"
+],
+"correct": 0,
+"variant": 10
+},
+{
+"slot": 7,
+"text": "Pri ukladaní materiálu do regálov treba:",
+"options": [
+"ukladať čo najvyššie bez ohľadu na nosnosť",
+"dodržiavať nosnosť regálu a ukladať stabilne",
+"ťažké predmety ukladať navrch"
+],
+"correct": 1,
+"variant": 10
+},
+{
+"slot": 8,
+"text": "Jednou z najčastejších príčin pracovných úrazov je:",
+"options": [
+"pošmyknutie, zakopnutie a pád",
+"dodržiavanie pracovných postupov",
+"používanie OOPP"
+],
+"correct": 0,
+"variant": 10
+},
+{
+"slot": 9,
+"text": "Na úspešné overenie vedomostí písomným testom je potrebných najmenej:",
+"options": [
+"100 % správnych odpovedí",
+"50 % správnych odpovedí",
+"75 % správnych odpovedí"
+],
+"correct": 2,
+"variant": 10
+},
+{
+"slot": 10,
+"text": "Jednotné európske číslo tiesňového volania je:",
+"options": [
+"158",
+"112",
+"911"
+],
+"correct": 1,
+"variant": 10
+},
+{
+"slot": 11,
+"text": "Únikové cesty a prístup k hasiacim prístrojom musia byť:",
+"options": [
+"stále voľné",
+"voľné iba počas kontroly",
+"môžu byť dočasne zastavané materiálom"
+],
+"correct": 0,
+"variant": 10
+},
+{
+"slot": 12,
+"text": "Telefónne číslo polície je:",
+"options": [
+"150",
+"155",
+"158"
+],
+"correct": 2,
+"variant": 10
+},
+{
+"slot": 13,
+"text": "Dávky úrazového poistenia vypláca:",
+"options": [
+"Sociálna poisťovňa",
+"inšpektorát práce",
+"zdravotná poisťovňa"
+],
+"correct": 0,
+"variant": 10
+},
+{
+"slot": 14,
+"text": "Ťažké alebo objemné bremená sa prenášajú:",
+"options": [
+"vo dvojici alebo s pomôckami",
+"vždy jedným zamestnancom",
+"hádzaním na miesto uloženia"
+],
+"correct": 0,
+"variant": 10
+},
+{
+"slot": 15,
+"text": "Riziká vášho pracoviska a opatrenia na ich zníženie nájdete:",
+"options": [
+"v pracovnej zmluve",
+"v telefónnom zozname",
+"v hodnotení rizík (písomnom dokumente o posúdení rizika)"
+],
+"correct": 2,
+"variant": 10
+},
+{
+"slot": 16,
+"text": "Bezpečnostná značka modrej farby znamená:",
+"options": [
+"výstrahu",
+"príkaz (napr. používaj ochranné okuliare)",
+"únikovú cestu"
+],
+"correct": 1,
+"variant": 10
+},
+{
+"slot": 17,
+"text": "Bremeno sa správne dvíha:",
+"options": [
+"z podrepu s rovným chrbtom, blízko pri tele",
+"rýchlo s otočením trupu",
+"s ohnutým chrbtom a vystretými nohami"
+],
+"correct": 0,
+"variant": 10
+},
+{
+"slot": 18,
+"text": "Náhrada príjmu za 4. až 10. deň dočasnej pracovnej neschopnosti je:",
+"options": [
+"70 % mzdy",
+"55 % denného vymeriavacieho základu",
+"25 % denného vymeriavacieho základu"
+],
+"correct": 1,
+"variant": 10
+},
+{
+"slot": 19,
+"text": "Proti chorobám z povolania chráni zamestnanca najmä:",
+"options": [
+"práca nadčas",
+"dodržiavanie opatrení, používanie OOPP a lekárske prehliadky",
+"vynechávanie prestávok"
+],
+"correct": 1,
+"variant": 10
+},
+{
+"slot": 20,
+"text": "Osobné ochranné pracovné prostriedky (OOPP) poskytuje zamestnávateľ:",
+"options": [
+"za poplatok zrážaný zo mzdy",
+"bezplatne",
+"zamestnanec si ich kupuje sám"
+],
+"correct": 1,
+"variant": 10
+},
+{
+"slot": 1,
+"text": "Ustanovený týždenný pracovný čas zamestnanca je najviac:",
+"options": [
+"48 hodín",
+"42,5 hodiny",
+"40 hodín"
+],
+"correct": 2,
+"variant": 11
+},
+{
+"slot": 2,
+"text": "Podľa všeobecných zásad prevencie sa uprednostňujú:",
+"options": [
+"lekárske prehliadky pred odstraňovaním nebezpečenstiev",
+"kolektívne ochranné opatrenia pred osobnými ochrannými pracovnými prostriedkami",
+"osobné ochranné pracovné prostriedky pred kolektívnymi opatreniami"
+],
+"correct": 1,
+"variant": 11
+},
+{
+"slot": 3,
+"text": "Inšpektor práce môže pri kontrole:",
+"options": [
+"uložiť trest odňatia slobody",
+"zakázať používanie nebezpečného pracovného prostriedku",
+"prepustiť zamestnanca z práce"
+],
+"correct": 1,
+"variant": 11
+},
+{
+"slot": 4,
+"text": "Rizikové práce vyhlasuje rozhodnutím:",
+"options": [
+"regionálny úrad verejného zdravotníctva",
+"inšpektorát práce",
+"zamestnávateľ vnútorným predpisom"
+],
+"correct": 0,
+"variant": 11
+},
+{
+"slot": 5,
+"text": "S poškodeným elektrickým zariadením (napr. poškodený prívod) zamestnanec:",
+"options": [
+"opraví ho izolačnou páskou",
+"pracuje ďalej opatrnejšie",
+"prestane pracovať, vyradí ho z používania a nahlási"
+],
+"correct": 2,
+"variant": 11
+},
+{
+"slot": 6,
+"text": "Bezpečnostná značka žltej farby znamená:",
+"options": [
+"výstrahu",
+"zákaz",
+"príkaz"
+],
+"correct": 0,
+"variant": 11
+},
+{
+"slot": 7,
+"text": "Pracovný úraz treba oznámiť:",
+"options": [
+"do konca mesiaca",
+"iba ak trvá pracovná neschopnosť dlhšie ako týždeň",
+"bezodkladne nadriadenému"
+],
+"correct": 2,
+"variant": 11
+},
+{
+"slot": 8,
+"text": "Riziko úrazu zvyšuje najmä:",
+"options": [
+"pravidelné prestávky",
+"poriadok na pracovisku",
+"únava, zhon a alkohol"
+],
+"correct": 2,
+"variant": 11
+},
+{
+"slot": 9,
+"text": "Ručné náradie sa smie používať:",
+"options": [
+"akékoľvek, ktoré je poruke",
+"aj poškodené, ak sa práca urýchli",
+"iba nepoškodené a určené na daný účel"
+],
+"correct": 2,
+"variant": 11
+},
+{
+"slot": 10,
+"text": "Telefónne číslo hasičov je:",
+"options": [
+"158",
+"155",
+"150"
+],
+"correct": 2,
+"variant": 11
+},
+{
+"slot": 11,
+"text": "Proti chorobám z povolania chráni zamestnanca najmä:",
+"options": [
+"vynechávanie prestávok",
+"dodržiavanie opatrení, používanie OOPP a lekárske prehliadky",
+"práca nadčas"
+],
+"correct": 1,
+"variant": 11
+},
+{
+"slot": 12,
+"text": "Pri práci so zobrazovacou jednotkou má byť horný okraj obrazovky:",
+"options": [
+"výrazne nad úrovňou očí",
+"pod úrovňou stola",
+"približne vo výške očí"
+],
+"correct": 2,
+"variant": 11
+},
+{
+"slot": 13,
+"text": "Poškodený rebrík:",
+"options": [
+"sa môže používať, ak je pod ním druhá osoba",
+"sa môže používať iba do výšky 3 m",
+"sa nesmie používať"
+],
+"correct": 2,
+"variant": 11
+},
+{
+"slot": 14,
+"text": "Pri vyhlásení evakuácie zamestnanec:",
+"options": [
+"opustí budovu únikovou cestou a ide na zhromaždisko",
+"zostane na pracovisku a čaká",
+"použije výťah"
+],
+"correct": 0,
+"variant": 11
+},
+{
+"slot": 15,
+"text": "Dávkou úrazového poistenia je:",
+"options": [
+"starobný dôchodok",
+"náhrada za bolesť a náhrada za sťaženie spoločenského uplatnenia",
+"materské"
+],
+"correct": 1,
+"variant": 11
+},
+{
+"slot": 16,
+"text": "Náhrada príjmu za 1. až 3. deň dočasnej pracovnej neschopnosti je:",
+"options": [
+"100 % mzdy",
+"25 % denného vymeriavacieho základu",
+"55 % denného vymeriavacieho základu"
+],
+"correct": 1,
+"variant": 11
+},
+{
+"slot": 17,
+"text": "Bezpečnostná značka červenej farby znamená:",
+"options": [
+"zákaz alebo protipožiarne vybavenie",
+"bezpečie a záchranu",
+"príkaz"
+],
+"correct": 0,
+"variant": 11
+},
+{
+"slot": 18,
+"text": "Bezpečnostná značka zelenej farby označuje:",
+"options": [
+"výstrahu pred napätím",
+"bezpečie a záchranu (únikové cesty, prvá pomoc)",
+"zákaz vstupu"
+],
+"correct": 1,
+"variant": 11
+},
+{
+"slot": 19,
+"text": "Pracovisko musí byť vybavené:",
+"options": [
+"prostriedkami na poskytnutie prvej pomoci",
+"iba kávovarom",
+"iba tlačiarňou"
+],
+"correct": 0,
+"variant": 11
+},
+{
+"slot": 20,
+"text": "Na úspešné overenie vedomostí písomným testom je potrebných najmenej:",
+"options": [
+"100 % správnych odpovedí",
+"75 % správnych odpovedí",
+"50 % správnych odpovedí"
+],
+"correct": 1,
+"variant": 11
+},
+{
+"slot": 1,
+"text": "Zamestnávateľ sa môže zbaviť zodpovednosti za škodu pri pracovnom úraze najmä vtedy, ak zamestnanec:",
+"options": [
+"bol v zamestnaní kratšie ako rok",
+"porušil predpisy, s ktorými bol riadne oboznámený a ktorých dodržiavanie sa vyžadovalo a kontrolovalo",
+"pracoval nadčas so súhlasom vedúceho"
+],
+"correct": 1,
+"variant": 12
+},
+{
+"slot": 2,
+"text": "Opakované oboznamovanie zamestnancov o BOZP sa vykonáva najmenej:",
+"options": [
+"raz za desať rokov",
+"raz za päť rokov",
+"raz za tri roky, ak predpisy neurčujú kratšiu lehotu"
+],
+"correct": 2,
+"variant": 12
+},
+{
+"slot": 3,
+"text": "Oprávnenia na výchovu a vzdelávanie v oblasti ochrany práce vydáva:",
+"options": [
+"Ministerstvo vnútra SR",
+"Slovenská obchodná a priemyselná komora",
+"Národný inšpektorát práce"
+],
+"correct": 2,
+"variant": 12
+},
+{
+"slot": 4,
+"text": "Pri rizikových prácach je zamestnanec povinný:",
+"options": [
+"podrobiť sa lekárskym preventívnym prehliadkam vo vzťahu k práci",
+"absolvovať prehliadku iba raz za život",
+"chodiť k lekárovi len pri úraze"
+],
+"correct": 0,
+"variant": 12
+},
+{
+"slot": 5,
+"text": "Najvyššiu mieru ohrozenia majú vyhradené technické zariadenia skupiny:",
+"options": [
+"B",
+"A",
+"C"
+],
+"correct": 1,
+"variant": 12
+},
+{
+"slot": 6,
+"text": "Poistné na úrazové poistenie zamestnanca platí:",
+"options": [
+"zamestnanec",
+"zamestnanec a zamestnávateľ každý polovicu",
+"zamestnávateľ"
+],
+"correct": 2,
+"variant": 12
+},
+{
+"slot": 7,
+"text": "Zamestnanec, ktorý v teste nevyhovel:",
+"options": [
+"zopakuje overenie v náhradnom termíne a dovtedy nesmie samostatne vykonávať prácu",
+"už nikdy nemôže overenie opakovať",
+"môže pracovať bez obmedzenia"
+],
+"correct": 0,
+"variant": 12
+},
+{
+"slot": 8,
+"text": "Telefónne číslo záchrannej zdravotnej služby je:",
+"options": [
+"155",
+"158",
+"150"
+],
+"correct": 0,
+"variant": 12
+},
+{
+"slot": 9,
+"text": "Náhradu príjmu počas prvých 10 dní pracovnej neschopnosti vypláca:",
+"options": [
+"úrad práce",
+"zamestnávateľ",
+"Sociálna poisťovňa"
+],
+"correct": 1,
+"variant": 12
+},
+{
+"slot": 10,
+"text": "Pri ukladaní materiálu do regálov treba:",
+"options": [
+"dodržiavať nosnosť regálu a ukladať stabilne",
+"ukladať čo najvyššie bez ohľadu na nosnosť",
+"ťažké predmety ukladať navrch"
+],
+"correct": 0,
+"variant": 12
+},
+{
+"slot": 11,
+"text": "Telefónne číslo polície je:",
+"options": [
+"150",
+"158",
+"155"
+],
+"correct": 1,
+"variant": 12
+},
+{
+"slot": 12,
+"text": "Pracovný úraz treba oznámiť:",
+"options": [
+"iba ak trvá pracovná neschopnosť dlhšie ako týždeň",
+"do konca mesiaca",
+"bezodkladne nadriadenému"
+],
+"correct": 2,
+"variant": 12
+},
+{
+"slot": 13,
+"text": "Limitná hodnota expozície hluku je:",
+"options": [
+"70 dB(A)",
+"87 dB(A)",
+"100 dB(A)"
+],
+"correct": 1,
+"variant": 12
+},
+{
+"slot": 14,
+"text": "Bremeno sa správne dvíha:",
+"options": [
+"s ohnutým chrbtom a vystretými nohami",
+"rýchlo s otočením trupu",
+"z podrepu s rovným chrbtom, blízko pri tele"
+],
+"correct": 2,
+"variant": 12
+},
+{
+"slot": 15,
+"text": "Nový pracovný prostriedok smie zamestnanec používať:",
+"options": [
+"iba ak ho nikto nevidí",
+"až po oboznámení s návodom na obsluhu",
+"hneď, bez oboznámenia"
+],
+"correct": 1,
+"variant": 12
+},
+{
+"slot": 16,
+"text": "Čistiť, opravovať alebo nastavovať stroj možno:",
+"options": [
+"s odstráneným krytom počas prevádzky",
+"za chodu, ak sa to robí opatrne",
+"iba keď je zastavený a zaistený proti spusteniu"
+],
+"correct": 2,
+"variant": 12
+},
+{
+"slot": 17,
+"text": "Choroby z povolania vznikajú najmä:",
+"options": [
+"dlhodobým pôsobením faktorov práce (hluk, vibrácie, prach, chemické látky)",
+"mimo pracovného prostredia",
+"jednorazovým úrazom"
+],
+"correct": 0,
+"variant": 12
+},
+{
+"slot": 18,
+"text": "Zamestnanec pracujúci so zobrazovacou jednotkou má nárok na:",
+"options": [
+"príplatok za prácu s počítačom",
+"skrátenie pracovného času na polovicu",
+"vyšetrenie zraku"
+],
+"correct": 2,
+"variant": 12
+},
+{
+"slot": 19,
+"text": "Jednou z najčastejších príčin pracovných úrazov je:",
+"options": [
+"pošmyknutie, zakopnutie a pád",
+"dodržiavanie pracovných postupov",
+"používanie OOPP"
+],
+"correct": 0,
+"variant": 12
+},
+{
+"slot": 20,
+"text": "Pri práci s chemickými látkami treba:",
+"options": [
+"prelievať látky do neoznačených fliaš",
+"dodržiavať kartu bezpečnostných údajov a na pracovisku nejesť a nepiť",
+"skúšať látky čuchom"
+],
+"correct": 1,
+"variant": 12
+},
+{
+"slot": 1,
+"text": "Mladistvý zamestnanec je zamestnanec mladší ako:",
+"options": [
+"18 rokov",
+"21 rokov",
+"16 rokov"
+],
+"correct": 0,
+"variant": 13
+},
+{
+"slot": 2,
+"text": "Registrovaný pracovný úraz je úraz, ktorý spôsobil:",
+"options": [
+"pracovnú neschopnosť dlhšiu ako jeden deň",
+"pracovnú neschopnosť dlhšiu ako tri dni alebo smrť",
+"pracovnú neschopnosť dlhšiu ako 30 dní"
+],
+"correct": 1,
+"variant": 13
+},
+{
+"slot": 3,
+"text": "Inšpektor práce môže pri kontrole:",
+"options": [
+"uložiť trest odňatia slobody",
+"zakázať používanie nebezpečného pracovného prostriedku",
+"prepustiť zamestnanca z práce"
+],
+"correct": 1,
+"variant": 13
+},
+{
+"slot": 4,
+"text": "Rizikové práce vyhlasuje rozhodnutím:",
+"options": [
+"inšpektorát práce",
+"zamestnávateľ vnútorným predpisom",
+"regionálny úrad verejného zdravotníctva"
+],
+"correct": 2,
+"variant": 13
+},
+{
+"slot": 5,
+"text": "Vyhradené technické zariadenia sa podľa miery ohrozenia delia do skupín:",
+"options": [
+"I, II, III, IV",
+"1, 2, 3",
+"A, B, C"
+],
+"correct": 2,
+"variant": 13
+},
+{
+"slot": 6,
+"text": "Dávkou úrazového poistenia je:",
+"options": [
+"materské",
+"náhrada za bolesť a náhrada za sťaženie spoločenského uplatnenia",
+"starobný dôchodok"
+],
+"correct": 1,
+"variant": 13
+},
+{
+"slot": 7,
+"text": "Pri ukladaní materiálu do regálov treba:",
+"options": [
+"dodržiavať nosnosť regálu a ukladať stabilne",
+"ukladať čo najvyššie bez ohľadu na nosnosť",
+"ťažké predmety ukladať navrch"
+],
+"correct": 0,
+"variant": 13
+},
+{
+"slot": 8,
+"text": "Práca na bežiacom stroji s odstráneným krytom hrozí najmä:",
+"options": [
+"zachytením alebo stlačením časti tela",
+"úsporou času bez rizika",
+"zlepšením kvality práce"
+],
+"correct": 0,
+"variant": 13
+},
+{
+"slot": 9,
+"text": "Riziká vášho pracoviska a opatrenia na ich zníženie nájdete:",
+"options": [
+"v telefónnom zozname",
+"v pracovnej zmluve",
+"v hodnotení rizík (písomnom dokumente o posúdení rizika)"
+],
+"correct": 2,
+"variant": 13
+},
+{
+"slot": 10,
+"text": "Náhradu príjmu počas prvých 10 dní pracovnej neschopnosti vypláca:",
+"options": [
+"Sociálna poisťovňa",
+"zamestnávateľ",
+"úrad práce"
+],
+"correct": 1,
+"variant": 13
+},
+{
+"slot": 11,
+"text": "Pridelené OOPP je zamestnanec povinný:",
+"options": [
+"používať podľa vlastného uváženia",
+"používať iba pri kontrole inšpekcie",
+"používať, starať sa o ne a hlásiť ich poškodenie"
+],
+"correct": 2,
+"variant": 13
+},
+{
+"slot": 12,
+"text": "Riziko úrazu zvyšuje najmä:",
+"options": [
+"pravidelné prestávky",
+"poriadok na pracovisku",
+"únava, zhon a alkohol"
+],
+"correct": 2,
+"variant": 13
+},
+{
+"slot": 13,
+"text": "Pri práci so zobrazovacou jednotkou má byť horný okraj obrazovky:",
+"options": [
+"približne vo výške očí",
+"výrazne nad úrovňou očí",
+"pod úrovňou stola"
+],
+"correct": 0,
+"variant": 13
+},
+{
+"slot": 14,
+"text": "OOPP sa používajú:",
+"options": [
+"namiesto technických opatrení",
+"namiesto oboznamovania o BOZP",
+"ako posledná ochrana, ak riziko nemožno odstrániť inak"
+],
+"correct": 2,
+"variant": 13
+},
+{
+"slot": 15,
+"text": "Pri hluku nad hornou akčnou hodnotou 85 dB(A) je používanie chráničov sluchu:",
+"options": [
+"zakázané",
+"dobrovoľné",
+"povinné"
+],
+"correct": 2,
+"variant": 13
+},
+{
+"slot": 16,
+"text": "Čistiť, opravovať alebo nastavovať stroj možno:",
+"options": [
+"iba keď je zastavený a zaistený proti spusteniu",
+"s odstráneným krytom počas prevádzky",
+"za chodu, ak sa to robí opatrne"
+],
+"correct": 0,
+"variant": 13
+},
+{
+"slot": 17,
+"text": "Na úspešné overenie vedomostí písomným testom je potrebných najmenej:",
+"options": [
+"100 % správnych odpovedí",
+"50 % správnych odpovedí",
+"75 % správnych odpovedí"
+],
+"correct": 2,
+"variant": 13
+},
+{
+"slot": 18,
+"text": "Pri vyhlásení evakuácie zamestnanec:",
+"options": [
+"zostane na pracovisku a čaká",
+"použije výťah",
+"opustí budovu únikovou cestou a ide na zhromaždisko"
+],
+"correct": 2,
+"variant": 13
+},
+{
+"slot": 19,
+"text": "Ťažké alebo objemné bremená sa prenášajú:",
+"options": [
+"vždy jedným zamestnancom",
+"vo dvojici alebo s pomôckami",
+"hádzaním na miesto uloženia"
+],
+"correct": 1,
+"variant": 13
+},
+{
+"slot": 20,
+"text": "Jednotné európske číslo tiesňového volania je:",
+"options": [
+"158",
+"112",
+"911"
+],
+"correct": 1,
+"variant": 13
+},
+{
+"slot": 1,
+"text": "Náhrada škody, ktorú zamestnanec spôsobil z nedbanlivosti, je spravidla obmedzená:",
+"options": [
+"dvojnásobkom jeho priemerného mesačného zárobku",
+"nie je obmedzená",
+"štvornásobkom jeho priemerného mesačného zárobku"
+],
+"correct": 2,
+"variant": 14
+},
+{
+"slot": 2,
+"text": "Vo vzťahu k alkoholu je zamestnanec povinný:",
+"options": [
+"nepiť ho iba počas obedňajšej prestávky",
+"podrobiť sa skúške iba so súhlasom lekára",
+"nepožívať ho na pracovisku, nenastupovať pod jeho vplyvom a podrobiť sa skúške"
+],
+"correct": 2,
+"variant": 14
+},
+{
+"slot": 3,
+"text": "Zamestnanci sú povinní inšpektorovi práce:",
+"options": [
+"umožniť výkon inšpekcie a poskytnúť súčinnosť",
+"odmietnuť vstup bez súhlasu riaditeľa",
+"poskytnúť informácie iba písomne do 30 dní"
+],
+"correct": 0,
+"variant": 14
+},
+{
+"slot": 4,
+"text": "Pracovnú zdravotnú službu je povinný zabezpečiť:",
+"options": [
+"iba zamestnávateľ s prácami kategórie 4",
+"iba zamestnávateľ s viac ako 50 zamestnancami",
+"každý zamestnávateľ"
+],
+"correct": 2,
+"variant": 14
+},
+{
+"slot": 5,
+"text": "Pri úraze elektrickým prúdom je potrebné najprv:",
+"options": [
+"bezpečne prerušiť prúd (vypnúť istič, vytiahnuť vidlicu)",
+"chytiť postihnutého za ruku a odtiahnuť ho",
+"poliať postihnutého vodou"
+],
+"correct": 0,
+"variant": 14
+},
+{
+"slot": 6,
+"text": "Zamestnanec, ktorý v teste nevyhovel:",
+"options": [
+"zopakuje overenie v náhradnom termíne a dovtedy nesmie samostatne vykonávať prácu",
+"môže pracovať bez obmedzenia",
+"už nikdy nemôže overenie opakovať"
+],
+"correct": 0,
+"variant": 14
+},
+{
+"slot": 7,
+"text": "Telefónne číslo záchrannej zdravotnej služby je:",
+"options": [
+"158",
+"150",
+"155"
+],
+"correct": 2,
+"variant": 14
+},
+{
+"slot": 8,
+"text": "Choroby z povolania vznikajú najmä:",
+"options": [
+"jednorazovým úrazom",
+"dlhodobým pôsobením faktorov práce (hluk, vibrácie, prach, chemické látky)",
+"mimo pracovného prostredia"
+],
+"correct": 1,
+"variant": 14
+},
+{
+"slot": 9,
+"text": "Ručné náradie sa smie používať:",
+"options": [
+"iba nepoškodené a určené na daný účel",
+"akékoľvek, ktoré je poruke",
+"aj poškodené, ak sa práca urýchli"
+],
+"correct": 0,
+"variant": 14
+},
+{
+"slot": 10,
+"text": "Pridelené OOPP je zamestnanec povinný:",
+"options": [
+"používať, starať sa o ne a hlásiť ich poškodenie",
+"používať podľa vlastného uváženia",
+"používať iba pri kontrole inšpekcie"
+],
+"correct": 0,
+"variant": 14
+},
+{
+"slot": 11,
+"text": "OOPP sa používajú:",
+"options": [
+"namiesto technických opatrení",
+"namiesto oboznamovania o BOZP",
+"ako posledná ochrana, ak riziko nemožno odstrániť inak"
+],
+"correct": 2,
+"variant": 14
+},
+{
+"slot": 12,
+"text": "Poistné na úrazové poistenie zamestnanca platí:",
+"options": [
+"zamestnávateľ",
+"zamestnanec a zamestnávateľ každý polovicu",
+"zamestnanec"
+],
+"correct": 0,
+"variant": 14
+},
+{
+"slot": 13,
+"text": "Únikové cesty a prístup k hasiacim prístrojom musia byť:",
+"options": [
+"voľné iba počas kontroly",
+"stále voľné",
+"môžu byť dočasne zastavané materiálom"
+],
+"correct": 1,
+"variant": 14
+},
+{
+"slot": 14,
+"text": "Náhrada príjmu za 4. až 10. deň dočasnej pracovnej neschopnosti je:",
+"options": [
+"70 % mzdy",
+"25 % denného vymeriavacieho základu",
+"55 % denného vymeriavacieho základu"
+],
+"correct": 2,
+"variant": 14
+},
+{
+"slot": 15,
+"text": "Telefónne číslo hasičov je:",
+"options": [
+"155",
+"150",
+"158"
+],
+"correct": 1,
+"variant": 14
+},
+{
+"slot": 16,
+"text": "Pri vyhlásení evakuácie zamestnanec:",
+"options": [
+"zostane na pracovisku a čaká",
+"opustí budovu únikovou cestou a ide na zhromaždisko",
+"použije výťah"
+],
+"correct": 1,
+"variant": 14
+},
+{
+"slot": 17,
+"text": "Jednou z najčastejších príčin pracovných úrazov je:",
+"options": [
+"dodržiavanie pracovných postupov",
+"pošmyknutie, zakopnutie a pád",
+"používanie OOPP"
+],
+"correct": 1,
+"variant": 14
+},
+{
+"slot": 18,
+"text": "Pracovisko musí byť vybavené:",
+"options": [
+"iba kávovarom",
+"iba tlačiarňou",
+"prostriedkami na poskytnutie prvej pomoci"
+],
+"correct": 2,
+"variant": 14
+},
+{
+"slot": 19,
+"text": "Zamestnanec pracujúci so zobrazovacou jednotkou má nárok na:",
+"options": [
+"skrátenie pracovného času na polovicu",
+"vyšetrenie zraku",
+"príplatok za prácu s počítačom"
+],
+"correct": 1,
+"variant": 14
+},
+{
+"slot": 20,
+"text": "Nový pracovný prostriedok smie zamestnanec používať:",
+"options": [
+"hneď, bez oboznámenia",
+"iba ak ho nikto nevidí",
+"až po oboznámení s návodom na obsluhu"
+],
+"correct": 2,
+"variant": 14
+},
+{
+"slot": 1,
+"text": "Nepretržitý denný odpočinok dospelého zamestnanca medzi dvoma zmenami je najmenej:",
+"options": [
+"10 hodín",
+"12 hodín",
+"8 hodín"
+],
+"correct": 1,
+"variant": 15
+},
+{
+"slot": 2,
+"text": "Nebezpečenstvo je:",
+"options": [
+"výsledok kontroly inšpekcie práce",
+"zápis v knihe úrazov",
+"vlastnosť alebo schopnosť niečoho spôsobiť poškodenie zdravia"
+],
+"correct": 2,
+"variant": 15
+},
+{
+"slot": 3,
+"text": "Dozor nad dodržiavaním predpisov BOZP vykonáva:",
+"options": [
+"daňový úrad",
+"inšpektorát práce",
+"obecný úrad"
+],
+"correct": 1,
+"variant": 15
+},
+{
+"slot": 4,
+"text": "Rizikové práce sú práce zaradené do kategórie:",
+"options": [
+"3 a 4",
+"iba 1",
+"1 a 2"
+],
+"correct": 0,
+"variant": 15
+},
+{
+"slot": 5,
+"text": "Osoba bez elektrotechnickej kvalifikácie smie elektrické zariadenie:",
+"options": [
+"otvárať a odstraňovať kryty",
+"iba používať podľa návodu",
+"opravovať, ak je vypnuté"
+],
+"correct": 1,
+"variant": 15
+},
+{
+"slot": 6,
+"text": "Náhrada príjmu za 1. až 3. deň dočasnej pracovnej neschopnosti je:",
+"options": [
+"100 % mzdy",
+"55 % denného vymeriavacieho základu",
+"25 % denného vymeriavacieho základu"
+],
+"correct": 2,
+"variant": 15
+},
+{
+"slot": 7,
+"text": "Dávky úrazového poistenia vypláca:",
+"options": [
+"inšpektorát práce",
+"zdravotná poisťovňa",
+"Sociálna poisťovňa"
+],
+"correct": 2,
+"variant": 15
+},
+{
+"slot": 8,
+"text": "Na úspešné overenie vedomostí písomným testom je potrebných najmenej:",
+"options": [
+"100 % správnych odpovedí",
+"50 % správnych odpovedí",
+"75 % správnych odpovedí"
+],
+"correct": 2,
+"variant": 15
+},
+{
+"slot": 9,
+"text": "Poškodený rebrík:",
+"options": [
+"sa nesmie používať",
+"sa môže používať iba do výšky 3 m",
+"sa môže používať, ak je pod ním druhá osoba"
+],
+"correct": 0,
+"variant": 15
+},
+{
+"slot": 10,
+"text": "Pri hluku nad hornou akčnou hodnotou 85 dB(A) je používanie chráničov sluchu:",
+"options": [
+"povinné",
+"dobrovoľné",
+"zakázané"
+],
+"correct": 0,
+"variant": 15
+},
+{
+"slot": 11,
+"text": "Pracovný úraz treba oznámiť:",
+"options": [
+"iba ak trvá pracovná neschopnosť dlhšie ako týždeň",
+"bezodkladne nadriadenému",
+"do konca mesiaca"
+],
+"correct": 1,
+"variant": 15
+},
+{
+"slot": 12,
+"text": "Bremeno sa správne dvíha:",
+"options": [
+"rýchlo s otočením trupu",
+"z podrepu s rovným chrbtom, blízko pri tele",
+"s ohnutým chrbtom a vystretými nohami"
+],
+"correct": 1,
+"variant": 15
+},
+{
+"slot": 13,
+"text": "Ručné náradie sa smie používať:",
+"options": [
+"aj poškodené, ak sa práca urýchli",
+"akékoľvek, ktoré je poruke",
+"iba nepoškodené a určené na daný účel"
+],
+"correct": 2,
+"variant": 15
+},
+{
+"slot": 14,
+"text": "Práca na bežiacom stroji s odstráneným krytom hrozí najmä:",
+"options": [
+"úsporou času bez rizika",
+"zlepšením kvality práce",
+"zachytením alebo stlačením časti tela"
+],
+"correct": 2,
+"variant": 15
+},
+{
+"slot": 15,
+"text": "Limitná hodnota expozície hluku je:",
+"options": [
+"100 dB(A)",
+"70 dB(A)",
+"87 dB(A)"
+],
+"correct": 2,
+"variant": 15
+},
+{
+"slot": 16,
+"text": "Riziká vášho pracoviska a opatrenia na ich zníženie nájdete:",
+"options": [
+"v hodnotení rizík (písomnom dokumente o posúdení rizika)",
+"v pracovnej zmluve",
+"v telefónnom zozname"
+],
+"correct": 0,
+"variant": 15
+},
+{
+"slot": 17,
+"text": "Bezpečnostná značka modrej farby znamená:",
+"options": [
+"príkaz (napr. používaj ochranné okuliare)",
+"únikovú cestu",
+"výstrahu"
+],
+"correct": 0,
+"variant": 15
+},
+{
+"slot": 18,
+"text": "Telefónne číslo polície je:",
+"options": [
+"150",
+"155",
+"158"
+],
+"correct": 2,
+"variant": 15
+},
+{
+"slot": 19,
+"text": "Pri práci s chemickými látkami treba:",
+"options": [
+"skúšať látky čuchom",
+"prelievať látky do neoznačených fliaš",
+"dodržiavať kartu bezpečnostných údajov a na pracovisku nejesť a nepiť"
+],
+"correct": 2,
+"variant": 15
+},
+{
+"slot": 20,
+"text": "Proti chorobám z povolania chráni zamestnanca najmä:",
+"options": [
+"práca nadčas",
+"vynechávanie prestávok",
+"dodržiavanie opatrení, používanie OOPP a lekárske prehliadky"
+],
+"correct": 2,
+"variant": 15
+}
+]
+}
