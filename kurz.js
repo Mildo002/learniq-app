@@ -239,7 +239,8 @@ async function testScreen() {
     const end = new Date(T.deadline_at).getTime(), tmr = $("#tmr");
     const tick = () => {
       const left = Math.max(0, Math.round((end - Date.now()) / 1000));
-      tmr.textContent = `${Math.floor(left / 60)}:${String(left % 60).padStart(2, "0")}`;
+      const hh = Math.floor(left / 3600), mm = Math.floor((left % 3600) / 60), ss = String(left % 60).padStart(2, "0");
+      tmr.textContent = hh ? `${hh}:${String(mm).padStart(2, "0")}:${ss}` : `${mm}:${ss}`;
       tmr.style.color = left < 120 ? "var(--bad)" : "";
       if (left <= 0) { clearInterval(testTimer); toast("Čas na test uplynul – test sa odovzdáva."); submit(true); }
     };

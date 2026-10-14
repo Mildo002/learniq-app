@@ -144,7 +144,7 @@ dialog .acts { display: flex; gap: 8px; justify-content: flex-end; margin-top: 1
   radial-gradient(circle at 20% 10%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 50%),
   radial-gradient(circle at 90% 90%, color-mix(in srgb, var(--accent2) 18%, transparent), transparent 50%), var(--bg); }
 .auth .card { width: min(420px, 100%); padding: 28px; }
-.auth .logo { display: block; width: 180px; margin: 0 auto 18px; }
+.auth .logo { display: block; width: 220px; margin: 0 auto 18px; border-radius: 14px; }
 
 /* školený – obsah tém */
 .study { font-size: 1.02rem; line-height: 1.65; }
