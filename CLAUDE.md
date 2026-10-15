@@ -11,8 +11,8 @@
 ## Infraštruktúra
 | Čo | Kde |
 |---|---|
-| Repozitár | GitHub `keyloproject/LearnIQ`, vetva `main` |
-| Hosting | Vercel – projekt `learniq` (push do `main` = nasadenie) |
+| Repozitár | GitHub `Mildo002/learniq-app`, vetva `main` (kópia aj v `keyloproject/LearnIQ`, nepoužíva sa) |
+| Hosting | Vercel – projekt `learniq` → https://learniq-seven.vercel.app (push do `main` = nasadenie) |
 | Databáza | Supabase projekt Keylo `qmkxuirjjuyefcjuxflp` (tabuľky s predponou `lq_`) |
 
 ## Databáza
