@@ -141,6 +141,29 @@ class Doc {
     });
     this.y -= 8;
   }
+  /** Podpisové polia vedľa seba: popis, obrázok podpisu (PNG), čiara, meno a poznámka. */
+  async signBlock(items: { label: string; name: string; img?: Uint8Array | null; note?: string }[]) {
+    const h = 92, gap = 14, w = (A4[0] - 2 * M - gap * (items.length - 1)) / items.length;
+    this.ensure(h + 10);
+    const top = this.y;
+    for (let i = 0; i < items.length; i++) {
+      const it = items[i], x = M + i * (w + gap);
+      this.page.drawText(it.label, { x, y: top - 9, size: 8, font: this.f, color: MUT });
+      if (it.img) {
+        try {
+          const png = await this.pdf.embedPng(it.img);
+          const sc = Math.min((w - 4) / png.width, 52 / png.height);
+          this.page.drawImage(png, { x: x + 2, y: top - 14 - png.height * sc, width: png.width * sc, height: png.height * sc });
+        } catch { /* poškodený obrázok – pole ostane prázdne */ }
+      } else {
+        this.page.drawText("bez podpisu", { x: x + 2, y: top - 44, size: 8, font: this.f, color: LINE });
+      }
+      this.page.drawLine({ start: { x, y: top - 70 }, end: { x: x + w, y: top - 70 }, thickness: 0.6, color: MUT });
+      for (const [k, ln] of this.wrap(it.name, 8.5, w).slice(0, 1).entries()) this.page.drawText(ln, { x, y: top - 80 - k * 10, size: 8.5, font: this.b, color: INK });
+      if (it.note) this.page.drawText(this.wrap(it.note, 7, w)[0], { x, y: top - 90, size: 7, font: this.f, color: MUT });
+    }
+    this.y = top - h - 8;
+  }
   kv(rows: [string, string][], w1 = 170) { this.table(rows.map(([k, v]) => [k, v]), [w1, A4[0] - 2 * M - w1], { boldFirstCol: false, colors: rows.map(() => [MUT, INK]) }); }
   async finish() {
     const pages = this.pdf.getPages();
@@ -161,9 +184,11 @@ export type ProtocolData = {
   topics: { position: number; title: string; minutes: number; seconds: number; started_at?: string | null; done_at?: string | null }[];
   attempt: { no: number; questions: { text: string; options: string[]; correct: number }[]; answers: (number | null)[];
     started_at: string; submitted_at: string; correct: number; total: number; percent: number; passed: boolean;
+    app_passed?: boolean | null; note?: string | null;
     confirmed_name?: string | null; confirmed_cert?: string | null; confirmed_at?: string | null };
-  attempts: { no: number; submitted_at: string | null; correct: number | null; total: number | null; passed: boolean | null }[];
+  attempts: { no: number; submitted_at: string | null; correct: number | null; total: number | null; passed: boolean | null; app_passed?: boolean | null }[];
   valid_until?: string | null;
+  signatures?: { employee?: Uint8Array | null; employee_at?: string | null; evaluator?: Uint8Array | null };
 };
 
 export async function protocolPdf(d: ProtocolData) {
@@ -172,6 +197,13 @@ export async function protocolPdf(d: ProtocolData) {
   const kind = s.kind === "A" ? "A – vstupné oboznamovanie (4 hodiny)" : "B – opakované oboznamovanie (3 hodiny)";
   const doc = await Doc.create(t, `Protokol ${s.protocol_no} · ${name}`);
   const result = a.passed ? "VYHOVEL" : "NEVYHOVEL";
+  const appPassed = a.app_passed ?? a.passed;
+  const changed = appPassed !== a.passed;
+  const decision: [string, string][] = [
+    ["Vyhodnotenie aplikáciou", appPassed ? "vyhovel" : "nevyhovel"],
+    ["Rozhodnutie hodnotiteľa", a.confirmed_at ? `${result}${changed ? " (výsledok aplikácie zmenený)" : " (potvrdené)"}` : "–"],
+    ...(a.note ? [["Poznámka hodnotiteľa", a.note] as [string, string]] : []),
+  ];
   const evaluated = a.confirmed_name
     ? `${a.confirmed_name}${a.confirmed_cert ? `, osvedčenie č. ${a.confirmed_cert}` : ""} – potvrdené elektronicky ${fmtDateTime(a.confirmed_at)}`
     : "–";
@@ -192,16 +224,16 @@ export async function protocolPdf(d: ProtocolData) {
     ["Druh a rozsah", kind],
     ["Forma", "e-learning (vzdelávanie formou e-learningu podľa schváleného projektu)"],
     ["Číslo školiaceho protokolu", s.protocol_no],
-    ["Štúdium", `${fmtDateTime(e.study_started_at)} – ${fmtDateTime(e.study_done_at)}`],
     ["Záverečný test", `${fmtDateTime(a.submitted_at)} · ${a.correct} z ${a.total} (${a.percent.toFixed(0)} %), potrebných najmenej ${t.pass_percent} %`],
     ["Výsledok", result],
+    ...(changed || a.note ? decision.slice(0, 1).concat(decision.slice(2)) : []),
     ["Test vyhodnotil", evaluated],
     ...(a.passed && d.valid_until ? [["Ďalšie oboznámenie najneskôr do", fmtDate(d.valid_until)] as [string, string]] : []),
   ]);
   doc.h("Prebraté témy podľa učebného plánu");
-  doc.table([["Č.", "Téma", "Plán (min)", "Štúdium (min)"],
-    ...d.topics.map((x) => [String(x.position), x.title, String(x.minutes), String(Math.floor(x.seconds / 60))])],
-    [26, A4[0] - 2 * M - 26 - 70 - 80, 70, 80], { head: true });
+  doc.table([["Č.", "Téma", "Plán (min)"],
+    ...d.topics.map((x) => [String(x.position), x.title, String(x.minutes)])],
+    [26, A4[0] - 2 * M - 26 - 70, 70], { head: true });
   if (a.passed) {
     doc.text(`Potvrdzujeme, že zamestnanec bol oboznámený s právnymi predpismi a ostatnými predpismi na zaistenie bezpečnosti a ochrany zdravia pri práci, s vnútornými predpismi zamestnávateľa, s rizikami a opatreniami v rozsahu uvedenom vyššie, a úspešne absolvoval záverečné overenie vedomostí. Oboznámenie sa vykonalo v rozsahu a obsahu podľa schváleného projektu výchovy a vzdelávania ${t.name}.`, { size: 9, gap: 6 });
   } else {
@@ -211,6 +243,11 @@ export async function protocolPdf(d: ProtocolData) {
   doc.table([["Odborný zástupca", "Test vyhodnotil a výsledok potvrdil", "Školiteľ"],
     [t.rep_name ? `${t.rep_name}${t.rep_cert ? `\nosvedčenie č. ${t.rep_cert}` : ""}` : "–", evaluated, s.lektor_name || "–"]],
     [166, 166, A4[0] - 2 * M - 332], { head: true });
+  const sig = d.signatures || {};
+  await doc.signBlock([
+    { label: "Podpis zamestnanca", name, img: sig.employee, note: sig.employee_at ? `podpísané elektronicky ${fmtDateTime(sig.employee_at)}` : "nepodpísané" },
+    { label: "Test vyhodnotil a výsledok potvrdil", name: a.confirmed_name || "–", img: sig.evaluator, note: a.confirmed_at ? `potvrdené ${fmtDateTime(a.confirmed_at)}` : "" },
+  ]);
   doc.text("Dokument bol vytvorený elektronicky na základe záznamov e-learningovej platformy. Overenie totožnosti, priebeh štúdia a výsledok testu sú uložené v elektronickej záznamovej knihe a uchovávajú sa 10 rokov (§ 4 vyhlášky č. 356/2007 Z. z.).", { size: 8, color: MUT });
 
   // 2. Test s vyhodnotením
@@ -234,7 +271,12 @@ export async function protocolPdf(d: ProtocolData) {
     ["Počet správnych odpovedí", `${a.correct} / ${a.total}`],
     ["Úspešnosť", `${a.percent.toFixed(0)} % (potrebných najmenej ${t.pass_percent} %)`],
     ["Výsledok", result],
+    ...decision,
     ["Test vyhodnotil", evaluated],
+  ]);
+  await doc.signBlock([
+    { label: "Podpis zamestnanca", name, img: sig.employee, note: sig.employee_at ? `podpísané elektronicky ${fmtDateTime(sig.employee_at)}` : "nepodpísané" },
+    { label: "Vyhodnotil", name: a.confirmed_name || "–", img: sig.evaluator, note: a.confirmed_at ? `potvrdené ${fmtDateTime(a.confirmed_at)}` : "" },
   ]);
 
   // 3. Výpis z e-learningovej platformy
@@ -244,14 +286,15 @@ export async function protocolPdf(d: ProtocolData) {
     ["Overenie totožnosti", e.verified_at ? `${fmtDateTime(e.verified_at)} – jednorazovým kódom zaslaným na ${e.email}, meno a firma zadané školeným` : "–"],
     ["Začiatok štúdia", fmtDateTime(e.study_started_at)],
     ["Ukončenie štúdia", fmtDateTime(e.study_done_at)],
+    ["Vlastnoručný podpis po teste", sig.employee_at ? `${fmtDateTime(sig.employee_at)} – nakreslený školeným v aplikácii, uložený k pokusu č. ${a.no}` : "–"],
   ]);
-  doc.h("Čas štúdia podľa tém (iba aktívne štúdium)");
-  doc.table([["Č.", "Téma", "Začiatok", "Dokončené", "Min."],
-    ...d.topics.map((x) => [String(x.position), x.title, fmtDateTime(x.started_at), fmtDateTime(x.done_at), String(Math.floor(x.seconds / 60))])],
-    [24, A4[0] - 2 * M - 24 - 92 - 92 - 36, 92, 92, 36], { head: true, size: 8 });
+  doc.h("Priebeh štúdia podľa tém");
+  doc.table([["Č.", "Téma", "Začiatok", "Dokončené"],
+    ...d.topics.map((x) => [String(x.position), x.title, fmtDateTime(x.started_at), fmtDateTime(x.done_at)])],
+    [24, A4[0] - 2 * M - 24 - 92 - 92, 92, 92], { head: true, size: 8 });
   doc.h("Pokusy o záverečný test");
   doc.table([["Pokus", "Odovzdané", "Správne", "Výsledok"],
-    ...d.attempts.map((x) => [String(x.no), fmtDateTime(x.submitted_at), x.correct == null ? "–" : `${x.correct} / ${x.total}`, x.passed == null ? "–" : x.passed ? "vyhovel" : "nevyhovel"])],
+    ...d.attempts.map((x) => [String(x.no), fmtDateTime(x.submitted_at), x.correct == null ? "–" : `${x.correct} / ${x.total}`, x.passed == null ? "–" : `${x.passed ? "vyhovel" : "nevyhovel"}${x.app_passed != null && x.app_passed !== x.passed ? " (rozhodnutie hodnotiteľa)" : ""}`])],
     [60, 180, 100, A4[0] - 2 * M - 340], { head: true });
   return await doc.finish();
 }

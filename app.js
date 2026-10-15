@@ -1,7 +1,7 @@
 // LearnIQ – aplikácia školiteľa (správca, školitelia) a správcu platformy
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 import { SUPABASE_URL, SUPABASE_KEY, FN_URL, APP_VERSION } from "./config.js";
-import { esc, $, $$, toast, fmtDate, fmtDT, eur, today, daysBetween, plural, icon, ask } from "./util.js";
+import { esc, $, $$, toast, fmtDate, fmtDT, eur, today, daysBetween, plural, icon, ask, sigPad } from "./util.js";
 
 const sb = createClient(SUPABASE_URL, SUPABASE_KEY, { auth: { persistSession: true, detectSessionInUrl: false, storageKey: "learniq-auth" } });
 const app = $("#app"), dlg = $("#dlg");
@@ -135,7 +135,7 @@ async function start() {
   if (h === "#/heslo") return passwordScreen();
   try {
     const [st, pa] = await Promise.all([
-      q(sb.from("lq_staff").select("tenant_id,role,full_name,cert_no,email,lq_tenants(name,color,active)").eq("user_id", me.id)),
+      q(sb.from("lq_staff").select("tenant_id,role,full_name,cert_no,email,signature_path,lq_tenants(name,color,active)").eq("user_id", me.id)),
       q(sb.from("lq_platform_admins").select("user_id").eq("user_id", me.id)),
     ]);
     staff = st; platform = pa.length > 0;
@@ -251,18 +251,33 @@ async function attemptDialog(id, after) {
   const mine = staff.find((s) => s.tenant_id === T.id);
   modal(`<h2>Test – ${esc(e.first_name)} ${esc(e.last_name)}</h2>
     <p class="mut small">${esc(e.email)} · ${esc(e.company || "")} · pokus ${a.no} · ${fmtDT(a.submitted_at)}</p>
+    <div id="sigbox" class="small mut" style="margin-bottom:10px">${a.signed_at ? "Načítavam podpis…" : `<span class="pill warn">bez podpisu</span> Školený sa po teste ešte nepodpísal. Ak potvrdíte teraz, protokol bude bez jeho podpisu (doplní sa, keď sa podpíše).`}</div>
     <div class="note ${a.passed ? "ok" : "bad"}"><b>${a.correct} z ${a.total} (${Math.round(a.percent)} %) – aplikácia vyhodnotila: ${a.passed ? "VYHOVEL" : "NEVYHOVEL"}</b><br>Hranica úspešnosti ${T.pass_percent} %.</div>
     <div style="max-height:45vh;overflow:auto;border:1px solid var(--line);border-radius:12px;padding:0 12px">
     ${qs.map((x, i) => `<div class="q"><b class="small">${i + 1}. ${esc(x.text)}</b>${x.options.map((o, k) => `<div class="opt small ${k === x.correct ? "good" : ans[i] === k ? "wrong" : ""}">${ans[i] === k ? "●" : "○"} ${"abc"[k]}) ${esc(o)}</div>`).join("")}${ans[i] == null ? `<div class="small" style="color:var(--bad)">bez odpovede</div>` : ""}</div>`).join("")}</div>
-    ${a.confirmed_at ? `<p class="note ok" style="margin-top:12px">Potvrdil(a) ${esc(a.confirmed_name)} ${fmtDT(a.confirmed_at)}.</p><div class="acts"><button class="btn" data-close>Zavrieť</button></div>` : `
-    <label class="f" style="margin-top:12px"><span>Poznámka (nepovinné)</span><input name="note" maxlength="300"></label>
-    <p class="small mut">Potvrdzujete ako <b>${esc(mine?.full_name || me.email)}</b>${mine?.cert_no ? `, osvedčenie č. ${esc(mine.cert_no)}` : ` – <a href="#/profil">doplňte číslo osvedčenia</a>`}. Po potvrdení sa vytvorí protokol a odošle školenému.</p>
-    ${acts("Potvrdiť vyhodnotenie")}`}`,
-  async (fd) => {
-    const r = await fn("a_confirm", { attempt: id, note: fd.get("note") });
-    toast(r.emailed ? "Potvrdené – protokol odoslaný e-mailom." : "Potvrdené – protokol je vytvorený (e-mail sa neodoslal, stiahnite ho v školení).");
+    ${!mine?.signature_path && !a.confirmed_at ? `<p class="small mut" style="margin-top:10px">Tip: v <a href="#/profil">profile</a> si uložte svoj podpis – zobrazí sa v protokole pri potvrdení.</p>` : ""}
+    ${a.confirmed_at ? `<p class="note ${a.passed ? "ok" : "bad"}" style="margin-top:12px"><b>Výsledok: ${a.passed ? "VYHOVEL" : "NEVYHOVEL"}</b>${a.app_passed != null && a.app_passed !== a.passed ? ` (zmenené hodnotiteľom, aplikácia: ${a.app_passed ? "vyhovel" : "nevyhovel"})` : ""}<br>Potvrdil(a) ${esc(a.confirmed_name)} ${fmtDT(a.confirmed_at)}.${a.note ? `<br>Poznámka: ${esc(a.note)}` : ""}</p><div class="acts"><button class="btn" data-close>Zavrieť</button></div>` : `
+    <label class="f" style="margin-top:12px"><span>Poznámka k vyhodnoteniu (povinná, ak meníte výsledok aplikácie)</span><input name="note" maxlength="300"></label>
+    <p class="small mut">Rozhodujete ako <b>${esc(mine?.full_name || me.email)}</b>${mine?.cert_no ? `, osvedčenie č. ${esc(mine.cert_no)}` : ` – <a href="#/profil">doplňte číslo osvedčenia</a>`}. Po výbere sa vytvorí protokol a odošle školenému.</p>
+    <div class="verdict"><button class="btn ok" type="submit" data-verdict="vyhovel">✓ VYHOVEL</button><button class="btn no" type="submit" data-verdict="nevyhovel">✗ NEVYHOVEL</button></div>
+    <div class="acts"><button class="btn" data-close>Zrušiť</button></div>`}`,
+  async (fd, _f, btn) => {
+    const verdict = btn?.dataset.verdict;
+    if (!verdict) return false;
+    const passed = verdict === "vyhovel", note = String(fd.get("note") || "").trim();
+    if (passed !== !!a.passed) {
+      if (note.length < 3) { toast("Meníte výsledok aplikácie – doplňte poznámku s dôvodom.", true); return false; }
+      if (!(await ask(`Aplikácia vyhodnotila ${a.passed ? "VYHOVEL" : "NEVYHOVEL"}. Naozaj chcete výsledok zmeniť na ${passed ? "VYHOVEL" : "NEVYHOVEL"}?`, "Zmeniť výsledok"))) return false;
+    }
+    const r = await fn("a_confirm", { attempt: id, note, verdict });
+    toast(`${passed ? "VYHOVEL" : "NEVYHOVEL"} – ${r.emailed ? "protokol odoslaný e-mailom." : "protokol je vytvorený (e-mail sa neodoslal, stiahnite ho v školení)."}`);
     after?.();
   });
+  if (a.signed_at && a.signature_path) {
+    const { data } = await sb.storage.from("learniq").createSignedUrl(a.signature_path, 300);
+    const box = $("#sigbox");
+    if (box) box.innerHTML = data?.signedUrl ? `Podpis školeného (${fmtDT(a.signed_at)}):<img class="sig-img" src="${esc(data.signedUrl)}" alt="Podpis">` : `Podpísané ${fmtDT(a.signed_at)}.`;
+  }
 }
 
 /* ======================================================================
@@ -707,7 +722,32 @@ async function vProfile() {
     ${mine ? `<form id="f"><label class="f"><span>Meno a priezvisko (uvádza sa v protokoloch)</span><input name="full_name" required value="${esc(mine.full_name || "")}"></label>
       <label class="f"><span>Číslo osvedčenia (bezpečnostný technik / autorizovaný BT)</span><input name="cert_no" value="${esc(mine.cert_no || "")}"></label>
       <button class="btn pri">Uložiť</button></form>` : ""}
-    <p style="margin-top:16px"><a class="btn" href="#/heslo">Zmeniť heslo</a></p></div>`);
+    <p style="margin-top:16px"><a class="btn" href="#/heslo">Zmeniť heslo</a></p></div>
+    ${mine ? `<div class="card"><h2>Môj podpis</h2>
+      <p class="small mut">Váš podpis sa vloží do protokolu pri každom potvrdení výsledku testu („Test vyhodnotil a výsledok potvrdil“).</p>
+      <div id="cur" class="small mut" style="margin-bottom:10px">${mine.signature_path ? "Načítavam…" : "Zatiaľ nemáte uložený podpis."}</div>
+      <canvas class="sig" id="sig"></canvas>
+      <div class="row" style="margin-top:10px"><button class="btn" id="clr" type="button">Vymazať pole</button>${mine.signature_path ? `<button class="btn bad" id="rm" type="button">Odstrániť podpis</button>` : ""}<span style="flex:1"></span><button class="btn pri" id="save" type="button">Uložiť podpis</button></div>
+    </div>` : ""}`);
+  if (mine) {
+    const pad = sigPad($("#sig"));
+    $("#clr").onclick = () => pad.clear();
+    if (mine.signature_path) {
+      const { data } = await sb.storage.from("learniq").createSignedUrl(mine.signature_path, 300);
+      $("#cur").innerHTML = data?.signedUrl ? `Uložený podpis:<img class="sig-img" src="${esc(data.signedUrl)}&t=${Date.now()}" alt="Podpis">` : "Podpis je uložený.";
+    }
+    $("#save").onclick = async (e) => {
+      const png = !pad.empty() && pad.png();
+      if (!png) return toast("Najprv sa podpíšte do poľa.", true);
+      e.target.disabled = true;
+      try { const r = await fn("a_signature", { tenant: T.id, png }); mine.signature_path = r.path; toast("Podpis je uložený."); vProfile(); }
+      catch (er) { toast(er.message, true); e.target.disabled = false; }
+    };
+    $("#rm")?.addEventListener("click", async () => {
+      if (!await ask("Odstrániť uložený podpis?")) return;
+      try { await fn("a_signature", { tenant: T.id, remove: true }); mine.signature_path = null; toast("Podpis je odstránený."); vProfile(); } catch (er) { toast(er.message, true); }
+    });
+  }
   $("#f")?.addEventListener("submit", async (e) => {
     e.preventDefault(); const fd = new FormData(e.target);
     try { await q(sb.from("lq_staff").update({ full_name: fd.get("full_name").trim(), cert_no: fd.get("cert_no").trim() || null }).eq("tenant_id", T.id).eq("user_id", me.id)); mine.full_name = fd.get("full_name").trim(); mine.cert_no = fd.get("cert_no").trim() || null; toast("Uložené."); route(); }

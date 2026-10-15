@@ -21,7 +21,7 @@ async function sha(s: string) { return [...new Uint8Array(await crypto.subtle.di
 const rand = (n = 32) => [...crypto.getRandomValues(new Uint8Array(n))].map((b) => b.toString(16).padStart(2, "0")).join("");
 const isEmail = (s: string) => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(s);
 const clean = (s: unknown, max = 200) => String(s ?? "").replace(/\s+/g, " ").trim().slice(0, max);
-const norm = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/\s+/g, " ").trim();
+const norm = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/\s+/g, " ").trim();
 const escHtml = (s: unknown) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]!));
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const uuid = (v: unknown, m = "Neplatný identifikátor") => { const s = String(v ?? ""); if (!UUID.test(s)) throw new Fail(m); return s; };
@@ -58,12 +58,13 @@ const isWorkday = (s: string) => { const w = parseD(s).getUTCDay(); return w !==
 function addWorkdays(s: string, n: number) { let d = s, k = 0; while (k < n) { d = addDays(d, 1); if (isWorkday(d)) k++; } return d; }
 
 /* adresa aplikácie pre odkazy v e-mailoch */
+const DEFAULT_APP = "https://learniq-seven.vercel.app";
 function appUrl(req: Request, body: Record<string, unknown>) {
   const env = Deno.env.get("LEARNIQ_APP_URL");
   if (env) return env.replace(/\/+$/, "");
   const cand = String(body.app || req.headers.get("origin") || "");
   if (/^https:\/\/[a-z0-9.-]+(:\d+)?$/i.test(cand)) return cand;
-  return "https://learniq.vercel.app";
+  return DEFAULT_APP;
 }
 
 /* ---------------- e-mail (Resend) ---------------- */
@@ -255,7 +256,7 @@ async function pState(req: Request) {
   await autoSubmit(p);
   const [{ data: prog }, { data: atts }, { data: cust }] = await Promise.all([
     db.from("lq_progress").select("topic_id,active_seconds,done_at").eq("enrollment_id", p.en.id),
-    db.from("lq_attempts").select("id,no,started_at,deadline_at,submitted_at,correct,total,percent,passed,confirmed_at").eq("enrollment_id", p.en.id).order("no"),
+    db.from("lq_attempts").select("id,no,started_at,deadline_at,submitted_at,correct,total,percent,passed,confirmed_at,signed_at").eq("enrollment_id", p.en.id).order("no"),
     db.from("lq_customers").select("name").eq("id", p.s.customer_id).single(),
   ]);
   const { data: en } = await db.from("lq_enrollments").select("status,protocol_sent_at").eq("id", p.en.id).single();
@@ -264,7 +265,7 @@ async function pState(req: Request) {
     return { id: tp.id, position: tp.position, title: tp.title, minutes: topicMinutes(tp, p.s.kind), seconds: pr?.active_seconds || 0, done: !!pr?.done_at };
   });
   const allDone = topics.every((x) => x.done);
-  const attempts = (atts || []).map((a) => ({ id: a.id, no: a.no, deadline_at: a.deadline_at, submitted: !!a.submitted_at, correct: a.correct, total: a.total, percent: a.percent, passed: a.passed, confirmed: !!a.confirmed_at }));
+  const attempts = (atts || []).map((a) => ({ id: a.id, no: a.no, deadline_at: a.deadline_at, submitted: !!a.submitted_at, correct: a.correct, total: a.total, percent: a.percent, passed: a.passed, confirmed: !!a.confirmed_at, signed: !!a.signed_at }));
   const open = attempts.find((a) => !a.submitted) || null;
   const anyPassed = attempts.some((a) => a.passed && a.confirmed);
   const waiting = attempts.some((a) => a.submitted && !a.confirmed);
@@ -275,6 +276,7 @@ async function pState(req: Request) {
     session: { kind: p.s.kind, protocol_no: p.s.protocol_no, customer: cust?.name, due_on: p.s.due_on, status: p.s.status },
     rules: { study_time_limit: t.study_time_limit, test_time_limit: t.test_time_limit, test_minutes: t.test_minutes, pass_percent: t.pass_percent, max_attempts: t.max_attempts, require_confirm: t.require_confirm },
     status: en?.status, protocol_sent: !!en?.protocol_sent_at, topics, attempts, open_attempt: open?.id || null,
+    sign_attempt: ((x) => (x && !x.signed ? x.id : null))([...attempts].reverse().find((a) => a.submitted)),
     can_test: allDone && !open && !anyPassed && !waiting && attempts.length < t.max_attempts && p.s.status === "otvorene",
   };
 }
@@ -405,11 +407,12 @@ async function evaluate(attemptId: string) {
   const correct = qs.reduce((n, q, i) => n + (ans[i] === q.correct ? 1 : 0), 0);
   const percent = Math.round((correct / qs.length) * 10000) / 100;
   const passed = percent >= t.pass_percent;
-  const { data: upd } = await db.from("lq_attempts").update({ submitted_at: new Date().toISOString(), correct, total: qs.length, percent, passed })
+  const { data: upd } = await db.from("lq_attempts").update({ submitted_at: new Date().toISOString(), correct, total: qs.length, percent, passed, app_passed: passed })
     .eq("id", attemptId).is("submitted_at", null).select("*").single();
   if (!upd) return a;
   await db.from("lq_enrollments").update({ status: "vyhodnotene" }).eq("id", a.enrollment_id);
-  if (!t.require_confirm) await confirmAttempt(upd.id, null, "automatické vyhodnotenie aplikáciou");
+  // automatické potvrdenie až po podpise školeného (p_sign); pri potvrdzovaní školiteľom upozorníme tím
+  if (t.require_confirm) await notifyStaff(t, a.enrollment_id, upd).catch((er) => console.error("notify", er));
   return upd;
 }
 async function autoSubmit(p: Awaited<ReturnType<typeof participant>>) {
@@ -417,27 +420,99 @@ async function autoSubmit(p: Awaited<ReturnType<typeof participant>>) {
   for (const o of open || []) if (o.deadline_at && Date.now() > new Date(o.deadline_at).getTime() + 15_000) await evaluate(o.id);
 }
 
+/** PNG podpisu z data URL / base64: kontrola formátu a veľkosti. */
+function pngBytes(v: unknown) {
+  const b64 = String(v ?? "").replace(/^data:image\/png;base64,/, "");
+  if (!/^[A-Za-z0-9+/=]+$/.test(b64) || b64.length > 400_000) throw new Fail("Podpis sa nepodarilo uložiť (neplatný obrázok).");
+  const bin = atob(b64), u = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i);
+  if (u.length < 100 || u[0] !== 0x89 || u[1] !== 0x50 || u[2] !== 0x4e || u[3] !== 0x47) throw new Fail("Podpis sa nepodarilo uložiť (neplatný obrázok).");
+  return u;
+}
+
+async function pSign(req: Request, body: any) {
+  const p = await participant(req);
+  const { data: a } = await db.from("lq_attempts").select("id,submitted_at,signed_at,confirmed_at").eq("id", uuid(body.attempt)).eq("enrollment_id", p.en.id).maybeSingle();
+  const at = must(a, "Test neexistuje");
+  if (!at.submitted_at) throw new Fail("Najprv odovzdajte test.", 409);
+  if (at.signed_at) return { ok: true, already: true };
+  const bytes = pngBytes(body.png);
+  const path = `${p.en.tenant_id}/podpisy/${p.en.id}_${at.id}.png`;
+  const { error } = await db.storage.from("learniq").upload(path, bytes, { contentType: "image/png", upsert: true });
+  if (error) throw new Fail("Podpis sa nepodarilo uložiť. Skúste to znova.", 500);
+  await db.from("lq_attempts").update({ signature_path: path, signed_at: new Date().toISOString() }).eq("id", at.id).is("signed_at", null);
+  await db.from("lq_audit").insert({ tenant_id: p.en.tenant_id, action: "podpis_skoleneho", ref: at.id });
+  let confirmed = false;
+  if (!p.tenant.require_confirm && !at.confirmed_at) {
+    await confirmAttempt(at.id, null); // automatické vyhodnotenie aplikáciou
+    confirmed = true;
+  } else if (at.confirmed_at) {
+    await buildAndSendProtocol(p.en.id).catch((er) => console.error(er)); // podpis doplnený po potvrdení → nový protokol
+  }
+  return { ok: true, confirmed };
+}
+
+/** E-mail tímu školiteľa: test čaká na potvrdenie. */
+async function notifyStaff(t: Tenant & Record<string, any>, enrollmentId: string, a: any) {
+  const [{ data: en }, { data: staff }] = await Promise.all([
+    db.from("lq_enrollments").select("first_name,last_name,email,session_id").eq("id", enrollmentId).single(),
+    db.from("lq_staff").select("email").eq("tenant_id", t.id),
+  ]);
+  const to = [...new Set((staff || []).map((x) => x.email).filter(Boolean))] as string[];
+  if (!to.length || !en) return;
+  const { data: s } = await db.from("lq_sessions").select("protocol_no").eq("id", en.session_id).single();
+  const app = (Deno.env.get("LEARNIQ_APP_URL") || DEFAULT_APP).replace(/\/+$/, "");
+  await sendMail(t, to, `Test čaká na potvrdenie – ${en.first_name} ${en.last_name} (${a.passed ? "vyhovel" : "nevyhovel"})`,
+    `<p>${escHtml(`${en.first_name} ${en.last_name}`)} (${escHtml(en.email)}) odovzdal(a) záverečný test v školení ${escHtml(s?.protocol_no || "")}.</p>
+     <p>Vyhodnotenie aplikácie: <b>${a.correct} z ${a.total} (${Math.round(Number(a.percent))} %) – ${a.passed ? "vyhovel" : "nevyhovel"}</b>.</p>
+     <p>Po vašom potvrdení sa vytvorí protokol a automaticky odošle školenému.</p>${button(`${app}/#/`, "Skontrolovať a potvrdiť", t.color)}`);
+}
+
+async function aSignature(req: Request, body: any) {
+  const st = await staffOf(req, uuid(body.tenant));
+  if (body.remove === true) {
+    await db.from("lq_staff").update({ signature_path: null }).eq("tenant_id", body.tenant).eq("user_id", st.user.id);
+    return { ok: true };
+  }
+  const bytes = pngBytes(body.png);
+  const path = `${body.tenant}/podpisy/staff_${st.user.id}.png`;
+  const { error } = await db.storage.from("learniq").upload(path, bytes, { contentType: "image/png", upsert: true });
+  if (error) throw new Fail("Podpis sa nepodarilo uložiť.", 500);
+  await db.from("lq_staff").update({ signature_path: path }).eq("tenant_id", body.tenant).eq("user_id", st.user.id);
+  return { ok: true, path };
+}
+
+async function readSignature(path: string | null | undefined, tenantId: string) {
+  if (!path || !path.startsWith(`${tenantId}/podpisy/`)) return null;
+  const { data } = await db.storage.from("learniq").download(path);
+  return data ? new Uint8Array(await data.arrayBuffer()) : null;
+}
+
 async function pSubmit(req: Request, body: any) {
   const p = await participant(req);
   const { data: a } = await db.from("lq_attempts").select("id").eq("id", uuid(body.attempt)).eq("enrollment_id", p.en.id).maybeSingle();
   must(a, "Test neexistuje");
   const r = await evaluate(a!.id);
-  return { correct: r.correct, total: r.total, percent: r.percent, passed: r.passed, pending: p.tenant.require_confirm };
+  return { correct: r.correct, total: r.total, percent: r.percent, passed: r.passed, pending: p.tenant.require_confirm, attempt: r.id };
 }
 
 /* ======================================================================
    POTVRDENIE VÝSLEDKU → PDF → E-MAIL
    ====================================================================== */
-async function confirmAttempt(attemptId: string, staff: { user_id: string; full_name: string; cert_no: string | null } | null, note?: string) {
+async function confirmAttempt(attemptId: string, staff: { user_id: string; full_name: string; cert_no: string | null } | null, note?: string, verdict?: boolean | null) {
   const { data: a } = await db.from("lq_attempts").select("*").eq("id", attemptId).single();
   const at = must(a, "Test neexistuje");
   if (!at.submitted_at) throw new Fail("Test ešte nie je odovzdaný.", 409);
   if (at.confirmed_at) throw new Fail("Výsledok už bol potvrdený.", 409);
   const t = await tenantById(at.tenant_id);
+  const appPassed = at.app_passed ?? at.passed;
+  const passed = verdict == null ? appPassed : verdict;
+  if (passed !== appPassed && (!staff || !note || note.length < 3)) throw new Fail("Pri zmene výsledku aplikácie doplňte poznámku s dôvodom.");
   const confirmed_name = staff?.full_name || t.rep_name || t.name;
   const confirmed_cert = staff?.cert_no || t.rep_cert || null;
   const { data: upd } = await db.from("lq_attempts").update({
     confirmed_by: staff?.user_id || null, confirmed_name, confirmed_cert, confirmed_at: new Date().toISOString(), note: note || null,
+    passed, app_passed: appPassed,
   }).eq("id", attemptId).is("confirmed_at", null).select("*").single();
   if (!upd) throw new Fail("Výsledok už bol potvrdený.", 409);
   const { data: en } = await db.from("lq_enrollments").select("*").eq("id", upd.enrollment_id).single();
@@ -449,7 +524,7 @@ async function confirmAttempt(attemptId: string, staff: { user_id: string; full_
     if (en!.employee_id) await db.from("lq_employees").update({ last_training_on: done, last_kind: s!.kind, valid_until, offered_for: null }).eq("id", en!.employee_id);
   }
   await db.from("lq_enrollments").update({ status: upd.passed ? "vyhovel" : "nevyhovel" }).eq("id", en!.id);
-  await db.from("lq_audit").insert({ tenant_id: t.id, actor: staff?.user_id || null, action: "vysledok_potvrdeny", ref: upd.id, data: { passed: upd.passed, correct: upd.correct, meno: confirmed_name } });
+  await db.from("lq_audit").insert({ tenant_id: t.id, actor: staff?.user_id || null, action: "vysledok_potvrdeny", ref: upd.id, data: { passed: upd.passed, app_passed: appPassed, zmenene: passed !== appPassed, correct: upd.correct, meno: confirmed_name, poznamka: note || null } });
   const mail = await buildAndSendProtocol(en!.id, valid_until);
   return { passed: upd.passed, valid_until, ...mail };
 }
@@ -470,6 +545,12 @@ async function protocolBytes(enrollmentId: string, validUntil?: string | null) {
   if (vu === undefined || vu === null) {
     if (last.passed && e.employee_id) { const { data: emp } = await db.from("lq_employees").select("valid_until").eq("id", e.employee_id).single(); vu = emp?.valid_until || null; }
   }
+  let evaluatorSig: Uint8Array | null = null;
+  if (last.confirmed_by) {
+    const { data: stf } = await db.from("lq_staff").select("signature_path").eq("tenant_id", e.tenant_id).eq("user_id", last.confirmed_by).maybeSingle();
+    evaluatorSig = await readSignature(stf?.signature_path, e.tenant_id);
+  }
+  const employeeSig = await readSignature(last.signature_path, e.tenant_id);
   const bytes = await protocolPdf({
     tenant: t, customer: c!, session: s!,
     enrollment: { id: e.id, first_name: e.first_name || "", last_name: e.last_name || "", email: e.email, company: e.company, position: e.position, verified_at: e.verified_at, study_started_at: e.study_started_at, study_done_at: e.study_done_at },
@@ -478,8 +559,9 @@ async function protocolBytes(enrollmentId: string, validUntil?: string | null) {
       return { position: tp.position, title: tp.title, minutes: topicMinutes(tp, s!.kind), seconds: pr?.active_seconds || 0, started_at: pr?.started_at, done_at: pr?.done_at };
     }),
     attempt: { ...last, answers: last.answers, questions: last.questions, percent: Number(last.percent) },
-    attempts: (atts || []).map((a) => ({ no: a.no, submitted_at: a.submitted_at, correct: a.correct, total: a.total, passed: a.passed })),
+    attempts: (atts || []).map((a) => ({ no: a.no, submitted_at: a.submitted_at, correct: a.correct, total: a.total, passed: a.passed, app_passed: a.app_passed })),
     valid_until: vu,
+    signatures: { employee: employeeSig, employee_at: last.signed_at, evaluator: evaluatorSig },
   });
   return { bytes, e, t, s: s!, c: c!, passed: !!last.passed };
 }
@@ -489,7 +571,7 @@ async function buildAndSendProtocol(enrollmentId: string, validUntil?: string | 
   const path = `${t.id}/protokoly/${s.protocol_no.replace(/\//g, "-")}_${e.id}.pdf`;
   await db.storage.from("learniq").upload(path, bytes, { contentType: "application/pdf", upsert: true });
   await db.from("lq_enrollments").update({ protocol_path: path }).eq("id", e.id);
-  const fname = `Protokol_BOZP_${s.protocol_no.replace(/\//g, "-")}_${(e.last_name || "").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^\w-]/g, "")}.pdf`;
+  const fname = `Protokol_BOZP_${s.protocol_no.replace(/\//g, "-")}_${(e.last_name || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^\w-]/g, "")}.pdf`;
   const to = [e.email];
   const html = passed
     ? `<p>Dobrý deň, ${escHtml(e.first_name)},</p><p>úspešne ste absolvovali oboznámenie v oblasti BOZP. V prílohe je váš protokol – záznam o oboznámení, test s vyhodnotením a výpis z e-learningu.</p><p>Výsledok potvrdil(a) ${escHtml(t.rep_name || t.name)}.</p>`
@@ -603,7 +685,8 @@ async function aConfirm(req: Request, body: any) {
   const { data: a } = await db.from("lq_attempts").select("id,tenant_id").eq("id", uuid(body.attempt)).single();
   const at = must(a, "Test neexistuje");
   const st = await staffOf(req, at.tenant_id);
-  return await confirmAttempt(at.id, { user_id: st.user.id, full_name: st.staff.full_name || st.user.email || "", cert_no: st.staff.cert_no }, clean(body.note, 300) || undefined);
+  const verdict = body.verdict === "vyhovel" ? true : body.verdict === "nevyhovel" ? false : null;
+  return await confirmAttempt(at.id, { user_id: st.user.id, full_name: st.staff.full_name || st.user.email || "", cert_no: st.staff.cert_no }, clean(body.note, 300) || undefined, verdict);
 }
 
 async function aProtocol(req: Request, body: any) {
@@ -680,7 +763,7 @@ async function dailyOffers(onlyTenant?: string) {
     if (newOffers.length) {
       const { data: admins } = await db.from("lq_staff").select("email").eq("tenant_id", t.id).eq("role", "spravca");
       const to = (admins || []).map((x) => x.email).filter(Boolean) as string[];
-      const app = Deno.env.get("LEARNIQ_APP_URL") || "https://learniq.vercel.app";
+      const app = (Deno.env.get("LEARNIQ_APP_URL") || DEFAULT_APP).replace(/\/+$/, "");
       if (to.length) await sendMail(t as Tenant, to, `LearnIQ: ${newOffers.length} ${newOffers.length === 1 ? "nová cenová ponuka čaká" : "nové cenové ponuky čakajú"} na schválenie`,
         `<p>Blíži sa koniec platnosti oboznámenia BOZP (do ${t.notice_workdays} pracovných dní). Aplikácia pripravila návrhy cenových ponúk:</p><ul>${newOffers.map((n) => `<li>${escHtml(n)}</li>`).join("")}</ul><p>Skontrolujte ich a odošlite zákazníkom.</p>${button(`${app}/#/ponuky`, "Otvoriť ponuky", t.color)}`);
     }
@@ -707,6 +790,8 @@ Deno.serve(async (req) => {
       case "p_test": return json(await pTestStart(req));
       case "p_answer": return json(await pAnswer(req, body));
       case "p_submit": return json(await pSubmit(req, body));
+      case "p_sign": return json(await pSign(req, body));
+      case "a_signature": return json(await aSignature(req, body));
       case "a_status": { await staffUser(req); return json({ email_ready: emailReady() }); }
       case "a_invite_staff": return json(await aInviteStaff(req, body));
       case "a_create_tenant": return json(await aCreateTenant(req, body));

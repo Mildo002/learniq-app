@@ -1,6 +1,6 @@
 // LearnIQ – stránka školeného: overenie totožnosti → štúdium tém → náhodný test → výsledok
 import { FN_URL, SUPABASE_KEY, APP_VERSION } from "./config.js";
-import { esc, $, $$, toast, fmtDate, safeHtml, plural, ask } from "./util.js";
+import { esc, $, $$, toast, fmtDate, safeHtml, plural, ask, sigPad } from "./util.js";
 
 const app = $("#app");
 const params = new URLSearchParams(location.hash.slice(1));
@@ -100,6 +100,7 @@ async function overview() {
   catch (e) { if (e.status === 401) { saveToken(""); return identityScreen(); } return fail(e.message); }
   applyBrand(state.tenant);
   if (state.open_attempt) return testScreen();
+  if (state.sign_attempt) return signScreen();
   const s = state, r = s.rules;
   const done = s.topics.filter((t) => t.done).length, total = s.topics.length;
   const next = s.topics.find((t) => !t.done);
@@ -194,6 +195,34 @@ async function topicScreen(id) {
       if (r.all || !t.next) return overview();
       topicScreen(t.next);
     } catch (e) { toast(e.message, true); btn.disabled = false; }
+  };
+}
+
+/* ---------------- 3b. podpis po teste ---------------- */
+function signScreen() {
+  const s = state, last = s.attempts.find((x) => x.id === s.sign_attempt);
+  page(s.tenant, `
+    <h1>Podpis</h1>
+    <div class="card">
+      ${last ? `<p>Test je odovzdaný: <b>${last.correct} z ${last.total}</b> správnych odpovedí (${Math.round(last.percent)} %).</p>` : ""}
+      <p>Podpíšte sa prstom alebo myšou do poľa nižšie. Podpis bude uvedený v protokole o oboznámení a pri vyhodnotení testu.</p>
+      <canvas class="sig" id="sig"></canvas>
+      <p class="small mut" style="margin-top:8px">Podpisom potvrdzujem, že som bol(a) oboznámený(á) s predpismi na zaistenie bezpečnosti a ochrany zdravia pri práci v rozsahu uvedenom v protokole, obsahu som porozumel(a) a záverečný test som vyplnil(a) samostatne.</p>
+      <div class="row" style="margin-top:12px"><button class="btn" id="clr" type="button">Vymazať</button><span style="flex:1"></span><button class="btn pri" id="ok" type="button">Podpísať</button></div>
+    </div>
+    <p class="small mut">${esc(s.me.first_name)} ${esc(s.me.last_name)} · ${esc(s.me.email)}</p>`);
+  const pad = sigPad($("#sig"));
+  $("#clr").onclick = () => pad.clear();
+  $("#ok").onclick = async (e) => {
+    if (pad.empty()) return toast("Najprv sa podpíšte do poľa.", true);
+    const png = pad.png();
+    if (!png) return toast("Najprv sa podpíšte do poľa.", true);
+    e.target.disabled = true;
+    try {
+      const r = await call("p_sign", { attempt: s.sign_attempt, png });
+      toast(r.confirmed ? "Podpísané. Protokol vám príde e-mailom." : "Podpísané. Výsledok teraz potvrdí školiteľ.");
+      overview();
+    } catch (er) { toast(er.message, true); e.target.disabled = false; }
   };
 }
 
