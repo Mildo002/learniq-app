@@ -63,3 +63,19 @@ export const ICONS = {
   bell: '<path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8M10 20a2 2 0 0 0 4 0"/>',
 };
 export const icon = (n) => `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICONS[n] || ""}</svg>`;
+
+/** Potvrdenie vlastným oknom – systémové confirm() niektoré prehliadače (vstavané, mobilné) blokujú. */
+export function ask(msg, okLabel = "Áno", cancelLabel = "Zrušiť") {
+  return new Promise((resolve) => {
+    const d = document.createElement("dialog");
+    d.className = "ask";
+    d.innerHTML = `<div class="dlg"><p style="font-size:1.02rem;margin:0 0 6px">${esc(msg)}</p>
+      <div class="acts"><button class="btn" data-v="0" type="button">${esc(cancelLabel)}</button><button class="btn pri" data-v="1" type="button">${esc(okLabel)}</button></div></div>`;
+    document.body.appendChild(d);
+    const done = (v) => { d.close(); d.remove(); resolve(v); };
+    d.querySelectorAll("[data-v]").forEach((b) => b.onclick = () => done(b.dataset.v === "1"));
+    d.addEventListener("cancel", (e) => { e.preventDefault(); done(false); });
+    d.showModal();
+    d.querySelector('[data-v="1"]').focus();
+  });
+}

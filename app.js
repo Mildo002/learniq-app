@@ -1,7 +1,7 @@
 // LearnIQ – aplikácia školiteľa (správca, školitelia) a správcu platformy
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 import { SUPABASE_URL, SUPABASE_KEY, FN_URL, APP_VERSION } from "./config.js";
-import { esc, $, $$, toast, fmtDate, fmtDT, eur, today, daysBetween, plural, icon } from "./util.js";
+import { esc, $, $$, toast, fmtDate, fmtDT, eur, today, daysBetween, plural, icon, ask } from "./util.js";
 
 const sb = createClient(SUPABASE_URL, SUPABASE_KEY, { auth: { persistSession: true, detectSessionInUrl: false, storageKey: "learniq-auth" } });
 const app = $("#app"), dlg = $("#dlg");
@@ -342,7 +342,7 @@ async function vSession(id) {
       }).join("") : `<tr><td colspan="4" class="empty">Zatiaľ nikto. Pridajte zamestnancov zákazníka.</td></tr>`}
       </tbody></table></div></div>`);
   const reload = () => vSession(id);
-  $("#close")?.addEventListener("click", async () => { if (!confirm("Uzavrieť školenie? Kto ho nedokončil, už nebude môcť pokračovať.")) return; await q(sb.from("lq_sessions").update({ status: "uzavrete" }).eq("id", id)); reload(); });
+  $("#close")?.addEventListener("click", async () => { if (!await ask("Uzavrieť školenie? Kto ho nedokončil, už nebude môcť pokračovať.")) return; await q(sb.from("lq_sessions").update({ status: "uzavrete" }).eq("id", id)); reload(); });
   $("#reopen")?.addEventListener("click", async () => { await q(sb.from("lq_sessions").update({ status: "otvorene" }).eq("id", id)); reload(); });
   $("#openlink").onchange = async (e) => { await q(sb.from("lq_sessions").update({ open_link_enabled: e.target.checked }).eq("id", id)); reload(); };
   $("#edit").onclick = () => modal(`<h2>Upraviť školenie</h2>
@@ -354,7 +354,7 @@ async function vSession(id) {
   $("#inv")?.addEventListener("click", async (e) => {
     const pending = ens.filter((x) => ["pozvany", "overeny", "studuje", "test"].includes(x.status));
     if (!pending.length) return toast("Nie je komu poslať pozvánku.");
-    if (!confirm(`Poslať pozvánku e-mailom ${pending.length} ${plural(pending.length, "účastníkovi", "účastníkom", "účastníkom")}?`)) return;
+    if (!await ask(`Poslať pozvánku e-mailom ${pending.length} ${plural(pending.length, "účastníkovi", "účastníkom", "účastníkom")}?`)) return;
     e.target.disabled = true;
     try {
       const r = await fn("a_invites", { session: id });
@@ -367,7 +367,7 @@ async function vSession(id) {
   $$("[data-att]").forEach((b) => b.onclick = () => attemptDialog(b.dataset.att, reload));
   $$("[data-pdf]").forEach((b) => b.onclick = async () => { try { const r = await fn("a_protocol", { enrollment: b.dataset.pdf }); location.href = r.url; } catch (e) { toast(e.message, true); } });
   $$("[data-resend]").forEach((b) => b.onclick = async () => { b.disabled = true; try { const r = await fn("a_protocol", { enrollment: b.dataset.resend, resend: true }); toast(r.emailed ? "Protokol odoslaný." : "Protokol obnovený, e-mail sa neodoslal."); } catch (e) { toast(e.message, true); } b.disabled = false; });
-  $$("[data-del]").forEach((b) => b.onclick = async () => { if (!confirm("Odobrať účastníka zo školenia?")) return; await q(sb.from("lq_enrollments").delete().eq("id", b.dataset.del)); reload(); });
+  $$("[data-del]").forEach((b) => b.onclick = async () => { if (!await ask("Odobrať účastníka zo školenia?")) return; await q(sb.from("lq_enrollments").delete().eq("id", b.dataset.del)); reload(); });
 }
 function showLinks(links, title) {
   modal(`<h2>Odkazy na školenie</h2><p class="mut">${esc(title)}</p>${links.map((l) => `<label class="f"><span>${esc(l.email)}</span>${copyBox(l.link)}</label>`).join("")}<div class="acts"><button class="btn pri" data-close>Hotovo</button></div>`);
@@ -451,7 +451,7 @@ async function vCustomer(id) {
       ${active.length ? active.sort((a, b) => validity(a).sort - validity(b).sort || (a.valid_until || "").localeCompare(b.valid_until || "")).map((e) => { const v = validity(e); return `<tr>
         <td><input type="checkbox" class="sel" value="${e.id}" ${v.sort <= 1 && e.email ? "checked" : ""}></td>
         <td><b>${esc(e.first_name)} ${esc(e.last_name)}</b><br><span class="small mut">${esc(e.email || "bez e-mailu")}</span></td>
-        <td>${esc(e.position || "–")}</td><td>${e.last_training_on ? `${fmtDate(e.last_training_on)} (${e.last_kind})` : "–"}</td>
+        <td>${esc(e.position || "–")}</td><td>${e.last_training_on ? `${fmtDate(e.last_training_on)}${e.last_kind ? ` (${e.last_kind})` : ""}` : "–"}</td>
         <td><span class="dot ${v.cls}"></span> ${v.txt}${e.offered_for && e.offered_for === e.valid_until ? `<br><span class="pill acc">ponuka pripravená</span>` : ""}</td>
         <td><button class="btn sm" data-e="${e.id}">Upraviť</button></td></tr>`; }).join("") : `<tr><td colspan="6" class="empty">Zatiaľ žiadni zamestnanci.</td></tr>`}
       </tbody></table></div></div>
@@ -569,14 +569,14 @@ function offerDialog(o) {
     if (!keep.length) throw new Error("V ponuke musí zostať aspoň jeden zamestnanec.");
     await q(sb.from("lq_offers").update({ items: items.filter((_, i) => keep.includes(i)), kind: fd.get("kind"), unit_price: fd.get("unit_price") === "" ? null : Number(fd.get("unit_price")), valid_until: fd.get("valid_until") || null, note: fd.get("note") || null }).eq("id", o.id));
     if (btn?.value === "send") {
-      if (!confirm(`Odoslať ponuku zákazníkovi ${o.lq_customers?.name} na ${o.lq_customers?.email || "–"}?`)) return false;
+      if (!await ask(`Odoslať ponuku zákazníkovi ${o.lq_customers?.name} na ${o.lq_customers?.email || "–"}?`)) return false;
       await fn("a_offer", { offer: o.id, send: true });
       toast("Ponuka odoslaná.");
     } else toast("Uložené.");
     route();
   } : null);
   $("#pdf").onclick = async () => { const w = window.open("", "_blank"); try { const r = await fn("a_offer", { offer: o.id }); if (w) w.location = r.url; else location.href = r.url; } catch (e) { w?.close(); toast(e.message, true); } };
-  $("#rej")?.addEventListener("click", async () => { if (!confirm("Zamietnuť návrh? Pre týchto zamestnancov sa nový návrh už nevytvorí, kým sa im nezmení platnosť.")) return; await q(sb.from("lq_offers").update({ status: "zamietnuta" }).eq("id", o.id)); dlg.close(); route(); });
+  $("#rej")?.addEventListener("click", async () => { if (!await ask("Zamietnuť návrh? Pre týchto zamestnancov sa nový návrh už nevytvorí, kým sa im nezmení platnosť.")) return; await q(sb.from("lq_offers").update({ status: "zamietnuta" }).eq("id", o.id)); dlg.close(); route(); });
 }
 
 /* ======================================================================
@@ -658,7 +658,7 @@ async function vSettings() {
     for (const k of ["name", "ico", "dic", "ic_dph", "nip_number", "address", "email", "phone", "web", "rep_name", "rep_cert", "offer_note"]) r[k] = String(fd.get(k) || "").trim() || null;
     r.color = fd.get("color");
     if (!r.name) return toast("Zadajte obchodné meno.", true);
-    if (!r.otp_required && !confirm("Bez overovacieho kódu sa totožnosť školeného overí iba zadanými údajmi. Naozaj vypnúť?")) return;
+    if (!r.otp_required && !await ask("Bez overovacieho kódu sa totožnosť školeného overí iba zadanými údajmi. Naozaj vypnúť?")) return;
     try { await q(sb.from("lq_tenants").update(r).eq("id", T.id)); await pickTenant(T.id); toast("Uložené."); route(); } catch (er) { toast(er.message, true); }
   };
   $("#inv")?.addEventListener("click", () => inviteDialog(T.id));
@@ -666,7 +666,7 @@ async function vSettings() {
     const m = team.find((x) => x.user_id === b.dataset.link);
     try { const r = await fn("a_invite_staff", { tenant: T.id, email: m.email, name: m.full_name || m.email, role: m.role }); showInvite(r, m.email); } catch (e) { toast(e.message, true); }
   });
-  $$("[data-rm]").forEach((b) => b.onclick = async () => { if (!confirm("Odobrať člena tímu? Stratí prístup k tomuto školiteľovi.")) return; await q(sb.from("lq_staff").delete().eq("tenant_id", T.id).eq("user_id", b.dataset.rm)); route(); });
+  $$("[data-rm]").forEach((b) => b.onclick = async () => { if (!await ask("Odobrať člena tímu? Stratí prístup k tomuto školiteľovi.")) return; await q(sb.from("lq_staff").delete().eq("tenant_id", T.id).eq("user_id", b.dataset.rm)); route(); });
 }
 function inviteDialog(tenantId, after) {
   modal(`<h2>Pozvať do tímu</h2>

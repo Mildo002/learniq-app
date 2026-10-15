@@ -1,6 +1,6 @@
 // LearnIQ – stránka školeného: overenie totožnosti → štúdium tém → náhodný test → výsledok
 import { FN_URL, SUPABASE_KEY, APP_VERSION } from "./config.js";
-import { esc, $, $$, toast, fmtDate, safeHtml, plural } from "./util.js";
+import { esc, $, $$, toast, fmtDate, safeHtml, plural, ask } from "./util.js";
 
 const app = $("#app");
 const params = new URLSearchParams(location.hash.slice(1));
@@ -143,7 +143,7 @@ async function overview() {
   $$("[data-t]").forEach((a) => a.onclick = (e) => { e.preventDefault(); topicScreen(a.dataset.t); });
   $("#cont")?.addEventListener("click", () => topicScreen(next.id));
   $("#go")?.addEventListener("click", async (e) => {
-    if (r.test_time_limit && !confirm(`Po spustení beží čas ${r.test_minutes} minút. Začať test?`)) return;
+    if (r.test_time_limit && !await ask(`Po spustení beží čas ${r.test_minutes} minút. Začať test?`)) return;
     e.target.disabled = true;
     try { await call("p_test"); testScreen(); } catch (er) { toast(er.message, true); e.target.disabled = false; }
   });
@@ -229,7 +229,7 @@ async function testScreen() {
   async function submit(force = false) {
     if (sending) return;
     const miss = answers.filter((a) => a === null).length;
-    if (!force && !confirm(miss ? `Nezodpovedali ste ${miss} ${plural(miss, "otázku", "otázky", "otázok")}. Naozaj odovzdať?` : "Odovzdať test? Odpovede už nebude možné zmeniť.")) return;
+    if (!force && !await ask(miss ? `Nezodpovedali ste ${miss} ${plural(miss, "otázku", "otázky", "otázok")}. Naozaj odovzdať?` : "Odovzdať test? Odpovede už nebude možné zmeniť.")) return;
     sending = true; $("#sub").disabled = true;
     try { await call("p_submit", { attempt: T.attempt }); overview(); }
     catch (e) { toast(e.message, true); sending = false; $("#sub").disabled = false; }
