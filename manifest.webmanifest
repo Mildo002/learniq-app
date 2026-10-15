@@ -3,6 +3,7 @@
   "short_name": "LearnIQ",
   "description": "Školenia BOZP, testy, protokoly a termíny. Súčasť aplikácií Keylo.",
   "lang": "sk",
+  "id": "/",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

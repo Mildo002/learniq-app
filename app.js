@@ -61,9 +61,25 @@ document.addEventListener("click", (e) => {
   if (b) { e.preventDefault(); navigator.clipboard?.writeText(b.dataset.copy).then(() => toast("Skopírované."), () => toast("Kopírovanie zlyhalo.", true)); }
 });
 
+/* ---------------- inštalácia do mobilu / počítača ---------------- */
+let installEvt = null;
+const standalone = () => matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); installEvt = e; $$(".inst").forEach((b) => b.classList.remove("hide")); });
+window.addEventListener("appinstalled", () => { installEvt = null; $$(".inst").forEach((b) => b.classList.add("hide")); toast("Aplikácia je nainštalovaná."); });
+const installBtn = (cls = "") => standalone() ? "" : `<button class="btn inst ${cls} ${installEvt || isIOS ? "" : "hide"}" type="button" data-install>${icon("down")} Inštalovať aplikáciu</button>`;
+document.addEventListener("click", async (e) => {
+  if (!e.target.closest("[data-install]")) return;
+  if (installEvt) { installEvt.prompt(); await installEvt.userChoice.catch(() => {}); installEvt = null; $$(".inst").forEach((b) => b.classList.add("hide")); return; }
+  modal(isIOS
+    ? `<h2>Inštalácia na iPhone / iPad</h2><ol style="line-height:1.8"><li>Otvorte túto stránku v <b>Safari</b>.</li><li>Dole ťuknite na <b>Zdieľať</b> (štvorec so šípkou nahor).</li><li>Zvoľte <b>Pridať na plochu</b> a potom <b>Pridať</b>.</li></ol><p class="mut small">Ikona LearnIQ sa objaví na ploche a aplikácia sa otvára na celú obrazovku.</p><div class="acts"><button class="btn pri" data-close>Rozumiem</button></div>`
+    : `<h2>Inštalácia aplikácie</h2><p>V prehliadači Chrome alebo Edge otvorte menu <b>⋮</b> a zvoľte <b>Inštalovať aplikáciu</b> / <b>Pridať na plochu</b>.</p><div class="acts"><button class="btn pri" data-close>Rozumiem</button></div>`);
+});
+
 /* ---------------- prihlásenie ---------------- */
 function authPage(inner) {
   app.innerHTML = `<div class="auth"><div class="card"><img class="logo" src="img/logo-learniq.png" alt="LearnIQ">${inner}
+    <div style="margin-top:14px">${installBtn("big")}</div>
     <p class="small mut" style="text-align:center;margin:18px 0 0">LearnIQ ${APP_VERSION} · súčasť aplikácií Keylo</p></div></div>`;
 }
 function loginScreen() {
@@ -161,7 +177,7 @@ function shell(cur, inner) {
   const cnt = { "": badge.wait, ponuky: badge.offers };
   app.innerHTML = `
     <header class="top"><a class="brand" href="#/"><img src="img/icon-192.png" alt=""><span>${esc(T?.name || "LearnIQ")}</span></a>
-      <span class="sp"></span>${tenants}
+      <span class="sp"></span>${installBtn("sm")}${tenants}
       <a class="btn sm" href="#/profil" title="Môj profil">${esc((staff.find((s) => s.tenant_id === T?.id)?.full_name || me.email).split(" ")[0])}</a>
       <button class="btn sm" id="out" title="Odhlásiť">${icon("out")}</button></header>
     <div class="layout"><nav class="nav">
