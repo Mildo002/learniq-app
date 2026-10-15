@@ -4,6 +4,7 @@
 //  • denná úloha: {"a":"cron"} + x-cron-secret (pg_cron) → návrhy cenových ponúk 30 pracovných dní pred koncom platnosti
 import { createClient } from "npm:@supabase/supabase-js@2";
 import { protocolPdf, offerPdf, fmtDate, fmtDateTime, eur, type Tenant } from "./pdf.ts";
+import webpush from "npm:web-push@3.6.7";
 
 const db = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!, { auth: { persistSession: false } });
 const CORS = {
@@ -95,6 +96,66 @@ function mailLayout(t: Tenant, inner: string) {
 }
 const button = (href: string, label: string, color: string) =>
   `<p style="margin:22px 0"><a href="${escHtml(href)}" style="background:${color};color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:bold">${escHtml(label)}</a></p>`;
+
+
+/* ---------------- upozornenia (web push) ---------------- */
+const b64url = (u: Uint8Array) => btoa(String.fromCharCode(...u)).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+let vapidPub: string | null = null;
+/** Kľúče VAPID: pri prvom použití sa vytvoria a uložia do lq_secrets (iba server). */
+async function vapid() {
+  if (vapidPub) return vapidPub;
+  const read = async () => {
+    const { data } = await db.from("lq_secrets").select("key,value").in("key", ["vapid_public", "vapid_private"]);
+    const m = Object.fromEntries((data || []).map((r) => [r.key, r.value]));
+    return m.vapid_public && m.vapid_private ? { pub: m.vapid_public as string, priv: m.vapid_private as string } : null;
+  };
+  let k = await read();
+  if (!k) {
+    const kp = await crypto.subtle.generateKey({ name: "ECDSA", namedCurve: "P-256" }, true, ["sign", "verify"]);
+    const jwk = await crypto.subtle.exportKey("jwk", kp.privateKey);
+    const pub = b64url(new Uint8Array(await crypto.subtle.exportKey("raw", kp.publicKey)));
+    await db.from("lq_secrets").upsert([{ key: "vapid_public", value: pub }, { key: "vapid_private", value: jwk.d! }], { onConflict: "key", ignoreDuplicates: true });
+    k = await read();
+  }
+  webpush.setVapidDetails((Deno.env.get("LEARNIQ_APP_URL") || DEFAULT_APP).replace(/\/+$/, ""), k!.pub, k!.priv);
+  vapidPub = k!.pub;
+  return vapidPub;
+}
+type Push = { title: string; body: string; url?: string; tag?: string; important?: boolean };
+/** Upozornenie členom tímu: zápis do lq_notifications (číslo na ikone) + push na všetky ich zariadenia. */
+async function notify(userIds: string[], tenantId: string | null, msg: Push) {
+  const ids = [...new Set(userIds.filter(Boolean))];
+  if (!ids.length) return 0;
+  await db.from("lq_notifications").insert(ids.map((u) => ({ user_id: u, tenant_id: tenantId, title: msg.title, body: msg.body, url: msg.url || "/#/" })));
+  const { data: subs } = await db.from("lq_push_subs").select("id,user_id,endpoint,p256dh,auth").in("user_id", ids);
+  if (!subs?.length) return 0;
+  await vapid();
+  const counts = new Map<string, number>();
+  for (const u of new Set(subs.map((s) => s.user_id))) {
+    const { count } = await db.from("lq_notifications").select("id", { count: "exact", head: true }).eq("user_id", u).is("read_at", null);
+    counts.set(u, count || 1);
+  }
+  let ok = 0;
+  await Promise.all(subs.map(async (s) => {
+    try {
+      // urgency high = doručiť hneď aj pri zhasnutej obrazovke a v úspornom režime
+      await webpush.sendNotification({ endpoint: s.endpoint, keys: { p256dh: s.p256dh, auth: s.auth } },
+        JSON.stringify({ ...msg, url: msg.url || "/#/", badge: counts.get(s.user_id) }), { TTL: 86400, urgency: "high" });
+      ok++;
+    } catch (e) {
+      const code = (e as { statusCode?: number }).statusCode;
+      if (code === 404 || code === 410) await db.from("lq_push_subs").delete().eq("id", s.id); // zariadenie odber zrušilo
+      else console.error("push", code, (e as Error).message);
+    }
+  }));
+  return ok;
+}
+async function staffIds(tenantId: string, adminsOnly = false) {
+  let q = db.from("lq_staff").select("user_id").eq("tenant_id", tenantId);
+  if (adminsOnly) q = q.eq("role", "spravca");
+  const { data } = await q;
+  return (data || []).map((x) => x.user_id as string);
+}
 
 /* ---------------- spoločné načítanie ---------------- */
 const TENANT_COLS = "id,name,ico,dic,ic_dph,address,email,phone,web,nip_number,rep_name,rep_cert,color,study_time_limit,test_time_limit,test_minutes,require_confirm,pass_percent,otp_required,max_attempts,validity_months,notice_workdays,price_a,price_b,vat_payer,vat_rate,offer_valid_days,offer_note,active";
@@ -456,11 +517,17 @@ async function pSign(req: Request, body: any) {
 async function notifyStaff(t: Tenant & Record<string, any>, enrollmentId: string, a: any) {
   const [{ data: en }, { data: staff }] = await Promise.all([
     db.from("lq_enrollments").select("first_name,last_name,email,session_id").eq("id", enrollmentId).single(),
-    db.from("lq_staff").select("email").eq("tenant_id", t.id),
+    db.from("lq_staff").select("email,user_id").eq("tenant_id", t.id),
   ]);
   const to = [...new Set((staff || []).map((x) => x.email).filter(Boolean))] as string[];
-  if (!to.length || !en) return;
+  if (!en) return;
   const { data: s } = await db.from("lq_sessions").select("protocol_no").eq("id", en.session_id).single();
+  await notify((staff || []).map((x) => x.user_id), t.id, {
+    title: `Test čaká na potvrdenie – ${en.first_name} ${en.last_name}`,
+    body: `${a.correct} z ${a.total} (${Math.round(Number(a.percent))} %) – aplikácia: ${a.passed ? "vyhovel" : "nevyhovel"} · ${s?.protocol_no || ""}`,
+    url: `/#/skolenie/${en.session_id}`, tag: `test-${a.id}`, important: true,
+  }).catch((er) => console.error("push", er));
+  if (!to.length) return;
   const app = (Deno.env.get("LEARNIQ_APP_URL") || DEFAULT_APP).replace(/\/+$/, "");
   await sendMail(t, to, `Test čaká na potvrdenie – ${en.first_name} ${en.last_name} (${a.passed ? "vyhovel" : "nevyhovel"})`,
     `<p>${escHtml(`${en.first_name} ${en.last_name}`)} (${escHtml(en.email)}) odovzdal(a) záverečný test v školení ${escHtml(s?.protocol_no || "")}.</p>
@@ -526,6 +593,13 @@ async function confirmAttempt(attemptId: string, staff: { user_id: string; full_
   await db.from("lq_enrollments").update({ status: upd.passed ? "vyhovel" : "nevyhovel" }).eq("id", en!.id);
   await db.from("lq_audit").insert({ tenant_id: t.id, actor: staff?.user_id || null, action: "vysledok_potvrdeny", ref: upd.id, data: { passed: upd.passed, app_passed: appPassed, zmenene: passed !== appPassed, correct: upd.correct, meno: confirmed_name, poznamka: note || null } });
   const mail = await buildAndSendProtocol(en!.id, valid_until);
+  if (!staff) {
+    await notify(await staffIds(t.id), t.id, {
+      title: `${upd.passed ? "Vyhovel" : "Nevyhovel"} – ${en!.first_name} ${en!.last_name}`,
+      body: `${upd.correct} z ${upd.total} · ${s!.protocol_no} · protokol ${mail.emailed ? "odoslaný e-mailom" : "vytvorený (e-mail neodišiel)"}`,
+      url: `/#/skolenie/${s!.id}`, tag: `test-${upd.id}`,
+    }).catch((er) => console.error("push", er));
+  }
   return { passed: upd.passed, valid_until, ...mail };
 }
 
@@ -761,6 +835,10 @@ async function dailyOffers(onlyTenant?: string) {
       newOffers.push(o!.number); created++;
     }
     if (newOffers.length) {
+      await notify(await staffIds(t.id, true), t.id, {
+        title: `${newOffers.length === 1 ? "Nová cenová ponuka čaká" : `${newOffers.length} nové cenové ponuky čakajú`} na schválenie`,
+        body: `Blíži sa koniec platnosti oboznámenia BOZP · ${newOffers.join(", ")}`, url: "/#/ponuky", tag: "ponuky",
+      }).catch((er) => console.error("push", er));
       const { data: admins } = await db.from("lq_staff").select("email").eq("tenant_id", t.id).eq("role", "spravca");
       const to = (admins || []).map((x) => x.email).filter(Boolean) as string[];
       const app = (Deno.env.get("LEARNIQ_APP_URL") || DEFAULT_APP).replace(/\/+$/, "");
@@ -792,6 +870,8 @@ Deno.serve(async (req) => {
       case "p_submit": return json(await pSubmit(req, body));
       case "p_sign": return json(await pSign(req, body));
       case "a_signature": return json(await aSignature(req, body));
+      case "a_push_key": { await staffUser(req); return json({ publicKey: await vapid() }); }
+      case "a_push_test": { const u = await staffUser(req); return json({ sent: await notify([u.user.id], null, { title: "LearnIQ – skúšobné upozornenie", body: "Upozornenia na tomto zariadení fungujú.", url: "/#/profil", tag: "test" }) }); }
       case "a_status": { await staffUser(req); return json({ email_ready: emailReady() }); }
       case "a_invite_staff": return json(await aInviteStaff(req, body));
       case "a_create_tenant": return json(await aCreateTenant(req, body));

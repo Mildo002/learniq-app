@@ -5,7 +5,7 @@ import { esc, $, $$, toast, fmtDate, fmtDT, eur, today, daysBetween, plural, ico
 
 const sb = createClient(SUPABASE_URL, SUPABASE_KEY, { auth: { persistSession: true, detectSessionInUrl: false, storageKey: "learniq-auth" } });
 const app = $("#app"), dlg = $("#dlg");
-let me = null, staff = [], platform = false, T = null, role = null, badge = {};
+let me = null, staff = [], platform = false, T = null, role = null, badge = {}, pushOn = true;
 
 const KIND = { A: "A – vstupné (4 h)", B: "B – opakované (3 h)" };
 const STATUS = {
@@ -144,8 +144,11 @@ async function start() {
     return authPage(`<h2>Bez prístupu</h2><p class="mut">Účet ${esc(me.email)} nie je priradený k žiadnemu školiteľovi. Požiadajte správcu o pozvánku.</p><button class="btn big" id="out">Odhlásiť</button>`), $("#out").onclick = logout;
   }
   await pickTenant(store.get("lq_tenant"));
+  pushOn = (await pushState().catch(() => "off")) === "on";
   window.onhashchange = route;
   route();
+  markSeen();
+  syncPush();
 }
 async function pickTenant(id) {
   const row = staff.find((s) => s.tenant_id === id) || staff[0];
@@ -178,6 +181,7 @@ function shell(cur, inner) {
   app.innerHTML = `
     <header class="top"><a class="brand" href="#/"><img src="img/icon-192.png" alt=""><span>${esc(T?.name || "LearnIQ")}</span></a>
       <span class="sp"></span>${installBtn("sm")}${tenants}
+      <a class="btn sm ${pushOn ? "" : "warn"}" href="#/profil" id="bell" title="${pushOn ? "Upozornenia sú zapnuté" : "Zapnúť upozornenia"}">${icon("bell")}</a>
       <a class="btn sm" href="#/profil" title="Môj profil">${esc((staff.find((s) => s.tenant_id === T?.id)?.full_name || me.email).split(" ")[0])}</a>
       <button class="btn sm" id="out" title="Odhlásiť">${icon("out")}</button></header>
     <div class="layout"><nav class="nav">
@@ -196,7 +200,13 @@ async function route() {
   const v = views[path] || vHome;
   if (!T && v !== vPlatform && v !== vProfile) { location.hash = platform ? "#/platforma" : "#/profil"; return; }
   shell(path === "skolenie" ? "skolenia" : path === "zakaznik" ? "zakaznici" : path, `<div class="spin"></div>`);
-  try { await loadBadges(); shell(path === "skolenie" ? "skolenia" : path === "zakaznik" ? "zakaznici" : path, `<div class="spin"></div>`); await v(arg); }
+  try {
+    await loadBadges(); shell(path === "skolenie" ? "skolenia" : path === "zakaznik" ? "zakaznici" : path, `<div class="spin"></div>`); await v(arg);
+    if (path === "" && !pushOn && store.get("lq_push_hint") !== "0") {
+      $(".main").insertAdjacentHTML("afterbegin", `<div class="note warn" id="phint">${icon("bell")} <b>Zapnite si upozornenia</b> – dozviete sa hneď, keď test čaká na potvrdenie, aj pri zhasnutom displeji. <a href="#/profil">Zapnúť</a> · <a href="#" id="phx">Teraz nie</a></div>`);
+      $("#phx").onclick = (e) => { e.preventDefault(); store.set("lq_push_hint", "0"); $("#phint").remove(); };
+    }
+  }
   catch (e) { $(".main").innerHTML = `<div class="note bad">${esc(e.message)}</div>`; }
 }
 const main = (html) => { $(".main").innerHTML = html; };
@@ -714,6 +724,125 @@ function showInvite(r, email) {
     ${copyBox(r.link)}<div class="acts"><button class="btn pri" data-close>Hotovo</button></div>`);
 }
 
+/* ---------------- upozornenia (web push) ---------------- */
+const pushSupported = () => "serviceWorker" in navigator && "PushManager" in window && "Notification" in window;
+function b64ToU8(s) { const p = "=".repeat((4 - (s.length % 4)) % 4); const b = atob((s + p).replace(/-/g, "+").replace(/_/g, "/")); return Uint8Array.from(b, (c) => c.charCodeAt(0)); }
+const b64urlOf = (u8) => btoa(String.fromCharCode(...u8)).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+function deviceName() {
+  const u = navigator.userAgent;
+  const os = /android/i.test(u) ? "Android" : isIOS ? "iPhone/iPad" : /windows/i.test(u) ? "Windows" : /mac/i.test(u) ? "Mac" : "zariadenie";
+  const br = /edg\//i.test(u) ? "Edge" : /firefox/i.test(u) ? "Firefox" : /chrome/i.test(u) ? "Chrome" : /safari/i.test(u) ? "Safari" : "prehliadač";
+  return `${br} · ${os}`;
+}
+async function pushKey() {
+  const k = store.get("lq_vapid") || (await fn("a_push_key")).publicKey;
+  if (k) store.set("lq_vapid", k);
+  return k;
+}
+async function pushState() {
+  if (!pushSupported()) return "unsupported";
+  if (Notification.permission === "denied") return "denied";
+  const sub = await (await navigator.serviceWorker.getRegistration())?.pushManager.getSubscription();
+  return sub && Notification.permission === "granted" ? "on" : "off";
+}
+/** Zapíše odber zariadenia na server; ak patrí inému účtu na tom istom zariadení, vytvorí nový. */
+async function saveSub(reg, key, sub) {
+  const put = async (x) => { const j = x.toJSON(); return (await sb.from("lq_push_subs").upsert({ endpoint: j.endpoint, p256dh: j.keys.p256dh, auth: j.keys.auth, device: deviceName() }, { onConflict: "endpoint" })).error; };
+  if (!(await put(sub))) return;
+  await sub.unsubscribe().catch(() => {});
+  const err = await put(await reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: b64ToU8(key) }));
+  if (err) throw new Error(dbErr(err));
+}
+async function enablePush() {
+  const perm = await Notification.requestPermission();
+  if (perm !== "granted") throw new Error("Upozornenia ste v prehliadači nepovolili.");
+  const reg = await navigator.serviceWorker.register("sw.js");
+  await navigator.serviceWorker.ready;
+  const key = await pushKey();
+  if (!key) throw new Error("Server upozornení neodpovedá. Skúste to neskôr.");
+  let sub = await reg.pushManager.getSubscription();
+  const cur = sub?.options?.applicationServerKey;
+  if (sub && cur && b64urlOf(new Uint8Array(cur)) !== key) { await sub.unsubscribe(); sub = null; }
+  sub ||= await reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: b64ToU8(key) });
+  await saveSub(reg, key, sub);
+  store.set("lq_push_off", "0");
+}
+async function disablePush() {
+  const sub = await (await navigator.serviceWorker.getRegistration())?.pushManager.getSubscription();
+  if (sub) { await sb.from("lq_push_subs").delete().eq("endpoint", sub.endpoint); await sub.unsubscribe(); }
+  store.set("lq_push_off", "1");
+}
+/* Pri každom otvorení: odber, ktorý server nepozná (odhlásenie, iný účet, obnovený odber), sa potichu zapíše znova. */
+let pushSynced = false;
+async function syncPush() {
+  if (pushSynced || !me || !pushSupported() || Notification.permission !== "granted" || store.get("lq_push_off") === "1") return;
+  pushSynced = true;
+  try {
+    const reg = await navigator.serviceWorker.register("sw.js");
+    await navigator.serviceWorker.ready;
+    const key = await pushKey();
+    let sub = await reg.pushManager.getSubscription();
+    const cur = sub?.options?.applicationServerKey;
+    if (sub && cur && b64urlOf(new Uint8Array(cur)) !== key) { await sub.unsubscribe(); sub = null; }
+    sub ||= await reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: b64ToU8(key) });
+    await saveSub(reg, key, sub);
+  } catch (e) { pushSynced = false; console.warn("push sync", e); }
+}
+/* Otvorenie aplikácie = upozornenia prečítané → číslo na ikone zmizne */
+async function markSeen() {
+  if (!me) return;
+  await sb.rpc("lq_mark_seen").then(() => {}, () => {});
+  navigator.clearAppBadge?.().catch(() => {});
+  (await navigator.serviceWorker?.getRegistration())?.getNotifications?.().then((l) => l.forEach((n) => n.close())).catch(() => {});
+}
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") markSeen(); });
+
+const PUSH_INFO = `<ul class="small" style="margin:8px 0;padding-left:18px;line-height:1.7">
+  <li><b>Test čaká na potvrdenie</b> – hneď, keď zamestnanec odovzdá test (ostane na obrazovke, kým ho neotvoríte)</li>
+  <li><b>Výsledok bez potvrdzovania</b> – vyhovel / nevyhovel a odoslanie protokolu</li>
+  <li><b>Nové cenové ponuky</b> na schválenie pred koncom platnosti (správcom)</li></ul>
+  <p class="small mut">Upozornenia sa zobrazia aj na zamknutej obrazovke pri zhasnutom displeji a na ikone aplikácie uvidíte počet nových.${isIOS ? " Na iPhone ešte skontrolujte Nastavenia → Upozornenia → LearnIQ: Povoliť upozornenia, Zamknutá obrazovka, Bannery a Odznaky." : " V Androide nechajte pre LearnIQ zapnuté upozornenia na zamknutej obrazovke a bodku / číslo na ikone."}</p>`;
+async function renderPushCard(box) {
+  if (!box) return;
+  const st = await pushState();
+  pushOn = st === "on";
+  $("#bell")?.classList.toggle("warn", !pushOn);
+  const set = (h) => { box.innerHTML = `<h2>${icon("bell")} Upozornenia</h2>${h}`; };
+  if (st === "unsupported") {
+    return set(isIOS && !standalone()
+      ? `<p><b>Na iPhone najprv pridajte aplikáciu na plochu.</b></p><p class="small mut">V Safari ťuknite na <b>Zdieľať</b> → <b>Pridať na plochu</b>, otvorte LearnIQ z plochy a tu zapnite upozornenia (v Safari ich Apple nepovoľuje).</p>${installBtn()}`
+      : `<p class="small mut">Tento prehliadač upozornenia nepodporuje. Použite Chrome, Edge, Firefox alebo nainštalovanú aplikáciu.</p>`);
+  }
+  if (st === "denied") return set(`<p><b>Upozornenia sú pre LearnIQ zablokované.</b></p><p class="small mut">${isIOS ? "Nastavenia → Upozornenia → LearnIQ → Povoliť upozornenia." : "Ťuknite na ikonu zámku vedľa adresy (alebo v nastaveniach aplikácie) → Upozornenia → Povoliť. Potom stránku obnovte."}</p>`);
+  if (st === "off") {
+    set(`<p><b>Na tomto zariadení sú vypnuté.</b></p>${PUSH_INFO}<button class="btn pri" id="pOn" type="button">Zapnúť upozornenia</button>`);
+    box.querySelector("#pOn").onclick = async (e) => {
+      e.target.disabled = true; e.target.textContent = "Zapínam…";
+      try { await enablePush(); toast("Upozornenia sú zapnuté."); } catch (er) { toast(er.message, true); }
+      renderPushCard(box);
+    };
+    return;
+  }
+  try { // zariadenie má odber – overiť, že ho pozná aj server
+    const sub = await (await navigator.serviceWorker.getRegistration())?.pushManager.getSubscription();
+    const { data: known } = await sb.from("lq_push_subs").select("id").eq("endpoint", sub?.endpoint || "").maybeSingle();
+    if (!known) await enablePush();
+  } catch (er) {
+    set(`<p class="note bad">Upozornenia sa nepodarilo zapísať na server: ${esc(er.message)}</p><button class="btn" id="pRetry" type="button">Skúsiť znova</button>`);
+    box.querySelector("#pRetry").onclick = () => renderPushCard(box);
+    return;
+  }
+  set(`<p><span class="pill ok">zapnuté</span> na tomto zariadení</p>${PUSH_INFO}
+    <div class="row" style="gap:8px;flex-wrap:wrap"><button class="btn" id="pTest" type="button">Poslať skúšobné upozornenie</button><button class="btn bad" id="pOff" type="button">Vypnúť</button></div>`);
+  box.querySelector("#pTest").onclick = async (e) => {
+    e.target.disabled = true;
+    try { const r = await fn("a_push_test"); toast(r.sent ? "Odoslané – o chvíľu príde (skúste aj zhasnúť displej)." : "Nepodarilo sa doručiť – vypnite a znova zapnite upozornenia.", !r.sent); }
+    catch (er) { toast(er.message, true); }
+    e.target.disabled = false;
+  };
+  box.querySelector("#pOff").onclick = async () => { await disablePush().catch(() => {}); toast("Upozornenia sú na tomto zariadení vypnuté."); renderPushCard(box); };
+}
+
 /* ---------------- môj profil ---------------- */
 async function vProfile() {
   const mine = staff.find((s) => s.tenant_id === T?.id);
@@ -723,12 +852,14 @@ async function vProfile() {
       <label class="f"><span>Číslo osvedčenia (bezpečnostný technik / autorizovaný BT)</span><input name="cert_no" value="${esc(mine.cert_no || "")}"></label>
       <button class="btn pri">Uložiť</button></form>` : ""}
     <p style="margin-top:16px"><a class="btn" href="#/heslo">Zmeniť heslo</a></p></div>
+    <div class="card" id="pushbox"><h2>${icon("bell")} Upozornenia</h2><div class="spin"></div></div>
     ${mine ? `<div class="card"><h2>Môj podpis</h2>
       <p class="small mut">Váš podpis sa vloží do protokolu pri každom potvrdení výsledku testu („Test vyhodnotil a výsledok potvrdil“).</p>
       <div id="cur" class="small mut" style="margin-bottom:10px">${mine.signature_path ? "Načítavam…" : "Zatiaľ nemáte uložený podpis."}</div>
       <canvas class="sig" id="sig"></canvas>
       <div class="row" style="margin-top:10px"><button class="btn" id="clr" type="button">Vymazať pole</button>${mine.signature_path ? `<button class="btn bad" id="rm" type="button">Odstrániť podpis</button>` : ""}<span style="flex:1"></span><button class="btn pri" id="save" type="button">Uložiť podpis</button></div>
     </div>` : ""}`);
+  renderPushCard($("#pushbox"));
   if (mine) {
     const pad = sigPad($("#sig"));
     $("#clr").onclick = () => pad.clear();

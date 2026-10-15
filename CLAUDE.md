@@ -32,6 +32,12 @@
 - Tajomstvá (Supabase → Edge Functions → Secrets, zadáva majiteľ): `RESEND_API_KEY`, `LEARNIQ_FROM_ADDRESS`, `LEARNIQ_APP_URL`.
 - Test z databázy: `net.http_post` na `/functions/v1/learniq`, odpoveď v `net._http_response` (čítať v ďalšom dotaze).
 
+## Upozornenia (web push, migrácia 0006)
+- `lq_push_subs` (zariadenia, RLS iba vlastné), `lq_notifications` (zapisuje server; neprečítané = číslo na ikone), `lq_mark_seen()` pri otvorení.
+- VAPID kľúče v `lq_secrets` (vytvorí funkcia pri prvom použití), verejný cez `a_push_key`; `a_push_test` = skúšobné.
+- Udalosti: test čaká na potvrdenie (celý tím, `important`), automatické vyhodnotenie (tím), nové CP (správcovia).
+- `urgency: high`, TTL 1 deň → doručenie aj pri zhasnutom displeji. iPhone iba z ikony na ploche.
+
 ## Pracovný postup
 1. Zadanie zopakuj vlastnými slovami; ak je nejasné, jedna otázka.
 2. Commity po slovensky. Na konci: čo pribudlo, ako to vyskúšať, čo musí urobiť majiteľ.
